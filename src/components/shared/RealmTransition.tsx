@@ -1,34 +1,34 @@
-"use client"
+'use client';
 
-import { useState } from "react"
-import { useRouter } from "next/navigation"
-import { motion, AnimatePresence } from "framer-motion"
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export function RealmTransitionButton({
   to,
   label,
-  align = "right",
+  align = 'right',
 }: {
-  to: string
-  label: string
-  align?: "left" | "right"
+  to: string;
+  label: string;
+  align?: 'left' | 'right';
 }) {
-  const [isAnimating, setIsAnimating] = useState(false)
-  const router = useRouter()
+  const [isAnimating, setIsAnimating] = useState(false);
+  const router = useRouter();
 
   const handleClick = () => {
-    setIsAnimating(true)
+    setIsAnimating(true);
     setTimeout(() => {
-      router.push(to)
-    }, 600)
-  }
+      router.push(to);
+    }, 600);
+  };
 
   return (
     <>
       <button
         onClick={handleClick}
         className={`text-sm px-3 py-1 rounded-md border ${
-          align === "left" ? "ml-4" : "mr-4"
+          align === 'left' ? 'ml-4' : 'mr-4'
         }`}
       >
         {label}
@@ -46,5 +46,5 @@ export function RealmTransitionButton({
         )}
       </AnimatePresence>
     </>
-  )
+  );
 }

@@ -1,6 +1,10 @@
-import { RealmTransitionButton } from "@/components/shared";
+import { RealmTransitionButton } from '@/components/shared';
 
-export default function ForgeLayout({ children }: { children: React.ReactNode }) {
+export default function ForgeLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <div className="min-h-screen bg-[#0f0f0f] text-white font-mono relative">
       <nav className="px-6 py-4 border-b border-gray-700 flex justify-between">
