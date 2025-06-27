@@ -1,4 +1,3 @@
-import RealmSliderTransition from '@/components/shared/RealmSliderTransition';
 import { RealmSwitcherButton } from '@/components/shared/RealmSwitcherButton';
 
 export default function ForgeLayout({
@@ -7,11 +6,11 @@ export default function ForgeLayout({
   children: React.ReactNode;
 }) {
   return (
-    <RealmSliderTransition>
-      <RealmSwitcherButton />
+    <>
+      <RealmSwitcherButton from="forge" to="verse" />
       <main className="min-h-screen flex items-center justify-center mx-auto px-4">
         {children}
       </main>
-    </RealmSliderTransition>
+    </>
   );
 }

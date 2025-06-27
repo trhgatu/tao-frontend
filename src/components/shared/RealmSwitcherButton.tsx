@@ -1,24 +1,51 @@
 'use client';
 
-import { usePathname, useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+import { AnimatePresence } from 'framer-motion';
+import { RealmTransitionLayer } from './RealmTransitionLayer';
 
-export function RealmSwitcherButton() {
+export function RealmSwitcherButton({
+  to,
+  from,
+  align = 'right',
+}: {
+  to: string;
+  from: 'verse' | 'forge';
+  align?: 'left' | 'right';
+}) {
   const router = useRouter();
-  const pathname = usePathname();
+  const [showTransition, setShowTransition] = useState(false);
 
-  const isVerse = pathname.startsWith('/verse');
-  const targetPath = isVerse ? '/forge' : '/verse';
+  const handleClick = () => {
+    setShowTransition(true);
+  };
 
-  const handleSwitch = () => {
-    router.push(targetPath);
+  const getMessage = () => {
+    return from === 'verse'
+      ? 'System is initialize...'
+      : 'Jumping into my verse...';
   };
 
   return (
-    <button
-      onClick={handleSwitch}
-      className={`fixed top-4 ${isVerse ? 'right-4' : 'left-4'} z-[10000] px-4 py-2 text-sm rounded-md border`}
-    >
-      {isVerse ? 'Enter Forge' : 'Return to Verse'}
-    </button>
+    <>
+      <button
+        onClick={handleClick}
+        className={`text-sm px-3 py-1 rounded-md border ${
+          align === 'left' ? 'ml-4' : 'mr-4'
+        }`}
+      >
+        {from === 'verse' ? 'Enter Forge' : 'Back to Verse'}
+      </button>
+
+      <AnimatePresence>
+        {showTransition && (
+          <RealmTransitionLayer
+            message={getMessage()}
+            onComplete={() => router.push(to)}
+          />
+        )}
+      </AnimatePresence>
+    </>
   );
 }
