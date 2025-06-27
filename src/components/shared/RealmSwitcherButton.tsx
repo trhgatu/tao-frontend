@@ -31,9 +31,10 @@ export function RealmSwitcherButton({
     <>
       <button
         onClick={handleClick}
-        className={`text-sm px-3 py-1 rounded-md border ${
-          align === 'left' ? 'ml-4' : 'mr-4'
-        }`}
+        className={`fixed top-1/2 transform -translate-y-1/2 z-30 px-4 py-2 rounded-md
+         border  transition-all duration-300
+        ${align === 'left' ? 'left-6' : 'right-6'}
+        hover:scale-105`}
       >
         {from === 'verse' ? 'Enter Forge' : 'Back to Verse'}
       </button>

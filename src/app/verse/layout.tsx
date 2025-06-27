@@ -7,7 +7,7 @@ export default function VerseLayout({
 }) {
   return (
     <>
-      <RealmSwitcherButton from="verse" to="forge" />
+      <RealmSwitcherButton from="verse" to="/forge" align="right" />
       <main className="min-h-screen flex items-center justify-center mx-auto px-4">
         {children}
       </main>

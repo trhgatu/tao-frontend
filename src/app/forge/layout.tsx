@@ -7,7 +7,7 @@ export default function ForgeLayout({
 }) {
   return (
     <>
-      <RealmSwitcherButton from="forge" to="verse" />
+      <RealmSwitcherButton from="forge" to="/verse" align="left" />
       <main className="min-h-screen flex items-center justify-center mx-auto px-4">
         {children}
       </main>

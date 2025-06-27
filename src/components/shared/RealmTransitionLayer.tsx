@@ -13,7 +13,7 @@ export function RealmTransitionLayer({
   useEffect(() => {
     const timer = setTimeout(() => {
       onComplete();
-    }, 1800); // thời gian chờ rồi chuyển scene
+    }, 1800);
 
     return () => clearTimeout(timer);
   }, [onComplete]);
