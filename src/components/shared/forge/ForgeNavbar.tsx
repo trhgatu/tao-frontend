@@ -1,4 +1,5 @@
 'use client';
+import { ModeToggle } from '@/components/shared/ModeToggle';
 import {
   Navbar,
   NavBody,
@@ -19,8 +20,16 @@ export function NavbarForge() {
       link: '#features',
     },
     {
-      name: 'Pricing',
+      name: 'Projects',
       link: '#pricing',
+    },
+    {
+      name: 'About me',
+      link: '#contact',
+    },
+    {
+      name: 'Contact',
+      link: '#contact',
     },
     {
       name: 'Contact',
@@ -36,7 +45,9 @@ export function NavbarForge() {
         <NavbarLogo />
         <NavItems items={navItems} />
         <div className="flex items-center gap-4">
-          <NavbarButton variant="secondary">Login</NavbarButton>
+          <NavbarButton variant="secondary">
+            <ModeToggle />
+          </NavbarButton>
           <NavbarButton variant="primary">Book a call</NavbarButton>
         </div>
       </NavBody>
@@ -80,6 +91,7 @@ export function NavbarForge() {
             >
               Book a call
             </NavbarButton>
+            <ModeToggle />
           </div>
         </MobileNavMenu>
       </MobileNav>
