@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google';
 import { Metadata } from 'next';
 import { siteConfig } from '@/config/site';
 /* import { ReduxProvider } from '@/store/provider'; */
+import { ThemeProvider } from '@/components/shared/ThemeProvider';
 
 const inter = Inter({ subsets: ['vietnamese'], variable: '--font-sans' });
 
@@ -23,11 +24,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="vi" suppressHydrationWarning>
-      <body
-        className={`min-h-screen font-sans ${inter.variable} bg-white text-gray-900`}
-      >
+      <body className={`min-h-screen font-sans ${inter.variable}`}>
         {/* <ReduxProvider> */}
-        <main className="px-4 md:px-8 py-6">{children}</main>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <main>{children}</main>
+        </ThemeProvider>
         {/* </ReduxProvider> */}
       </body>
     </html>

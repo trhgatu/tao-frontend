@@ -1,1 +1,1 @@
-export * from './NavbarForge';
+export * from './ForgeNavbar';
