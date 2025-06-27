@@ -1,4 +1,5 @@
-import { RealmTransitionButton } from '@/components/shared';
+import RealmSliderTransition from '@/components/shared/RealmSliderTransition';
+import { RealmSwitcherButton } from '@/components/shared/RealmSwitcherButton';
 
 export default function ForgeLayout({
   children,
@@ -6,12 +7,11 @@ export default function ForgeLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="min-h-screen bg-[#0f0f0f] text-white font-mono relative">
-      <nav className="px-6 py-4 border-b border-gray-700 flex justify-between">
-        <RealmTransitionButton to="/" label="Back to Verse" align="left" />
-        <h1 className="text-xl font-bold text-red-500">Forge Realm</h1>
-      </nav>
-      <main className="px-6 py-8">{children}</main>
-    </div>
+    <RealmSliderTransition>
+      <RealmSwitcherButton />
+      <main className="min-h-screen flex items-center justify-center mx-auto px-4">
+        {children}
+      </main>
+    </RealmSliderTransition>
   );
 }

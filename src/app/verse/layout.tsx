@@ -1,4 +1,5 @@
-import { RealmTransitionButton } from '@/components/shared';
+import RealmSliderTransition from '@/components/shared/RealmSliderTransition';
+import { RealmSwitcherButton } from '@/components/shared/RealmSwitcherButton';
 
 export default function VerseLayout({
   children,
@@ -6,12 +7,11 @@ export default function VerseLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="min-h-screen bg-[#fdf9f5] text-[#2b2b2b] font-serif relative">
-      <nav className="px-6 py-4 border-b border-gray-300 flex justify-between">
-        <h1 className="text-xl font-bold">Verse Realm</h1>
-        <RealmTransitionButton to="/forge" label="Switch to Forge" />
-      </nav>
-      <main className="px-6 py-8">{children}</main>
-    </div>
+    <RealmSliderTransition>
+      <RealmSwitcherButton />
+      <main className="min-h-screen flex items-center justify-center mx-auto px-4">
+        {children}
+      </main>
+    </RealmSliderTransition>
   );
 }
