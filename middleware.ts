@@ -1,19 +1,19 @@
-// middleware.ts
-import { NextResponse } from 'next/server';
+/* import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
-  const refreshToken = request.cookies.get('refreshToken')?.value;
 
-  if (pathname === '/login' && refreshToken) {
-    const homeUrl = new URL('/', request.url);
-    return NextResponse.redirect(homeUrl);
+  if (pathname === '/') {
+    const url = request.nextUrl.clone();
+    url.pathname = '/verse';
+    return NextResponse.redirect(url);
   }
 
   return NextResponse.next();
 }
 
 export const config = {
-  matcher: ['/login'],
+  matcher: ['/'],
 };
+ */
