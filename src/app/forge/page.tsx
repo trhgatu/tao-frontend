@@ -1,10 +1,6 @@
-// src/app/forge/page.tsx
-import { HeroForgeEntry } from '@/components/shared/forge/HeroForgeEntry';
+// app/forge/page.tsx
+import ForgeHome from '@/features/forge/home/pages/page';
 
-export default function ForgeHome() {
-  return (
-    <section>
-      <HeroForgeEntry />
-    </section>
-  );
+export default function Page() {
+  return <ForgeHome />;
 }

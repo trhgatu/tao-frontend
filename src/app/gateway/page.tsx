@@ -1,10 +1,6 @@
-import { HeroVerseEntry } from '@/components/shared/verse';
+// app/forge/page.tsx
+import GatewayHome from '@/features/gateway/home/pages/page';
 
-// src/app/verse/page.tsx
-export default function GatewayHome() {
-  return (
-    <section>
-      <HeroVerseEntry />
-    </section>
-  );
+export default function Page() {
+  return <GatewayHome />;
 }

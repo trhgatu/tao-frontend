@@ -1,10 +1,6 @@
-import { HeroVerseEntry } from '@/components/shared/verse';
+// app/forge/page.tsx
+import VerseHome from '@/features/verse/home/pages/page';
 
-// src/app/verse/page.tsx
-export default function VerseHome() {
-  return (
-    <section>
-      <HeroVerseEntry />
-    </section>
-  );
+export default function Page() {
+  return <VerseHome />;
 }

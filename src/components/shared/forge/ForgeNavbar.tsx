@@ -44,12 +44,9 @@ export function NavbarForge() {
       <NavBody>
         <NavbarLogo />
         <NavItems items={navItems} />
-        <div className="flex items-center gap-4">
-          <NavbarButton variant="secondary">
-            <ModeToggle />
-          </NavbarButton>
+        {/* <div className="flex items-center gap-4">
           <NavbarButton variant="primary">Book a call</NavbarButton>
-        </div>
+        </div> */}
       </NavBody>
 
       {/* Mobile Navigation */}
@@ -83,13 +80,6 @@ export function NavbarForge() {
               className="w-full"
             >
               Login
-            </NavbarButton>
-            <NavbarButton
-              onClick={() => setIsMobileMenuOpen(false)}
-              variant="primary"
-              className="w-full"
-            >
-              Book a call
             </NavbarButton>
             <ModeToggle />
           </div>

@@ -7,12 +7,10 @@ export default function ForgeLayout({
 }) {
   return (
     <div className="relative w-full bg-background overflow-hidden">
-      <div className="relative z-10">
-        <NavbarForge />
-        <main className="min-h-screen flex items-center justify-center mx-auto px-4">
-          {children}
-        </main>
-      </div>
+      <NavbarForge />
+      <main className="min-h-screen flex items-center justify-center mx-auto px-4">
+        {children}
+      </main>
     </div>
   );
 }

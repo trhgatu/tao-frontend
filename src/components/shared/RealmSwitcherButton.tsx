@@ -10,6 +10,7 @@ type Props = {
   label: string;
   message: string;
   align?: 'left' | 'right' | 'center';
+  theme?: 'forge' | 'verse';
 };
 
 export function RealmGateButton({
@@ -17,6 +18,7 @@ export function RealmGateButton({
   label,
   message,
   align = 'right',
+  theme = 'forge',
 }: Props) {
   const router = useRouter();
   const [showTransition, setShowTransition] = useState(false);
@@ -44,6 +46,7 @@ export function RealmGateButton({
           <RealmTransitionLayer
             message={message}
             onComplete={() => router.push(to)}
+            theme={theme}
           />
         )}
       </AnimatePresence>
