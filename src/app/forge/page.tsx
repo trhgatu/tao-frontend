@@ -5,6 +5,7 @@ import { HeroForgeEntry } from '@/components/shared/forge/HeroForgeEntry';
 export default function ForgeHome() {
   return (
     <section>
+      <HeroForgeEntry />
       <AnimatedGridPattern
         maxOpacity={0.1}
         strokeDasharray={4}
@@ -12,7 +13,6 @@ export default function ForgeHome() {
         duration={2}
         repeatDelay={0.7}
       />
-      <HeroForgeEntry />
     </section>
   );
 }

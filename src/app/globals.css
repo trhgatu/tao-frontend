@@ -116,6 +116,7 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
@@ -130,8 +131,24 @@
     opacity: 0;
     transform: translate(-72%, -62%) scale(0.5);
   }
+
   100% {
     opacity: 1;
     transform: translate(-50%, -40%) scale(1);
   }
+}
+
+@keyframes forge-glow {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 6px #ff5a1f);
+  }
+
+  50% {
+    filter: drop-shadow(0 0 18px #ff5a1f);
+  }
+}
+
+.animate-forge-glow {
+  animation: forge-glow 2s infinite alternate;
 }
