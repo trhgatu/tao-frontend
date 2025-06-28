@@ -5,15 +5,19 @@ import { useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { RealmTransitionLayer } from './RealmTransitionLayer';
 
-export function RealmSwitcherButton({
-  to,
-  from,
-  align = 'right',
-}: {
+type Props = {
   to: string;
-  from: 'verse' | 'forge';
-  align?: 'left' | 'right';
-}) {
+  label: string;
+  message: string;
+  align?: 'left' | 'right' | 'center';
+};
+
+export function RealmGateButton({
+  to,
+  label,
+  message,
+  align = 'right',
+}: Props) {
   const router = useRouter();
   const [showTransition, setShowTransition] = useState(false);
 
@@ -21,28 +25,24 @@ export function RealmSwitcherButton({
     setShowTransition(true);
   };
 
-  const getMessage = () => {
-    return from === 'verse'
-      ? 'System is initialize...'
-      : 'Jumping into my verse...';
-  };
-
   return (
     <>
       <button
         onClick={handleClick}
-        className={`fixed top-1/2 transform -translate-y-1/2 z-30 px-4 py-2 rounded-md
-         border  transition-all duration-300
-        ${align === 'left' ? 'left-6' : 'right-6'}
-        hover:scale-105`}
+        className={`fixed z-30 px-5 py-3 rounded-md border border-white text-white font-semibold
+          transition-all duration-300 hover:scale-105
+          ${align === 'left' && 'left-6 top-1/2 -translate-y-1/2'}
+          ${align === 'right' && 'right-6 top-1/2 -translate-y-1/2'}
+          ${align === 'center' && 'left-1/2 top-2/3 -translate-x-1/2'}
+        `}
       >
-        {from === 'verse' ? 'Enter Forge' : 'Back to Verse'}
+        {label}
       </button>
 
       <AnimatePresence>
         {showTransition && (
           <RealmTransitionLayer
-            message={getMessage()}
+            message={message}
             onComplete={() => router.push(to)}
           />
         )}
