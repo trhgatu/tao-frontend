@@ -6,7 +6,7 @@ export default function ForgeLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="relative w-full bg-background overflow-hidden">
+    <div className="relative w-full bg-background">
       <NavbarForge />
       <main className="min-h-screen flex items-center justify-center mx-auto px-4">
         {children}
