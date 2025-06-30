@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { Spotlight } from '@/components/ui/spotlight-new';
 import { BackgroundGradient } from '@/components/ui/background-gradient';
 import { IconFlame } from '@tabler/icons-react';
 import { ForgeHeroWrapper } from '@/components/shared/forge/components/layout/ForgeHeroWrapper';
@@ -30,7 +29,6 @@ export const HeroForgeEntry = () => {
               />
             </BackgroundGradient>
           </motion.div>
-          <Spotlight />
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -85,11 +83,6 @@ export const HeroForgeEntry = () => {
               Explore
             </Button>
           </motion.div>
-
-          <div
-            className="hidden md:inline absolute inset-0 rounded-full border-2 border-red-600/30 animate-pulse pointer-events-none"
-            style={{ animationDelay: '5s' }}
-          ></div>
         </div>
       </section>
     </ForgeHeroWrapper>

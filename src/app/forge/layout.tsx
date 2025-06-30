@@ -1,4 +1,5 @@
 import { NavbarForge } from '@/components/shared/forge';
+import { Spotlight } from '@/components/ui/spotlight-new';
 
 export default function ForgeLayout({
   children,
@@ -6,11 +7,12 @@ export default function ForgeLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="relative w-full bg-background">
+    <div className=" w-full bg-background">
       <NavbarForge />
-      <main className="min-h-screen flex items-center justify-center mx-auto px-4">
-        {children}
-      </main>
+      <div className="fixed inset-0 w-screen h-screen pointer-events-none">
+        <Spotlight />
+      </div>
+      <main className="flex items-center justify-center px-4">{children}</main>
     </div>
   );
 }

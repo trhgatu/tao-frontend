@@ -78,6 +78,32 @@ const ForgeTransition = ({ message }: { message: string }) => (
     <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-stone-900" />
     <ForgeSquareLights />
 
+    {/* Fantasy rune/tech border */}
+    <div className="absolute inset-4 border-4 border-orange-400/60 rounded-xl shadow-[0_0_40px_10px_rgba(255,152,0,0.15)] animate-glow" />
+
+    {/* Particle sparkles */}
+    {[...Array(20)].map((_, i) => (
+      <motion.div
+        key={i}
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: [0, 1, 0], scale: [0.5, 1.2, 0.5] }}
+        transition={{
+          duration: 1.5 + Math.random(),
+          delay: Math.random(),
+          repeat: Infinity,
+        }}
+        className="absolute bg-orange-200 rounded-full pointer-events-none"
+        style={{
+          top: `${Math.random() * 100}%`,
+          left: `${Math.random() * 100}%`,
+          width: `${Math.random() * 6 + 3}px`,
+          height: `${Math.random() * 6 + 3}px`,
+          filter: 'blur(0.5px)',
+        }}
+      />
+    ))}
+
+    {/* Metal grid overlay */}
     <div className="absolute inset-0 opacity-30 mix-blend-overlay">
       <div className="w-full h-full bg-[url('/textures/metal-grid.png')] bg-[length:200px] animate-pulse-slow" />
     </div>
