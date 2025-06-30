@@ -6,7 +6,6 @@ import { Button } from '@/components/ui/button';
 import { BackgroundGradient } from '@/components/ui/background-gradient';
 import { IconFlame } from '@tabler/icons-react';
 import { ForgeHeroWrapper } from '@/components/shared/forge/components/layout/ForgeHeroWrapper';
-
 export const HeroForgeEntry = () => {
   return (
     <ForgeHeroWrapper showGrid>
@@ -29,6 +28,7 @@ export const HeroForgeEntry = () => {
               />
             </BackgroundGradient>
           </motion.div>
+
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
