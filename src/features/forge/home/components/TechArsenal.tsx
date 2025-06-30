@@ -1,3 +1,5 @@
+'use client';
+
 import {
   Tooltip,
   TooltipContent,
@@ -5,6 +7,29 @@ import {
   TooltipProvider,
 } from '@/components/ui/tooltip';
 import StackIcon from 'tech-stack-icons';
+import { motion, cubicBezier } from 'framer-motion';
+
+const containerVariants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 10 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.4,
+      ease: cubicBezier(0.25, 0.1, 0.25, 1),
+    },
+  },
+};
 
 type Skill = {
   name: string;
@@ -52,30 +77,35 @@ export const TechArsenal = () => {
 
       <TooltipProvider delayDuration={100}>
         <div className="max-w-4xl mx-auto">
-          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4 md:gap-6">
-            {skills.map((skill, index) => (
+          <motion.div
+            className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4 md:gap-6"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+          >
+            {skills.map((skill) => (
               <Tooltip key={skill.name}>
-                <div
-                  className="flex flex-col items-center justify-center cursor-pointer group animate-fade-in-up"
-                  style={{ animationDelay: `${index * 0.05}s` }}
-                >
-                  <div className="w-12 h-12 flex items-center justify-center transition-transform duration-300 group-hover:scale-125 group-hover:rotate-6">
-                    <TooltipTrigger asChild>
+                <TooltipTrigger asChild>
+                  <motion.div
+                    variants={itemVariants}
+                    className="flex flex-col items-center justify-center cursor-pointer group"
+                  >
+                    <div className="w-12 h-12 flex items-center justify-center transition-transform duration-300 group-hover:scale-125 group-hover:rotate-6">
                       <StackIcon
                         name={skill.icon}
                         className="text-orange-200 group-hover:text-white transition-colors duration-300"
                         style={{ fontSize: 40 }}
                       />
-                    </TooltipTrigger>
-                  </div>
-                  <p className="text-xs font-medium text-center text-orange-200 group-hover:text-white transition-colors duration-300 mt-2">
-                    {skill.name}
-                  </p>
-                </div>
-
+                    </div>
+                    <p className="text-xs font-medium text-center text-orange-200 group-hover:text-white transition-colors duration-300 mt-2">
+                      {skill.name}
+                    </p>
+                  </motion.div>
+                </TooltipTrigger>
                 <TooltipContent
                   side="top"
-                  className={`bg-background text-white border border-orange-600 shadow-lg`}
+                  className="bg-background text-white border border-orange-600 shadow-lg z-50"
                 >
                   <div className="px-3 py-2 text-center">
                     <p className="font-bold">{skill.name}</p>
@@ -84,7 +114,7 @@ export const TechArsenal = () => {
                 </TooltipContent>
               </Tooltip>
             ))}
-          </div>
+          </motion.div>
         </div>
       </TooltipProvider>
     </div>
