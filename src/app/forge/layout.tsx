@@ -1,4 +1,5 @@
-import { NavbarForge } from '@/components/shared/forge';
+import { Dock } from '@/components/shared/Dock';
+import { ForgeFooter, NavbarForge } from '@/components/shared/forge';
 import { Spotlight } from '@/components/ui/spotlight-new';
 
 export default function ForgeLayout({
@@ -7,12 +8,16 @@ export default function ForgeLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className=" w-full bg-background">
+    <div className="w-full bg-background">
       <NavbarForge />
-      <div className="fixed inset-0 w-screen h-screen pointer-events-none">
-        <Spotlight />
+      <div className="relative">
+        <div className="fixed inset-0 w-screen h-screen pointer-events-none">
+          <Spotlight />
+        </div>
+        <main className=" overflow-x-hidden">{children}</main>
       </div>
-      <main className="flex items-center justify-center px-4">{children}</main>
+      <Dock />
+      <ForgeFooter />
     </div>
   );
 }

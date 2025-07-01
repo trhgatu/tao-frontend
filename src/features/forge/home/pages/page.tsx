@@ -1,6 +1,6 @@
 // src/app/forge/page.tsx
 import {
-  BentoGridDemo,
+  Chapters,
   HeroForgeEntry,
   TechArsenal,
 } from '@/features/forge/home/components';
@@ -10,7 +10,7 @@ export default function ForgeHome() {
     <section>
       <HeroForgeEntry />
       <TechArsenal />
-      <BentoGridDemo />
+      <Chapters />
     </section>
   );
 }

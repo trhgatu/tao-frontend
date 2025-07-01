@@ -18,20 +18,24 @@ export const ForgeHeroWrapper = ({
   showGrid = true,
 }: HeroWrapperProps) => {
   return (
-    <section className={cn('overflow-hidden', className)}>
-      {/* Optional animated background */}
+    <section
+      className={cn('relative w-full overflow-hidden min-h-screen', className)}
+    >
       {showGrid && (
-        <AnimatedGridPattern
-          maxOpacity={0.1}
-          strokeDasharray={4}
-          numSquares={30}
-          duration={2}
-          repeatDelay={0.7}
-        />
+        <div className="absolute inset-0">
+          <AnimatedGridPattern
+            maxOpacity={0.2}
+            strokeDasharray={4}
+            numSquares={30}
+            duration={2}
+            repeatDelay={0.7}
+            className="w-full h-full"
+          />
+        </div>
       )}
-
-      {/* Main content */}
-      <div className="relative isolate max-w-6xl w-full z-10">{children}</div>
+      <div className="relative z-10 min-h-[60vh] sm:min-h-[80vh] md:min-h-screen flex items-center justify-center">
+        {children}
+      </div>
     </section>
   );
 };
