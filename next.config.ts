@@ -11,7 +11,7 @@ const nextConfig: NextConfig = {
     ];
   },
   images: {
-    domains: ['assets.aceternity.com'],
+    domains: ['assets.aceternity.com', 'images.unsplash.com'],
   },
 };
 

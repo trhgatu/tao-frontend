@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import {
   Tooltip,
   TooltipContent,
@@ -56,67 +57,75 @@ const skills: Skill[] = [
   { name: 'Docker', icon: 'docker', category: 'tools' },
   { name: 'Figma', icon: 'figma', category: 'tools' },
   { name: 'Redux', icon: 'redux', category: 'frontend' },
-  { name: 'Sass', icon: 'sass', category: 'frontend' },
 ];
 
 export const TechArsenal = () => {
   return (
-    <div className="relative py-12">
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-br from-yellow-900/5 via-orange-900/10 to-red-900/5" />
-        <div className="absolute left-1/2 top-1/3 w-96 h-96 bg-gradient-radial from-orange-500/20 to-transparent rounded-full blur-3xl" />
+    <div className="relative w-full flex items-center justify-center py-20">
+      <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-auto z-10 pointer-events-none opacity-35">
+        <Image
+          src="/assets/images/mediaval_frame.png"
+          alt="Frame"
+          className="w-full h-full object-contain"
+          width={1000}
+          height={600}
+        />
       </div>
 
-      <h2 className="text-3xl font-serif font-bold text-center text-orange-300 mb-2 tracking-wider">
-        Forge Arsenal
-      </h2>
-      <p className="text-center text-orange-200 mb-10 italic text-base max-w-xl mx-auto">
-        Unleash the arsenal of technologies and tools forged through relentless
-        battles and creative quests.
-      </p>
+      <div className="relative w-[90%] max-w-[1000px]">
+        <h2 className="text-3xl font-serif font-bold text-center text-orange-300 mb-2 tracking-wider">
+          Forge Arsenal
+        </h2>
+        <p className="text-center text-orange-200 mb-10 italic text-base max-w-xl mx-auto">
+          Unleash the arsenal of technologies and tools forged through
+          relentless battles and creative quests.
+        </p>
 
-      <TooltipProvider delayDuration={100}>
-        <div className="max-w-4xl mx-auto">
-          <motion.div
-            className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4 md:gap-6"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
-          >
-            {skills.map((skill) => (
-              <Tooltip key={skill.name}>
-                <TooltipTrigger asChild>
-                  <motion.div
-                    variants={itemVariants}
-                    className="flex flex-col items-center justify-center cursor-pointer group"
+        <TooltipProvider delayDuration={100}>
+          <div className="max-w-2xl mx-auto">
+            <motion.div
+              className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4 md:gap-6"
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+            >
+              {skills.map((skill) => (
+                <Tooltip key={skill.name}>
+                  <TooltipTrigger asChild>
+                    <motion.div
+                      variants={itemVariants}
+                      className="flex flex-col items-center justify-center cursor-pointer group"
+                    >
+                      <div className="w-12 h-12 flex items-center justify-center transition-transform duration-300 group-hover:scale-125 group-hover:rotate-6">
+                        <StackIcon
+                          name={skill.icon}
+                          className="text-orange-200 group-hover:text-white transition-colors duration-300"
+                          style={{ fontSize: 40 }}
+                        />
+                      </div>
+                      <p className="text-xs font-medium text-center text-orange-200 group-hover:text-white transition-colors duration-300 mt-2">
+                        {skill.name}
+                      </p>
+                    </motion.div>
+                  </TooltipTrigger>
+                  <TooltipContent
+                    side="top"
+                    className="bg-background text-white border border-orange-600 shadow-lg z-50"
                   >
-                    <div className="w-12 h-12 flex items-center justify-center transition-transform duration-300 group-hover:scale-125 group-hover:rotate-6">
-                      <StackIcon
-                        name={skill.icon}
-                        className="text-orange-200 group-hover:text-white transition-colors duration-300"
-                        style={{ fontSize: 40 }}
-                      />
+                    <div className="px-3 py-2 text-center">
+                      <p className="font-bold">{skill.name}</p>
+                      <p className="text-xs capitalize mt-1">
+                        {skill.category}
+                      </p>
                     </div>
-                    <p className="text-xs font-medium text-center text-orange-200 group-hover:text-white transition-colors duration-300 mt-2">
-                      {skill.name}
-                    </p>
-                  </motion.div>
-                </TooltipTrigger>
-                <TooltipContent
-                  side="top"
-                  className="bg-background text-white border border-orange-600 shadow-lg z-50"
-                >
-                  <div className="px-3 py-2 text-center">
-                    <p className="font-bold">{skill.name}</p>
-                    <p className="text-xs capitalize mt-1">{skill.category}</p>
-                  </div>
-                </TooltipContent>
-              </Tooltip>
-            ))}
-          </motion.div>
-        </div>
-      </TooltipProvider>
+                  </TooltipContent>
+                </Tooltip>
+              ))}
+            </motion.div>
+          </div>
+        </TooltipProvider>
+      </div>
     </div>
   );
 };
