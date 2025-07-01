@@ -1,4 +1,5 @@
-import { NavbarForge } from '@/components/shared/forge';
+import { Dock } from '@/components/shared/Dock';
+import { ForgeFooter, NavbarForge } from '@/components/shared/forge';
 import { Spotlight } from '@/components/ui/spotlight-new';
 
 export default function ForgeLayout({
@@ -15,6 +16,8 @@ export default function ForgeLayout({
         </div>
         <main className=" overflow-x-hidden">{children}</main>
       </div>
+      <Dock />
+      <ForgeFooter />
     </div>
   );
 }
