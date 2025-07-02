@@ -3,12 +3,14 @@ import {
   Chapters,
   HeroForgeEntry,
   TechArsenal,
+  TheFiresOfPassion,
 } from '@/features/forge/home/components';
 
 export default function ForgeHome() {
   return (
-    <section>
+    <section className="md:space-y-32 lg:space-y-32 sm:space-y-8">
       <HeroForgeEntry />
+      <TheFiresOfPassion />
       <TechArsenal />
       <Chapters />
     </section>

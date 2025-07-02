@@ -33,7 +33,7 @@ export const ForgeHeroWrapper = ({
           />
         </div>
       )}
-      <div className="relative z-10 min-h-[60vh] sm:min-h-[80vh] md:min-h-screen flex items-center justify-center">
+      <div className="relative z-10 min-h-[80vh] sm:min-h-screen md:min-h-screen flex items-center justify-center">
         {children}
       </div>
     </section>
