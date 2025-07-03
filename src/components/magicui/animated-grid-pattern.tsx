@@ -1,4 +1,4 @@
-/*eslint-disable*/
+/* eslint-disable */
 'use client';
 
 import { motion } from 'motion/react';
@@ -23,6 +23,7 @@ export interface AnimatedGridPatternProps
   maxOpacity?: number;
   duration?: number;
   repeatDelay?: number;
+  color?: string; // Thêm prop để tuỳ chỉnh màu sắc cổ điển
 }
 
 export function AnimatedGridPattern({
@@ -36,10 +37,11 @@ export function AnimatedGridPattern({
   maxOpacity = 0.5,
   duration = 4,
   repeatDelay = 0.5,
+  color = '#b8860b', // Mặc định vàng đồng cổ điển
   ...props
 }: AnimatedGridPatternProps) {
   const id = useId();
-  const containerRef = useRef(null);
+  const containerRef = useRef<SVGSVGElement>(null);
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
   const [squares, setSquares] = useState(() => generateSquares(numSquares));
 
@@ -50,7 +52,6 @@ export function AnimatedGridPattern({
     ];
   }
 
-  // Adjust the generateSquares function to return objects with an id, x, and y
   function generateSquares(count: number) {
     return Array.from({ length: count }, (_, i) => ({
       id: i,
@@ -58,7 +59,6 @@ export function AnimatedGridPattern({
     }));
   }
 
-  // Function to update a single square's position
   const updateSquarePosition = (id: number) => {
     setSquares((currentSquares) =>
       currentSquares.map((sq) =>
@@ -72,14 +72,13 @@ export function AnimatedGridPattern({
     );
   };
 
-  // Update squares to animate in
   useEffect(() => {
     if (dimensions.width && dimensions.height) {
       setSquares(generateSquares(numSquares));
     }
+    // eslint-disable-next-line
   }, [dimensions, numSquares]);
 
-  // Resize observer to update container dimensions
   useEffect(() => {
     const resizeObserver = new ResizeObserver((entries) => {
       for (let entry of entries) {
@@ -106,7 +105,7 @@ export function AnimatedGridPattern({
       ref={containerRef}
       aria-hidden="true"
       className={cn(
-        'pointer-events-none absolute inset-0 h-full w-full fill-gray-400/30 stroke-gray-400/30',
+        'pointer-events-none absolute inset-0 h-full w-full',
         className
       )}
       {...props}
@@ -123,7 +122,9 @@ export function AnimatedGridPattern({
           <path
             d={`M.5 ${height}V.5H${width}`}
             fill="none"
+            stroke={color}
             strokeDasharray={strokeDasharray}
+            strokeOpacity="0.3"
           />
         </pattern>
       </defs>
@@ -145,8 +146,12 @@ export function AnimatedGridPattern({
             height={height - 1}
             x={x * width + 1}
             y={y * height + 1}
-            fill="currentColor"
+            fill={color}
+            fillOpacity={0.18}
             strokeWidth="0"
+            style={{
+              filter: 'drop-shadow(0 0 8px #c19a6b66)',
+            }}
           />
         ))}
       </svg>

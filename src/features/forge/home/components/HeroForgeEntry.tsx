@@ -54,13 +54,13 @@ export const HeroForgeEntry = () => {
           className="flex-col min-w-0 order-1 md:order-none relative"
         >
           <div className="relative flex flex-col items-center">
-            <BackgroundGradient className="w-56 h-56 xs:w-44 xs:h-44 sm:w-52 sm:h-52 md:w-64 md:h-64 lg:w-80 lg:h-80 z-50 rounded-full overflow-hidden flex items-center shadow-xl shadow-orange-900/20">
+            <BackgroundGradient className="w-56 h-56 xs:w-44 xs:h-44 sm:w-52 sm:h-52 md:w-64 md:h-64 lg:w-80 lg:h-80 z-50 overflow-hidden flex items-center shadow-xl shadow-orange-900/20">
               <Image
                 src="/assets/images/trhgatu.jpg"
                 alt="Infinity Avatar"
                 width={600}
                 height={600}
-                className="object-cover w-full h-full rounded-full p-2 sm:p-4 bg-black"
+                className="object-cover w-full h-full p-2 sm:p-4 bg-black"
                 style={{ objectPosition: 'center 90%' }}
                 priority
               />
@@ -85,6 +85,8 @@ export const HeroForgeEntry = () => {
                       'UI/UX Artisan',
                       2200,
                       'Problem Solver',
+                      2200,
+                      'Backend Blacksmith',
                       2200,
                       'Dream Weaver',
                       2200,

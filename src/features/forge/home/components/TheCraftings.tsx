@@ -7,11 +7,13 @@ import { projects } from '../data-mock/projects';
 export function TheCraftings() {
   return (
     <div className="text-center relative overflow-hidden">
-      <h2 className="relative text-3xl md:text-4xl font-bold tracking-widest text-orange-400 uppercase mb-6 drop-shadow-[0_2px_12px_rgba(255,140,0,0.18)]">
-        <span className="pulse-slow bg-gradient-to-r from-yellow-400 via-orange-500 to-red-600 bg-clip-text text-transparent">
-          The Craftings
-        </span>
+      <h2 className="text-3xl font-serif font-bold text-center text-orange-300 mb-2 tracking-wider">
+        The Craftings
       </h2>
+      <p className="text-center text-orange-200 mb-10 italic text-base max-w-xl mx-auto">
+        Forged in fire, each project is a testament to battles fought, lessons
+        learned, and dreams brought to life through code and will.
+      </p>
 
       <div className="mb-8">
         <Link
