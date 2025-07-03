@@ -16,15 +16,22 @@ export const HeroForgeEntry = () => {
 
   return (
     <ForgeHeroWrapper showGrid>
-      <div className="relative grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 lg:gap-8 items-center max-w-5xl w-full mx-auto min-w-0 py-6 sm:py-10">
-        <Image
-          src="/assets/images/the_sun.svg"
-          alt="Knight Decor"
-          className="absolute top-0 animate-pulse left-0 w-64 hidden md:block md:w-64 lg:w-64 opacity-70 pointer-events-none select-none z-30"
-          style={{ transform: 'translate(-30%, -20%)' }}
-          width={150}
-          height={150}
-        />
+      <div className="relative grid grid-cols-1 md:grid-cols-2 items-center max-w-5xl w-full mx-auto min-w-0 py-6 sm:py-10 z-10">
+        <div className="absolute top-0 left-0 z-30 pointer-events-none select-none hidden md:block">
+          <div className="absolute inset-0 w-64 h-64 rounded-full bg-white/10 blur-2xl opacity-60" />
+          <Image
+            src="/assets/images/the_sun.svg"
+            alt="Sun Decor"
+            className="w-64 animate-pulse opacity-80"
+            style={{
+              transform: 'translate(-30%, -20%)',
+              filter: 'drop-shadow(0 0 32px #fff8)',
+            }}
+            width={150}
+            height={150}
+            priority
+          />
+        </div>
         <div className="absolute top-6 -right-48 w-20 md:w-28 lg:w-96 pointer-events-none select-none -z-10 hidden md:block">
           <div className="absolute inset-0 w-full h-full rounded-full bg-orange-700/30 blur-2xl opacity-60 animate-pulse" />
           <Image
@@ -33,10 +40,13 @@ export const HeroForgeEntry = () => {
             className="relative w-full h-auto"
             width={200}
             height={200}
-            style={{ filter: 'drop-shadow(0 0 32px #fbbf24cc)' }}
+            style={{
+              filter:
+                'drop-shadow(0 0 32px #fbbf24cc) drop-shadow(0 0 16px #fff6)',
+            }}
+            priority
           />
         </div>
-
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -55,7 +65,6 @@ export const HeroForgeEntry = () => {
                 priority
               />
             </BackgroundGradient>
-            {/* Typing animation - centered below avatar */}
             <div className="w-full flex justify-center mt-5">
               <motion.span
                 variants={item}
@@ -64,7 +73,7 @@ export const HeroForgeEntry = () => {
                 className="uppercase tracking-widest flex items-center gap-2 text-lg md:text-xl font-semibold"
               >
                 <span className="whitespace-nowrap text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.28)]">
-                  I&#39;m a
+                  I&apos;m a
                 </span>
                 <span className="min-w-[14ch] inline-block bg-gradient-to-r from-orange-800 via-yellow-700 to-red-900 bg-clip-text text-transparent font-extrabold font-mono text-xl md:text-2xl drop-shadow-[0_2px_8px_rgba(120,40,0,0.22)]">
                   <TypeAnimation
@@ -92,8 +101,6 @@ export const HeroForgeEntry = () => {
             </div>
           </div>
         </motion.div>
-
-        {/* Content */}
         <motion.div
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}

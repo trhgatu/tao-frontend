@@ -3,6 +3,7 @@ import {
   Chapters,
   HeroForgeEntry,
   TechArsenal,
+  TheCraftings,
   TheFiresOfPassion,
 } from '@/features/forge/home/components';
 
@@ -13,6 +14,7 @@ export default function ForgeHome() {
       <TheFiresOfPassion />
       <TechArsenal />
       <Chapters />
+      <TheCraftings />
     </section>
   );
 }
