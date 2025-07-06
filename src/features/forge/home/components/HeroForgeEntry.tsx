@@ -160,6 +160,12 @@ export const HeroForgeEntry = () => {
           >
             This engine is ready to burn!
           </span>
+          <DotLottieReact
+            className="w-4 h-4 md:w-10 md:h-10 -ml-2 -mt-2"
+            src="https://lottie.host/4878e6ad-2c2e-4e7c-89be-043a1324c60d/Sp9BoJuJxM.lottie"
+            loop
+            autoplay
+          />
         </div>
       </div>
     </ForgeHeroWrapper>

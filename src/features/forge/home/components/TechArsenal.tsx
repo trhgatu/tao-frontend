@@ -61,7 +61,7 @@ const skills: Skill[] = [
 
 export const TechArsenal = () => {
   return (
-    <div className="relative w-full flex items-center justify-center py-20">
+    <div className="relative w-full flex items-center justify-center py-40">
       <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-auto z-10 pointer-events-none opacity-35">
         <Image
           src="/assets/images/mediaval_frame.png"
