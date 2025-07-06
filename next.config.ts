@@ -11,7 +11,16 @@ const nextConfig: NextConfig = {
     ];
   },
   images: {
-    domains: ['assets.aceternity.com', 'images.unsplash.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'assets.aceternity.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+      },
+    ],
   },
 };
 
