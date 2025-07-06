@@ -16,6 +16,15 @@ export const HeroForgeEntry = () => {
 
   return (
     <ForgeHeroWrapper showGrid>
+      <div className="absolute inset-0 -z-10 opacity-40">
+        <Image
+          src="/assets/images/frame.svg"
+          alt="Forge Background Frame"
+          fill
+          priority
+          className="object-cover object-center"
+        />
+      </div>
       <div className="relative grid grid-cols-1 md:grid-cols-2 items-center max-w-5xl w-full mx-auto min-w-0 py-6 sm:py-10 z-10">
         <div className="absolute top-0 left-0 z-30 pointer-events-none select-none hidden md:block">
           <div className="absolute inset-0 w-64 h-64 rounded-full bg-white/10 blur-2xl opacity-60" />
