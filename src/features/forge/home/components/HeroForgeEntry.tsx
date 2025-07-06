@@ -26,14 +26,14 @@ export const HeroForgeEntry = () => {
         />
       </div>
       <div className="relative grid grid-cols-1 md:grid-cols-2 items-center max-w-5xl w-full mx-auto min-w-0 py-6 sm:py-10 z-10">
-        <div className="absolute top-0 left-0 z-30 pointer-events-none select-none hidden md:block">
+        <div className="absolute top-0 left-0 pointer-events-none select-none hidden md:block">
           <div className="absolute inset-0 w-64 h-64 rounded-full bg-white/10 blur-2xl opacity-60" />
           <Image
             src="/assets/images/the_sun.svg"
             alt="Sun Decor"
             className="w-64 animate-pulse opacity-80"
             style={{
-              transform: 'translate(-30%, -20%)',
+              transform: 'translate(-20%, -20%)',
               filter: 'drop-shadow(0 0 32px #fff8)',
             }}
             width={150}
@@ -63,13 +63,13 @@ export const HeroForgeEntry = () => {
           className="flex-col min-w-0 order-1 md:order-none relative"
         >
           <div className="relative flex flex-col items-center">
-            <BackgroundGradient className="w-56 h-56 xs:w-44 xs:h-44 sm:w-52 sm:h-52 md:w-64 md:h-64 lg:w-80 lg:h-80 z-50 overflow-hidden flex items-center shadow-xl shadow-orange-900/20">
+            <BackgroundGradient className="rounded-full w-56 h-56 xs:w-44 xs:h-44 sm:w-52 sm:h-52 md:w-64 md:h-64 lg:w-80 lg:h-80 z-50 overflow-hidden flex items-center shadow-xl shadow-orange-900/20">
               <Image
                 src="/assets/images/trhgatu.jpg"
                 alt="Infinity Avatar"
                 width={600}
                 height={600}
-                className="object-cover w-full h-full p-2 sm:p-4 bg-black"
+                className="object-cover rounded-full w-full h-full p-2 sm:p-4 bg-black"
                 style={{ objectPosition: 'center 90%' }}
                 priority
               />
