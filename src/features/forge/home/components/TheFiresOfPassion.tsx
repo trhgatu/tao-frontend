@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export function TheFiresOfPassion() {
   return (
-    <div className="relative text-center px-2 sm:px-4 md:px-12 lg:px-24 max-w-4xl mx-auto py-10 md:py-16 select-none">
+    <div className="relative text-center px-2 sm:px-4 md:px-12 lg:px-24 max-w-4xl mx-auto py-28 md:py-40 select-none">
       <div className="absolute inset-0 w-full h-full bg-orange-700/30 blur-2xl opacity-60 animate-pulse" />
       <Image
         src="/assets/images/flower_divider.svg"
