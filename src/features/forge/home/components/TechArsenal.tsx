@@ -47,6 +47,8 @@ const skills: Skill[] = [
   { name: 'NextJS', icon: 'nextjs2', category: 'frontend' },
   { name: 'TailwindCSS', icon: 'tailwindcss', category: 'frontend' },
   { name: 'Node.js', icon: 'nodejs', category: 'backend' },
+  { name: 'ExpressJS', icon: 'expressjs', category: 'backend' },
+  { name: 'NestJS', icon: 'nestjs', category: 'backend' },
   { name: 'MongoDB', icon: 'mongodb', category: 'database' },
   { name: 'MySQL', icon: 'mysql', category: 'database' },
   { name: 'GraphQL', icon: 'graphql', category: 'backend' },
@@ -55,7 +57,6 @@ const skills: Skill[] = [
   { name: 'VSCode', icon: 'vscode', category: 'tools' },
   { name: 'Postman', icon: 'postman', category: 'tools' },
   { name: 'Docker', icon: 'docker', category: 'tools' },
-  { name: 'Figma', icon: 'figma', category: 'tools' },
   { name: 'Redux', icon: 'redux', category: 'frontend' },
 ];
 
@@ -102,6 +103,9 @@ export const TechArsenal = () => {
                           name={skill.icon}
                           className="text-orange-200 group-hover:text-white transition-colors duration-300"
                           style={{ fontSize: 40 }}
+                          variant={
+                            skill.icon === 'expressjs' ? 'dark' : undefined
+                          }
                         />
                       </div>
                       <p className="text-xs font-medium text-center text-orange-200 group-hover:text-white transition-colors duration-300 mt-2">
