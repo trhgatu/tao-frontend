@@ -73,7 +73,7 @@ export const TechArsenal = () => {
             className="h-full object-cover select-none w-full"
           />
         </div>
-        <div className="absolute -top-[12px] md:-top-[35px] left-0 right-0 w-full z-10 pointer-events-none">
+        <div className="absolute -top-[18px] md:-top-[35px] left-0 right-0 w-full z-10 pointer-events-none">
           <Image
             src="/assets/images/mountain_2.svg"
             alt="Divider"
@@ -82,7 +82,7 @@ export const TechArsenal = () => {
             className="h-auto object-cover select-none w-full"
           />
         </div>
-        <div className="relative w-full max-w-[1200px] grid grid-cols-1 md:grid-cols-2 items-center gap-10">
+        <div className="relative w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 items-center gap-10">
           {/* Left side - Dragon */}
           <div className="w-full flex justify-center md:justify-end">
             <Image
@@ -95,17 +95,7 @@ export const TechArsenal = () => {
           </div>
 
           {/* Right side - Tech Arsenal */}
-          <div className="relative w-full">
-            {/*  <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-auto z-10 pointer-events-none opacity-35">
-            <Image
-              src="/assets/images/mediaval_frame.png"
-              alt="Frame"
-              className="w-full h-full object-contain"
-              width={1000}
-              height={600}
-            />
-          </div> */}
-
+          <div className="relative w-full px-4">
             <h2 className="text-3xl font-serif font-bold text-center md:text-left text-orange-500 mb-2 tracking-wider">
               Forge Arsenal
             </h2>

@@ -37,7 +37,7 @@ export function TheFiresOfPassion() {
         <p className="text-yellow-400 text-lg sm:text-xl md:text-2xl font-serif italic mb-6 drop-shadow">
           “I don&apos;t just write code. I temper spirit into logic.”
         </p>
-        <p className="text-zinc-300 text-sm sm:text-base md:text-lg leading-relaxed font-light tracking-wide max-w-2xl mx-auto bg-gradient-to-b from-stone-200/80 to-stone-400/40 bg-clip-text text-transparent">
+        <p className="text-zinc-300 text-sm sm:text-base md:text-lg leading-relaxed font-light tracking-wide max-w-2xl mx-auto bg-gradient-to-b from-stone-200/80 to-stone-400/40 bg-clip-text">
           In this forge, every line of code is a hammer strike.
           <br />
           Every project is a blade tempered through trials and passion.
