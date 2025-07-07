@@ -62,22 +62,41 @@ const skills: Skill[] = [
 
 export const TechArsenal = () => {
   return (
-    <div className="relative w-full bg-white flex items-center justify-center py-20">
-      <div className="relative w-full max-w-[1200px] grid grid-cols-1 md:grid-cols-2 items-center gap-10">
-        {/* Left side - Dragon */}
-        <div className="w-full flex justify-center md:justify-end">
+    <>
+      <div className="relative w-full bg-[#f0f0f0] flex items-center justify-center py-20">
+        <div className="absolute -top-[50px] md:-top-[150px] z-10 pointer-events-none">
           <Image
-            src="/assets/images/medieval_dragon.png"
-            alt="Dragon"
-            width={800}
-            height={800}
-            className="object-contain drop-shadow-[0_0_20px_rgba(255,100,0,0.4)]"
+            src="/assets/images/mountain_divider.webp"
+            alt="Divider"
+            width={1200}
+            height={150}
+            className="h-full object-cover select-none w-full"
           />
         </div>
+        <div className="absolute -top-[12px] md:-top-[35px] left-0 right-0 w-full z-10 pointer-events-none">
+          <Image
+            src="/assets/images/mountain_2.svg"
+            alt="Divider"
+            width={1600}
+            height={200}
+            className="h-auto object-cover select-none w-full"
+          />
+        </div>
+        <div className="relative w-full max-w-[1200px] grid grid-cols-1 md:grid-cols-2 items-center gap-10">
+          {/* Left side - Dragon */}
+          <div className="w-full flex justify-center md:justify-end">
+            <Image
+              src="/assets/images/medieval_dragon.png"
+              alt="Dragon"
+              width={800}
+              height={800}
+              className="object-contain drop-shadow-[0_0_20px_rgba(255,100,0,0.4)]"
+            />
+          </div>
 
-        {/* Right side - Tech Arsenal */}
-        <div className="relative w-full">
-          {/*  <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-auto z-10 pointer-events-none opacity-35">
+          {/* Right side - Tech Arsenal */}
+          <div className="relative w-full">
+            {/*  <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-auto z-10 pointer-events-none opacity-35">
             <Image
               src="/assets/images/mediaval_frame.png"
               alt="Frame"
@@ -87,63 +106,63 @@ export const TechArsenal = () => {
             />
           </div> */}
 
-          <h2 className="text-3xl font-serif font-bold text-center md:text-left text-orange-500 mb-2 tracking-wider">
-            Forge Arsenal
-          </h2>
-          <p className="text-center md:text-left text-orange-400 mb-10 italic text-base max-w-xl">
-            Unleash the arsenal of technologies and tools forged through
-            relentless battles and creative quests.
-          </p>
+            <h2 className="text-3xl font-serif font-bold text-center md:text-left text-orange-500 mb-2 tracking-wider">
+              Forge Arsenal
+            </h2>
+            <p className="text-center md:text-left text-orange-400 mb-10 italic text-base max-w-xl">
+              Unleash the arsenal of technologies and tools forged through
+              relentless battles and creative quests.
+            </p>
 
-          <TooltipProvider delayDuration={100}>
-            <div className="max-w-2xl mx-auto md:mx-0">
-              <motion.div
-                className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4 md:gap-6"
-                variants={containerVariants}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true }}
-              >
-                {skills.map((skill) => (
-                  <Tooltip key={skill.name}>
-                    <TooltipTrigger asChild>
-                      <motion.div
-                        variants={itemVariants}
-                        className="flex flex-col items-center justify-center cursor-pointer group"
-                      >
-                        <div className="w-12 h-12 flex items-center justify-center transition-transform duration-300 group-hover:scale-125 group-hover:rotate-6">
-                          <StackIcon
-                            name={skill.icon}
-                            className="text-orange-200 group-hover:text-white transition-colors duration-300"
-                            style={{ fontSize: 40 }}
-                            /*  variant={
+            <TooltipProvider delayDuration={100}>
+              <div className="max-w-2xl mx-auto md:mx-0">
+                <motion.div
+                  className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4 md:gap-6"
+                  variants={containerVariants}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true }}
+                >
+                  {skills.map((skill) => (
+                    <Tooltip key={skill.name}>
+                      <TooltipTrigger asChild>
+                        <motion.div
+                          variants={itemVariants}
+                          className="flex flex-col items-center justify-center cursor-pointer group"
+                        >
+                          <div className="w-12 h-12 flex items-center justify-center transition-transform duration-300 group-hover:scale-125 group-hover:rotate-6">
+                            <StackIcon
+                              name={skill.icon}
+                              style={{ fontSize: 40 }}
+                              /*  variant={
                               skill.icon === 'expressjs' ? 'dark' : undefined
                             } */
-                          />
+                            />
+                          </div>
+                          <p className="text-xs font-medium text-center text-orange-400 group-hover:text-red-600 group-hover:font-bold transition-colors duration-300 mt-2">
+                            {skill.name}
+                          </p>
+                        </motion.div>
+                      </TooltipTrigger>
+                      <TooltipContent
+                        side="top"
+                        className="bg-background text-white border border-orange-600 shadow-lg z-50"
+                      >
+                        <div className="px-3 py-2 text-center">
+                          <p className="font-bold">{skill.name}</p>
+                          <p className="text-xs capitalize mt-1">
+                            {skill.category}
+                          </p>
                         </div>
-                        <p className="text-xs font-medium text-center text-orange-400 group-hover:text-white transition-colors duration-300 mt-2">
-                          {skill.name}
-                        </p>
-                      </motion.div>
-                    </TooltipTrigger>
-                    <TooltipContent
-                      side="top"
-                      className="bg-background text-white border border-orange-600 shadow-lg z-50"
-                    >
-                      <div className="px-3 py-2 text-center">
-                        <p className="font-bold">{skill.name}</p>
-                        <p className="text-xs capitalize mt-1">
-                          {skill.category}
-                        </p>
-                      </div>
-                    </TooltipContent>
-                  </Tooltip>
-                ))}
-              </motion.div>
-            </div>
-          </TooltipProvider>
+                      </TooltipContent>
+                    </Tooltip>
+                  ))}
+                </motion.div>
+              </div>
+            </TooltipProvider>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
