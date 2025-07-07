@@ -1,5 +1,7 @@
 'use client';
 
+import Image from 'next/image';
+
 import React from 'react';
 import { BentoGrid, BentoGridItem } from '@/components/ui/bento-grid';
 import {
@@ -97,6 +99,15 @@ export function Chapters() {
 
   return (
     <section className="relative py-12">
+      <div className="absolute -top-[12px] md:-top-[40px] z-10 pointer-events-none">
+        <Image
+          src="/assets/images/capa.svg"
+          alt="Divider"
+          width={1600}
+          height={200}
+          className="h-full object-cover select-none w-full"
+        />
+      </div>
       <div className="absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-gradient-to-br from-yellow-900/5 via-black/10 to-red-900/5" />
         <div className="absolute left-1/2 top-1/3 w-96 h-96 bg-gradient-radial from-black/20 to-transparent rounded-full blur-3xl" />

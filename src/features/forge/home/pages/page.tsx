@@ -9,11 +9,15 @@ import {
 
 export default function ForgeHome() {
   return (
-    <section className="md:space-y-32 lg:space-y-32 sm:space-y-8">
+    <section>
       <HeroForgeEntry />
-      <TheFiresOfPassion />
+      <div className="md:py-28 py-16">
+        <TheFiresOfPassion />
+      </div>
       <TechArsenal />
-      <Chapters />
+      <div>
+        <Chapters />
+      </div>
       <TheCraftings />
     </section>
   );
