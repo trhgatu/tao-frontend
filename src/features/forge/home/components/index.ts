@@ -1,6 +1,6 @@
 export * from './HeroForgeEntry';
 export * from './Chapter';
 export * from './TechArsenal';
-export * from './TheFiresOfPassion';
+export * from './the-fires-of-passion';
 export * from './ForgeAudioToggle';
 export * from './TheCraftings';
