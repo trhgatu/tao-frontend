@@ -1,16 +1,19 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useState, ReactNode } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { RealmTransitionLayer } from './RealmTransitionLayer';
+import { Slot } from '@radix-ui/react-slot';
 
 type Props = {
   to: string;
-  label: string;
+  label?: string;
   message: string;
   align?: 'left' | 'right' | 'center';
   theme?: 'forge' | 'verse';
+  asChild?: boolean;
+  children?: ReactNode;
 };
 
 export function RealmGateButton({
@@ -19,13 +22,30 @@ export function RealmGateButton({
   message,
   align = 'right',
   theme = 'forge',
+  asChild = false,
+  children,
 }: Props) {
   const router = useRouter();
   const [showTransition, setShowTransition] = useState(false);
 
-  const handleClick = () => {
-    setShowTransition(true);
-  };
+  const handleClick = () => setShowTransition(true);
+
+  if (asChild && children) {
+    return (
+      <>
+        <Slot onClick={handleClick}>{children}</Slot>
+        <AnimatePresence>
+          {showTransition && (
+            <RealmTransitionLayer
+              message={message}
+              onComplete={() => router.push(to)}
+              theme={theme}
+            />
+          )}
+        </AnimatePresence>
+      </>
+    );
+  }
 
   return (
     <>
