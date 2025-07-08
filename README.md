@@ -1,36 +1,100 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# The Archive Of One – The Fourth Sword
 
-## Getting Started
+**"The Archive Of One is not just a portfolio. It's a living mirror of myself."**
 
-First, run the development server:
+T.A.O is a personal platform that goes beyond conventional portfolios. It reflects my journey, my thoughts, my creations, and my soul — structured into two realms:
+
+---
+
+## 🪐 Realms of TAO
+
+### 🌌 Verse – The Soul Realm
+A dreamy, poetic world that reflects my inner self.  
+Includes:
+- **Blog** – Personal thoughts, book reviews, analysis.
+- **Journal** – Daily reflections and notes.
+- **Memories** – Special photos, past moments, and stories.
+
+> Interface: soft, floating, scroll-based, with aurora and glow effects.  
+> Animation: cloudy transitions, vintage feel, gentle storytelling.
+
+### 🔥 Forge – The Tech Realm
+A fiery realm where passion and technology collide.  
+Includes:
+- **Projects** – Real fullstack systems with depth and scalability.
+- **Tech Stack** – Skills, tools, technologies I've mastered.
+- **Roadmap** – My 5-year growth plan as a developer.
+
+> Interface: red–black–gray, bold and focused, with grid/hacker feel.  
+> Animation: gear-loaders, system-init intro, fast transitions.
+
+---
+
+## 🛠️ Tech Stack
+
+- **Framework**: Next.js (App Router, Server Actions)
+- **UI**: Tailwind CSS, shadcn/ui, Framer Motion
+- **Animation**: Realm-based transition (Framer Motion sequencing)
+- **State Management**: Redux Toolkit
+- **Multi-language (i18n)**: Auto-detect & translate
+- **Markdown rendering**: For blog, journal, memories
+- **Dark Mode Default**: Tailored to each realm's personality
+
+---
+
+## 📁 Folder Structure
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+/
+├── features/
+│   ├── verse/
+│   │   ├── blog/
+│   │   ├── journal/
+│   │   └── memories/
+│   └── forge/
+│       ├── projects/
+│       ├── techstack/
+│       └── roadmap/
+├── components/ui/
+├── layouts/ (VerseLayout, ForgeLayout)
+├── config/
+├── lib/
+└── public/
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🚀 Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- ✨ Dual-realms in one platform: Switch seamlessly with full-screen animated transition
+- 📝 Modular content system for blog, journal, and memories – all markdown + i18n ready
+- 📊 Dynamic project showcase: grid / marquee mode toggle
+- 💬 Personal writing and poetic experience, not just technical bragging
+- 🔐 Only admin access – no public write or comment features
+- 📱 Responsive, mobile-optimized layout with realm-based behavior
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🧠 Philosophy
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+> "The Archive Of One không phải là nơi để gây ấn tượng, mà là nơi tao hiện diện thật nhất."
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This is where I write, remember, reflect, and forge the swords that define me.  
+Not made to chase a job — made to remember **who I am**.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📍 Status
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+🛠 In active development.  
+Current focus: [x] Blog, [x] Journal, [x] Memories, [x] Realm UI, [ ] Admin Dashboard
+
+---
+
+## 🗡 Creator
+
+**Infinity / Tran Hoang Anh Tu**  
+Fullstack Developer | Eternal Dreamer  
+[Github](https://github.com/trhgatu)
+
+> Everything is Infinity.
