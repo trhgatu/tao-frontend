@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react'; // Add this import
 import { motion } from 'framer-motion';
 import { categories, techStack } from '../data-mock/projects';
 import { Category } from '../types/project';
@@ -9,7 +10,7 @@ interface FilterPanelProps {
   selectedCategory: Category;
   setSelectedCategory: (category: Category) => void;
   selectedTech: string[];
-  setSelectedTech: (tech: string[]) => void;
+  setSelectedTech: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
 export const FilterPanel = ({
