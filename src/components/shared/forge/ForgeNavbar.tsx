@@ -21,7 +21,7 @@ export function NavbarForge() {
     },
     {
       name: 'Projects',
-      link: '#pricing',
+      link: '/forge/projects',
     },
     {
       name: 'About me',
