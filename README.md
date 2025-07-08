@@ -9,8 +9,10 @@ T.A.O is a personal platform that goes beyond conventional portfolios. It reflec
 ## 🪐 Realms of TAO
 
 ### 🌌 Verse – The Soul Realm
+
 A dreamy, poetic world that reflects my inner self.  
 Includes:
+
 - **Blog** – Personal thoughts, book reviews, analysis.
 - **Journal** – Daily reflections and notes.
 - **Memories** – Special photos, past moments, and stories.
@@ -19,8 +21,10 @@ Includes:
 > Animation: cloudy transitions, vintage feel, gentle storytelling.
 
 ### 🔥 Forge – The Tech Realm
+
 A fiery realm where passion and technology collide.  
 Includes:
+
 - **Projects** – Real fullstack systems with depth and scalability.
 - **Tech Stack** – Skills, tools, technologies I've mastered.
 - **Roadmap** – My 5-year growth plan as a developer.
