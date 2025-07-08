@@ -9,27 +9,23 @@ T.A.O is a personal platform that goes beyond conventional portfolios. It reflec
 ## 🪐 Realms of TAO
 
 ### 🌌 Verse – The Soul Realm
-
-A dreamy, poetic world that reflects my inner self.
+A dreamy, poetic world that reflects my inner self.  
 Includes:
-
 - **Blog** – Personal thoughts, book reviews, analysis.
 - **Journal** – Daily reflections and notes.
 - **Memories** – Special photos, past moments, and stories.
 
-> Interface: soft, floating, scroll-based, with aurora and glow effects.
+> Interface: soft, floating, scroll-based, with aurora and glow effects.  
 > Animation: cloudy transitions, vintage feel, gentle storytelling.
 
 ### 🔥 Forge – The Tech Realm
-
-A fiery realm where passion and technology collide.
+A fiery realm where passion and technology collide.  
 Includes:
-
 - **Projects** – Real fullstack systems with depth and scalability.
 - **Tech Stack** – Skills, tools, technologies I've mastered.
 - **Roadmap** – My 5-year growth plan as a developer.
 
-> Interface: red–black–gray, bold and focused, with grid/hacker feel.
+> Interface: red–black–gray, bold and focused, with grid/hacker feel.  
 > Animation: gear-loaders, system-init intro, fast transitions.
 
 ---
@@ -83,22 +79,22 @@ Includes:
 
 > "The Archive Of One không phải là nơi để gây ấn tượng, mà là nơi tao hiện diện thật nhất."
 
-This is where I write, remember, reflect, and forge the swords that define me.
+This is where I write, remember, reflect, and forge the swords that define me.  
 Not made to chase a job — made to remember **who I am**.
 
 ---
 
 ## 📍 Status
 
-🛠 In active development.
+🛠 In active development.  
 Current focus: [x] Blog, [x] Journal, [x] Memories, [x] Realm UI, [ ] Admin Dashboard
 
 ---
 
 ## 🗡 Creator
 
-**Infinity / Tran Hoang Anh Tu**
-Fullstack Developer | Eternal Dreamer
+**Infinity / Tran Hoang Anh Tu**  
+Fullstack Developer | Eternal Dreamer  
 [Github](https://github.com/trhgatu)
 
 > Everything is Infinity.
