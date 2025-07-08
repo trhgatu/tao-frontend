@@ -21,6 +21,22 @@ export const GatewayHeroEntry = () => {
       >
         Everything is Infinity.
       </motion.h1>
+      <div className="relative h-40 w-[42rem] max-w-[90%]">
+        <div className="absolute inset-x-20 top-0 h-[2px] w-3/4 bg-gradient-to-r from-transparent via-indigo-500 to-transparent blur-sm" />
+        <div className="absolute inset-x-20 top-0 h-px w-3/4 bg-gradient-to-r from-transparent via-indigo-400 to-transparent" />
+        <div className="absolute inset-x-60 top-0 h-[5px] w-1/4 bg-gradient-to-r from-transparent via-sky-500 to-transparent blur-sm" />
+        <div className="absolute inset-x-60 top-0 h-px w-1/4 bg-gradient-to-r from-transparent via-sky-400 to-transparent" />
+
+        <SparklesCore
+          background="transparent"
+          minSize={0.4}
+          maxSize={1}
+          particleDensity={1200}
+          className="h-full w-full"
+          particleColor="#FFFFFF"
+        />
+        <div className="absolute inset-0 bg-black [mask-image:radial-gradient(350px_220px_at_top,transparent_25%,white)]" />
+      </div>
 
       <div className="z-30 mb-10 flex flex-col sm:flex-row gap-10 items-center">
         <div className="relative flex items-center gap-6">
@@ -104,22 +120,6 @@ export const GatewayHeroEntry = () => {
             <div className="absolute inset-0 backdrop-blur-[2px]" />
           </motion.div>
         </div>
-      </div>
-      <div className="relative h-40 w-[42rem] max-w-[90%]">
-        <div className="absolute inset-x-20 top-0 h-[2px] w-3/4 bg-gradient-to-r from-transparent via-indigo-500 to-transparent blur-sm" />
-        <div className="absolute inset-x-20 top-0 h-px w-3/4 bg-gradient-to-r from-transparent via-indigo-400 to-transparent" />
-        <div className="absolute inset-x-60 top-0 h-[5px] w-1/4 bg-gradient-to-r from-transparent via-sky-500 to-transparent blur-sm" />
-        <div className="absolute inset-x-60 top-0 h-px w-1/4 bg-gradient-to-r from-transparent via-sky-400 to-transparent" />
-
-        <SparklesCore
-          background="transparent"
-          minSize={0.4}
-          maxSize={1}
-          particleDensity={1200}
-          className="h-full w-full"
-          particleColor="#FFFFFF"
-        />
-        <div className="absolute inset-0 bg-black [mask-image:radial-gradient(350px_220px_at_top,transparent_25%,white)]" />
       </div>
     </section>
   );
