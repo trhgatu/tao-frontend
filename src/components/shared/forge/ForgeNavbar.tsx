@@ -28,8 +28,8 @@ export function NavbarForge() {
       link: '#contact',
     },
     {
-      name: 'Contact',
-      link: '#contact',
+      name: 'Timeline',
+      link: '/forge/timeline',
     },
     {
       name: 'Contact',
