@@ -31,10 +31,6 @@ export function NavbarForge() {
       name: 'Timeline',
       link: '/forge/timeline',
     },
-    {
-      name: 'Contact',
-      link: '#contact',
-    },
   ];
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
