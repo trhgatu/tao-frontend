@@ -20,8 +20,8 @@ export function NavbarForge() {
       link: '#features',
     },
     {
-      name: 'Projects',
-      link: '/forge/projects',
+      name: 'Craftings',
+      link: '/forge/craftings',
     },
     {
       name: 'About me',
