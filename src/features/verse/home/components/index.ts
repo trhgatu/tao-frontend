@@ -1,1 +1,1 @@
-export * from './VerseAudioToggle'
+export * from './VerseAudioToggle';

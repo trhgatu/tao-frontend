@@ -1,6 +1,13 @@
 'use client';
 
-import { createContext, useContext, useRef, useState, useEffect, ReactNode } from 'react';
+import {
+  createContext,
+  useContext,
+  useRef,
+  useState,
+  useEffect,
+  ReactNode,
+} from 'react';
 import { usePathname } from 'next/navigation';
 
 interface AudioContextType {
@@ -57,7 +64,9 @@ export function AudioProvider({ children }: { children: ReactNode }) {
   }, []);
 
   useEffect(() => {
-    const initialTrack = ROUTE_MUSIC[pathname as keyof typeof ROUTE_MUSIC] || ROUTE_MUSIC['/forge'];
+    const initialTrack =
+      ROUTE_MUSIC[pathname as keyof typeof ROUTE_MUSIC] ||
+      ROUTE_MUSIC['/forge'];
     setCurrentTrack(initialTrack);
     setLoading(false);
   }, [pathname]);
@@ -68,19 +77,29 @@ export function AudioProvider({ children }: { children: ReactNode }) {
 
       const timer = setTimeout(() => {
         if (audio.readyState >= 2) {
-          audio.play().then(() => {
-            setPlaying(true);
-          }).catch((error) => {
-            console.log('Auto-play failed:', error);
-          });
-        } else {
-          audio.addEventListener('canplaythrough', () => {
-            audio.play().then(() => {
+          audio
+            .play()
+            .then(() => {
               setPlaying(true);
-            }).catch((error) => {
+            })
+            .catch((error) => {
               console.log('Auto-play failed:', error);
             });
-          }, { once: true });
+        } else {
+          audio.addEventListener(
+            'canplaythrough',
+            () => {
+              audio
+                .play()
+                .then(() => {
+                  setPlaying(true);
+                })
+                .catch((error) => {
+                  console.log('Auto-play failed:', error);
+                });
+            },
+            { once: true }
+          );
         }
       }, 200);
 
@@ -89,7 +108,9 @@ export function AudioProvider({ children }: { children: ReactNode }) {
   }, [userInteracted, currentTrack, pathname]);
 
   useEffect(() => {
-    const newTrack = ROUTE_MUSIC[pathname as keyof typeof ROUTE_MUSIC] || ROUTE_MUSIC['/forge'];
+    const newTrack =
+      ROUTE_MUSIC[pathname as keyof typeof ROUTE_MUSIC] ||
+      ROUTE_MUSIC['/forge'];
 
     if (newTrack !== currentTrack && currentTrack !== '') {
       const audio = audioRef.current;
@@ -109,12 +130,19 @@ export function AudioProvider({ children }: { children: ReactNode }) {
 
             if (wasPlaying && userInteracted) {
               audio.load();
-              audio.addEventListener('canplaythrough', () => {
-                setLoading(false);
-                audio.play().then(() => {
-                  setPlaying(true);
-                }).catch(() => setPlaying(false));
-              }, { once: true });
+              audio.addEventListener(
+                'canplaythrough',
+                () => {
+                  setLoading(false);
+                  audio
+                    .play()
+                    .then(() => {
+                      setPlaying(true);
+                    })
+                    .catch(() => setPlaying(false));
+                },
+                { once: true }
+              );
             } else {
               setLoading(false);
               setPlaying(false);
@@ -214,14 +242,16 @@ export function AudioProvider({ children }: { children: ReactNode }) {
   };
 
   return (
-    <AudioContext.Provider value={{
-      playing,
-      loading,
-      currentTrack,
-      userInteracted,
-      togglePlay,
-      audioRef
-    }}>
+    <AudioContext.Provider
+      value={{
+        playing,
+        loading,
+        currentTrack,
+        userInteracted,
+        togglePlay,
+        audioRef,
+      }}
+    >
       {children}
       {currentTrack && (
         <audio
