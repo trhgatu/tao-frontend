@@ -14,7 +14,6 @@ export const ViewToggle = ({
 }: ViewToggleProps) => {
   return (
     <div className={cn('flex items-center gap-2 mb-6', className)}>
-      <span className="text-orange-200 text-sm mr-2">View:</span>
       <button
         onClick={() => onToggle('marquee')}
         className={cn(

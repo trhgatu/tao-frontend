@@ -1,0 +1,40 @@
+export const templates = [
+  {
+    id: 'template-1',
+    name: 'E-Commerce Foundation',
+    description:
+      'Complete e-commerce template with cart, checkout, and admin dashboard',
+    image: 'https://assets.aceternity.com/templates/startup-1.webp',
+    tech: ['Next.js', 'TypeScript', 'Tailwind', 'Stripe'],
+    category: 'E-Commerce',
+    downloads: 1250,
+    featured: true,
+    link: 'https://template-demo.com',
+    repo: 'https://github.com/username/ecommerce-template',
+  },
+  {
+    id: 'template-2',
+    name: 'SaaS Starter Kit',
+    description:
+      'Modern SaaS template with authentication, billing, and dashboard',
+    image: 'https://assets.aceternity.com/templates/startup-2.webp',
+    tech: ['React', 'Node.js', 'PostgreSQL', 'Stripe'],
+    category: 'SaaS',
+    downloads: 890,
+    featured: true,
+    link: 'https://saas-demo.com',
+    repo: 'https://github.com/username/saas-template',
+  },
+  {
+    id: 'template-3',
+    name: 'Portfolio Showcase',
+    description: 'Creative portfolio template for developers and designers',
+    image: 'https://assets.aceternity.com/pro/hero-sections.png',
+    tech: ['Next.js', 'Framer Motion', 'Tailwind'],
+    category: 'Portfolio',
+    downloads: 650,
+    featured: false,
+    link: 'https://portfolio-demo.com',
+    repo: 'https://github.com/username/portfolio-template',
+  },
+];
