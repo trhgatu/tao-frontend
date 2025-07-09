@@ -1,7 +1,14 @@
+'use client';
+
 import React from 'react';
 import { Timeline as TimelineComponent } from '@/components/ui/timeline';
 import Image from 'next/image';
-import { IconFlame, IconCode, IconRocket } from '@tabler/icons-react';
+import {
+  IconFlame,
+  IconCode,
+  IconRocket,
+  IconHammer,
+} from '@tabler/icons-react';
 
 export function Timeline() {
   const data = [
@@ -141,26 +148,26 @@ export function Timeline() {
             </p>
           </div>
           <p className="mb-6 text-sm text-gray-300">
-            Today&apos;s conquests in the eternal battle against mediocrity
+            {`Today's conquests in the eternal battle against mediocrity`}
           </p>
           <div className="mb-8 space-y-3">
-            <div className="flex items-center gap-3 text-sm text-gray-300 bg-zinc-800/50 rounded-lg p-3 border border-zinc-700">
+            <div className="flex items-center gap-3 text-sm text-gray-300 bg-zinc-800/50 rounded-lg p-3 border border-zinc-700 hover:border-yellow-500/50 transition-colors">
               <span className="text-green-400 font-bold">⚔️</span>
               <span>Card grid component - Forged with precision</span>
             </div>
-            <div className="flex items-center gap-3 text-sm text-gray-300 bg-zinc-800/50 rounded-lg p-3 border border-zinc-700">
+            <div className="flex items-center gap-3 text-sm text-gray-300 bg-zinc-800/50 rounded-lg p-3 border border-zinc-700 hover:border-yellow-500/50 transition-colors">
               <span className="text-green-400 font-bold">🔥</span>
               <span>Startup template - Tempered in the flames</span>
             </div>
-            <div className="flex items-center gap-3 text-sm text-gray-300 bg-zinc-800/50 rounded-lg p-3 border border-zinc-700">
+            <div className="flex items-center gap-3 text-sm text-gray-300 bg-zinc-800/50 rounded-lg p-3 border border-zinc-700 hover:border-yellow-500/50 transition-colors">
               <span className="text-green-400 font-bold">⚡</span>
               <span>File upload system - Lightning fast</span>
             </div>
-            <div className="flex items-center gap-3 text-sm text-gray-300 bg-zinc-800/50 rounded-lg p-3 border border-zinc-700">
+            <div className="flex items-center gap-3 text-sm text-gray-300 bg-zinc-800/50 rounded-lg p-3 border border-zinc-700 hover:border-yellow-500/50 transition-colors">
               <span className="text-green-400 font-bold">🎵</span>
               <span>Music integration - Harmony in chaos</span>
             </div>
-            <div className="flex items-center gap-3 text-sm text-gray-300 bg-zinc-800/50 rounded-lg p-3 border border-zinc-700">
+            <div className="flex items-center gap-3 text-sm text-gray-300 bg-zinc-800/50 rounded-lg p-3 border border-zinc-700 hover:border-yellow-500/50 transition-colors">
               <span className="text-green-400 font-bold">👥</span>
               <span>Community features - United we forge</span>
             </div>
@@ -210,12 +217,92 @@ export function Timeline() {
         </div>
       ),
     },
+    {
+      title: '2022',
+      content: (
+        <div>
+          <div className="flex items-center gap-2 mb-4">
+            <IconHammer className="w-5 h-5 text-purple-500" />
+            <p className="text-sm font-semibold italic bg-gradient-to-r from-purple-600 via-pink-700 to-red-800 bg-clip-text text-transparent">
+              The Awakening
+            </p>
+          </div>
+          <p className="mb-4 text-sm text-gray-300 leading-relaxed">
+            The first sparks of creation ignited. Learning the ancient arts of
+            web development, each tutorial a step closer to mastery.
+          </p>
+          <p className="mb-8 text-sm text-gray-300 leading-relaxed">
+            From humble beginnings to ambitious dreams - the forge was being
+            built, one line of code at a time.
+          </p>
+          <div className="grid grid-cols-2 gap-4">
+            <div className="group relative">
+              <div className="h-20 md:h-44 lg:h-60 w-full rounded-lg bg-gradient-to-br from-purple-900/30 to-pink-900/30 border border-zinc-700 hover:border-purple-500 transition-all duration-300 group-hover:scale-105 shadow-lg shadow-purple-900/20 flex items-center justify-center">
+                <span className="text-purple-300 text-sm font-medium">
+                  First HTML Page
+                </span>
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-purple-900/40 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity" />
+            </div>
+            <div className="group relative">
+              <div className="h-20 md:h-44 lg:h-60 w-full rounded-lg bg-gradient-to-br from-pink-900/30 to-red-900/30 border border-zinc-700 hover:border-pink-500 transition-all duration-300 group-hover:scale-105 shadow-lg shadow-pink-900/20 flex items-center justify-center">
+                <span className="text-pink-300 text-sm font-medium">
+                  CSS Mastery
+                </span>
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-pink-900/40 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity" />
+            </div>
+            <div className="group relative">
+              <div className="h-20 md:h-44 lg:h-60 w-full rounded-lg bg-gradient-to-br from-indigo-900/30 to-purple-900/30 border border-zinc-700 hover:border-indigo-500 transition-all duration-300 group-hover:scale-105 shadow-lg shadow-indigo-900/20 flex items-center justify-center">
+                <span className="text-indigo-300 text-sm font-medium">
+                  JavaScript Journey
+                </span>
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-indigo-900/40 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity" />
+            </div>
+            <div className="group relative">
+              <div className="h-20 md:h-44 lg:h-60 w-full rounded-lg bg-gradient-to-br from-red-900/30 to-orange-900/30 border border-zinc-700 hover:border-red-500 transition-all duration-300 group-hover:scale-105 shadow-lg shadow-red-900/20 flex items-center justify-center">
+                <span className="text-red-300 text-sm font-medium">
+                  First Project
+                </span>
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-red-900/40 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity" />
+            </div>
+          </div>
+        </div>
+      ),
+    },
   ];
 
   return (
     <div className="relative w-full overflow-clip bg-gradient-to-br from-zinc-900 via-black to-red-950">
       <div className="absolute inset-0 bg-gradient-to-r from-red-900/10 to-orange-900/10" />
-      <div className="relative z-10">
+      <div className="absolute inset-0 -z-10 opacity-40">
+        <Image
+          src="/assets/images/frame.svg"
+          alt="Forge Background Frame"
+          fill
+          priority
+          className="object-cover object-center"
+        />
+      </div>
+      <div className="relative z-10 py-16">
+        <div className="max-w-4xl mx-auto px-4 mb-12">
+          <div className="text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              The{' '}
+              <span className="bg-gradient-to-r from-red-600 via-orange-700 to-yellow-800 bg-clip-text text-transparent font-extrabold animate-forge-glow">
+                Forge
+              </span>{' '}
+              Chronicles
+            </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-red-800 via-orange-700 to-yellow-800 mx-auto mb-4 rounded shadow-lg" />
+            <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+              A journey through fire and code, where every milestone was forged
+              in the flames of determination.
+            </p>
+          </div>
+        </div>
         <TimelineComponent data={data} />
       </div>
     </div>
