@@ -24,8 +24,8 @@ export function NavbarForge() {
       link: '/forge/craftings',
     },
     {
-      name: 'About me',
-      link: '#contact',
+      name: 'The Archemist',
+      link: '/forge/the-archemist',
     },
     {
       name: 'Timeline',
