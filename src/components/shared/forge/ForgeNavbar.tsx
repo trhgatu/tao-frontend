@@ -16,8 +16,8 @@ import { useState } from 'react';
 export function NavbarForge() {
   const navItems = [
     {
-      name: 'Features',
-      link: '#features',
+      name: 'Forge',
+      link: '/forge',
     },
     {
       name: 'Craftings',
