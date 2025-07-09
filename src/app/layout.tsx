@@ -5,6 +5,7 @@ import { Metadata } from 'next';
 import { siteConfig } from '@/config/site';
 /* import { ReduxProvider } from '@/store/provider'; */
 import { ThemeProvider } from '@/components/shared/ThemeProvider';
+import { AudioProvider } from '@/components/shared/forge/components/AuthContextProvider';
 
 const inter = Inter({ subsets: ['vietnamese'], variable: '--font-sans' });
 
@@ -26,14 +27,17 @@ export default function RootLayout({
     <html lang="vi" suppressHydrationWarning>
       <body className={`min-h-screen font-sans ${inter.variable}`}>
         {/* <ReduxProvider> */}
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <main>{children}</main>
-        </ThemeProvider>
+        <AudioProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <main>{children}</main>
+          </ThemeProvider>
+        </AudioProvider>
+
         {/* </ReduxProvider> */}
       </body>
     </html>

@@ -1,61 +1,30 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
 import { IconPlayerPlay, IconPlayerPause } from '@tabler/icons-react';
+import { useAudio } from '@/components/shared/forge/components/AuthContextProvider';
 
 export function ForgeAudioToggle() {
-  const [playing, setPlaying] = useState(false);
-  const [loading, setLoading] = useState(true);
-  const audioRef = useRef<HTMLAudioElement>(null);
-
-  useEffect(() => {
-    const audio = audioRef.current;
-    if (!audio) return;
-    audio.volume = 0.6;
-
-    const onCanPlay = () => setLoading(false);
-    audio.addEventListener('canplaythrough', onCanPlay);
-
-    const tryAutoplay = () => {
-      audio
-        .play()
-        .then(() => setPlaying(true))
-        .catch(() => {});
-    };
-    audio.addEventListener('canplaythrough', tryAutoplay);
-
-    return () => {
-      audio.removeEventListener('canplaythrough', onCanPlay);
-      audio.removeEventListener('canplaythrough', tryAutoplay);
-    };
-  }, []);
-
-  const togglePlay = () => {
-    if (!audioRef.current) return;
-    if (playing) {
-      audioRef.current.pause();
-      setPlaying(false);
-    } else {
-      audioRef.current
-        .play()
-        .then(() => setPlaying(true))
-        .catch(() => {
-          setPlaying(false);
-          alert('Trình duyệt đã chặn tự động phát nhạc. Hãy thử lại!');
-        });
-    }
-  };
+  const { playing, loading, togglePlay, userInteracted } = useAudio();
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-center gap-2 group">
+      {/* Hint cho lần đầu */}
+      {!userInteracted && !playing && (
+        <div className="mb-2 text-xs px-3 py-1 rounded-full bg-orange-600/90 text-white shadow animate-bounce">
+          🎵 Click để phát nhạc nền
+        </div>
+      )}
+
       <span
         className="mb-2 text-xs px-3 py-1 rounded-full bg-stone-900/80 text-yellow-200 shadow
         opacity-0 group-hover:opacity-100 transition pointer-events-none select-none"
       >
         {playing ? 'Pause Forge Ambience' : 'Play Forge Ambience'}
       </span>
+
       <button
         onClick={togglePlay}
+        disabled={loading} // Disable khi loading
         aria-label={playing ? 'Pause forge ambience' : 'Play forge ambience'}
         className={`
           relative flex items-center justify-center
@@ -65,6 +34,8 @@ export function ForgeAudioToggle() {
           transition-all duration-200
           focus:outline-none focus:ring-2 focus:ring-yellow-400/70
           ${playing ? 'ring-4 ring-orange-400/30 scale-110 shadow-orange-600/40 animate-pulse' : ''}
+          ${!userInteracted ? 'animate-pulse ring-2 ring-yellow-400/50' : ''}
+          ${loading ? 'opacity-70 cursor-not-allowed' : 'cursor-pointer'}
         `}
       >
         {loading ? (
@@ -92,20 +63,11 @@ export function ForgeAudioToggle() {
         ) : (
           <IconPlayerPlay size={22} />
         )}
+
         {playing && (
           <span className="absolute inset-0 rounded-full bg-orange-400/30 blur-lg pointer-events-none animate-pulse" />
         )}
       </button>
-
-      {/* Hidden audio element */}
-      <audio
-        ref={audioRef}
-        src="/sounds/forge_intro.mp3"
-        preload="auto"
-        loop
-        autoPlay
-        style={{ display: 'none' }}
-      />
     </div>
   );
 }
