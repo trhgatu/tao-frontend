@@ -19,14 +19,14 @@ import { BlurredImageHeader } from './BlurredImageHeader';
 export function Chapters() {
   const chapters = [
     {
-      title: 'Chapter II: The Projects',
+      title: 'Chapter I: The Craftings',
       description: 'Crafted works forged in the fires of innovation',
       header: <ProjectStackedImages />,
       icon: <IconCode className="h-4 w-4 text-amber-500" />,
-      href: '/projects',
+      href: '/forge/craftings',
     },
     {
-      title: 'Chapter I: The Alchemist',
+      title: 'Chapter II: The Alchemist',
       description: 'The transformation of raw elements into golden creations',
       header: (
         <BlurredImageHeader
@@ -37,7 +37,7 @@ export function Chapters() {
         />
       ),
       icon: <IconFlask className="h-4 w-4 text-orange-500" />,
-      href: '/about',
+      href: '/forge/the-alchemist',
     },
     {
       title: 'Chapter III: The Timeline',

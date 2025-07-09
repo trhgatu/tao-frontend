@@ -1,7 +1,7 @@
 'use client';
 
 import { IconPlayerPlay, IconPlayerPause } from '@tabler/icons-react';
-import { useAudio } from '@/components/shared/forge/components/AuthContextProvider';
+import { useAudio } from '@/components/shared/forge/components/AudioContextProvider';
 
 export function VerseAudioToggle() {
   const { playing, loading, togglePlay } = useAudio();

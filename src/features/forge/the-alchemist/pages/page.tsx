@@ -75,7 +75,7 @@ const arsenal = [
   },
 ];
 
-export default function TheArchemistPage() {
+export default function TheAlchemistPage() {
   return (
     <div className="relative min-h-screen">
       <div className="absolute inset-0 -z-10" />
@@ -105,7 +105,7 @@ export default function TheArchemistPage() {
 
           <h1 className="text-center text-2xl font-bold">Tran Hoang Anh Tu</h1>
           <p className="text-center mt-1 bg-gradient-to-r from-red-600 via-orange-700 to-yellow-800 bg-clip-text text-transparent font-bold animate-forge-glow">
-            The Archemist
+            The Alchemist
           </p>
           <p className="text-center text-gray-400 text-sm mb-6">
             Full-stack Developer & Digital Blacksmith

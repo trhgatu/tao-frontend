@@ -5,7 +5,7 @@ import { Metadata } from 'next';
 import { siteConfig } from '@/config/site';
 /* import { ReduxProvider } from '@/store/provider'; */
 import { ThemeProvider } from '@/components/shared/ThemeProvider';
-import { AudioProvider } from '@/components/shared/forge/components/AuthContextProvider';
+import { AudioProvider } from '@/components/shared/forge/components/AudioContextProvider';
 
 const inter = Inter({ subsets: ['vietnamese'], variable: '--font-sans' });
 
