@@ -1,4 +1,4 @@
-import { HeroVerseEntry } from '@/components/shared/verse';
+import { HeroVerseEntry } from '@/features/verse/home/components';
 
 // src/app/verse/page.tsx
 export default function VerseHome() {

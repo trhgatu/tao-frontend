@@ -8,9 +8,7 @@ export default function VerseLayout({
   return (
     <>
       <VerseNavbar />
-      <main className="min-h-screen flex items-center justify-center mx-auto px-4">
-        {children}
-      </main>
+      <main className="min-h-screen w-full">{children}</main>
       <VerseAudioToggle />
     </>
   );
