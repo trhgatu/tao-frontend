@@ -53,7 +53,7 @@ export function DraggableCardDemo() {
   return (
     <DraggableCardContainer className="relative flex min-h-screen w-full items-center justify-center overflow-clip">
       <p className="absolute top-1/2 mx-auto max-w-sm -translate-y-3/4 text-center text-2xl font-black text-neutral-400 md:text-4xl dark:text-neutral-800">
-        If its your first day at Fight Club, you have to fight.
+        Every memory here… was once the reason my heart skipped a beat.
       </p>
       {items.map((item) => (
         <DraggableCardBody key={item.title} className={item.className}>

@@ -1,4 +1,9 @@
-import { FeaturedBlog, HeroVerseEntry } from '@/features/verse/home/components';
+import {
+  FeaturedBlog,
+  HeroVerseEntry,
+  JournalPreview,
+  MemoriesPreview,
+} from '@/features/verse/home/components';
 
 // src/app/verse/page.tsx
 export default function VerseHome() {
@@ -6,6 +11,8 @@ export default function VerseHome() {
     <section>
       <HeroVerseEntry />
       <FeaturedBlog />
+      <MemoriesPreview />
+      <JournalPreview />
     </section>
   );
 }

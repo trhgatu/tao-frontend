@@ -1,4 +1,4 @@
-import { VerseNavbar } from '@/components/shared/verse/NavbarVerse';
+import { VerseFooter, VerseNavbar } from '@/components/shared/verse';
 import { VerseAudioToggle } from '@/features/verse/home/components';
 export default function VerseLayout({
   children,
@@ -9,6 +9,7 @@ export default function VerseLayout({
     <>
       <VerseNavbar />
       <main className="min-h-screen w-full">{children}</main>
+      <VerseFooter />
       <VerseAudioToggle />
     </>
   );
