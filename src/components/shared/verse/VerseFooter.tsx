@@ -78,11 +78,7 @@ export const VerseFooter = () => {
           </motion.div>
 
           {/* Explore Links */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-          >
+          <div>
             <h4 className="text-lg font-semibold text-white mb-6">Explore</h4>
             <ul className="space-y-4">
               {footerLinks.explore.map((link, index) => {
@@ -100,14 +96,10 @@ export const VerseFooter = () => {
                 );
               })}
             </ul>
-          </motion.div>
+          </div>
 
           {/* Connect Links */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
+          <div>
             <h4 className="text-lg font-semibold text-white mb-6">Connect</h4>
             <ul className="space-y-4">
               {footerLinks.connect.map((link, index) => {
@@ -133,16 +125,11 @@ export const VerseFooter = () => {
                 );
               })}
             </ul>
-          </motion.div>
+          </div>
         </div>
 
         {/* Newsletter Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="border-t border-slate-700 pt-12 mb-12"
-        >
+        <div className="border-t border-slate-700 pt-12 mb-12">
           <div className="text-center max-w-2xl mx-auto">
             <h4 className="text-xl font-semibold text-white mb-3">
               Stay Connected
@@ -163,15 +150,10 @@ export const VerseFooter = () => {
               </button>
             </div>
           </div>
-        </motion.div>
+        </div>
 
         {/* Bottom Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="border-t border-slate-700 pt-8"
-        >
+        <div className="border-t border-slate-700 pt-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             {/* Copyright */}
             <div className="flex items-center gap-2 text-slate-400 text-sm">
@@ -191,7 +173,7 @@ export const VerseFooter = () => {
               <ArrowUp className="w-4 h-4 group-hover:-translate-y-1 transition-transform duration-300" />
             </button>
           </div>
-        </motion.div>
+        </div>
       </div>
     </footer>
   );
