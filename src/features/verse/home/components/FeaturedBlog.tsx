@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { PenTool, BookOpen, Clock, Heart } from 'lucide-react';
+import { PenTool, Clock, Heart, User } from 'lucide-react';
 import Image from 'next/image';
 
 interface BlogPost {
@@ -21,7 +21,7 @@ export const FeaturedBlog = () => {
       id: '1',
       title: 'The Art of Digital Storytelling',
       excerpt:
-        'How technology shapes the way we preserve and share our most precious memories...',
+        'How I discovered that technology can actually help preserve the moments that matter most to me...',
       image:
         'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80',
       category: 'Technology',
@@ -33,7 +33,7 @@ export const FeaturedBlog = () => {
       id: '2',
       title: 'Finding Beauty in Ordinary Moments',
       excerpt:
-        'Sometimes the most profound stories hide in the simplest daily experiences...',
+        'Why I started paying attention to the small things that used to slip by unnoticed...',
       image:
         'https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=800&q=80',
       category: 'Life',
@@ -45,7 +45,7 @@ export const FeaturedBlog = () => {
       id: '3',
       title: 'The Weight of Words Unspoken',
       excerpt:
-        'Exploring the power of silence and the stories we never tell...',
+        'My journey through understanding the power of silence and the stories I never told...',
       image:
         'https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=800&q=80',
       category: 'Poetry',
@@ -56,7 +56,7 @@ export const FeaturedBlog = () => {
   ];
 
   return (
-    <section className="py-20 px-6 bg-gradient-to-b from-slate-900 to-slate-800">
+    <section className="py-20 px-6">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -67,12 +67,12 @@ export const FeaturedBlog = () => {
           <div className="inline-flex items-center gap-3 mb-6">
             <PenTool className="w-8 h-8 text-blue-400" />
             <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-              Blog
+              My Blog
             </h2>
           </div>
           <p className="text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            Thoughts, stories, and reflections from the digital archive. Where
-            fleeting moments become lasting memories.
+            My thoughts, stories, and reflections captured in words. This is
+            where I write down the things that make my heart skip a beat.
           </p>
         </motion.div>
 
@@ -87,7 +87,6 @@ export const FeaturedBlog = () => {
               className="group cursor-pointer"
             >
               <div className="relative overflow-hidden rounded-2xl bg-slate-800/50 backdrop-blur-sm border border-slate-700 hover:border-blue-500/50 transition-all duration-500">
-                {/* Image */}
                 <div className="relative h-48 overflow-hidden">
                   <Image
                     src={post.image}
@@ -140,7 +139,7 @@ export const FeaturedBlog = () => {
           ))}
         </div>
 
-        {/* Blog Stats & CTA */}
+        {/* Personal Stats & CTA */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -151,31 +150,33 @@ export const FeaturedBlog = () => {
           <div className="md:col-span-2 grid grid-cols-3 gap-6">
             <div className="text-center p-6 bg-slate-800/50 backdrop-blur-sm rounded-xl border border-slate-700">
               <div className="text-3xl font-bold text-blue-400 mb-2">127</div>
-              <div className="text-slate-400 text-sm">Stories Written</div>
+              <div className="text-slate-400 text-sm">
+                Stories I&lsquo;ve Written
+              </div>
             </div>
             <div className="text-center p-6 bg-slate-800/50 backdrop-blur-sm rounded-xl border border-slate-700">
               <div className="text-3xl font-bold text-purple-400 mb-2">
                 2.4K
               </div>
-              <div className="text-slate-400 text-sm">Readers</div>
+              <div className="text-slate-400 text-sm">People Reading</div>
             </div>
             <div className="text-center p-6 bg-slate-800/50 backdrop-blur-sm rounded-xl border border-slate-700">
-              <div className="text-3xl font-bold text-green-400 mb-2">89%</div>
-              <div className="text-slate-400 text-sm">Satisfaction</div>
+              <div className="text-3xl font-bold text-green-400 mb-2">365</div>
+              <div className="text-slate-400 text-sm">Days Writing</div>
             </div>
           </div>
 
-          {/* CTA */}
+          {/* Personal CTA */}
           <div className="flex flex-col justify-center items-center p-6 bg-gradient-to-br from-blue-600/20 to-purple-600/20 backdrop-blur-sm rounded-xl border border-blue-500/30">
-            <BookOpen className="w-8 h-8 text-blue-400 mb-3" />
+            <User className="w-8 h-8 text-blue-400 mb-3" />
             <h4 className="text-lg font-semibold text-white mb-2">
-              Explore All Stories
+              Read My Stories
             </h4>
             <p className="text-slate-400 text-sm text-center mb-4">
-              Discover the complete archive
+              Dive deeper into my thoughts
             </p>
             <button className="px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium rounded-full hover:scale-105 transition-transform duration-300">
-              Read More
+              Explore More
             </button>
           </div>
         </motion.div>
@@ -188,7 +189,7 @@ export const FeaturedBlog = () => {
           className="text-center"
         >
           <h3 className="text-2xl font-semibold text-white mb-8">
-            Latest from the Archive
+            What I&lsquo;ve Been Writing Lately
           </h3>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
@@ -217,7 +218,7 @@ export const FeaturedBlog = () => {
           </div>
 
           <button className="mt-8 px-8 py-3 border-2 border-slate-600 text-slate-300 font-semibold rounded-full hover:border-blue-500 hover:text-blue-400 transition-all duration-300">
-            View All Posts
+            Read All My Posts
           </button>
         </motion.div>
       </div>
