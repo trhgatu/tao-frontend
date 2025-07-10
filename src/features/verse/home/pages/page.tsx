@@ -3,6 +3,7 @@ import {
   HeroVerseEntry,
   JournalPreview,
   MemoriesPreview,
+  QuotesPreview,
 } from '@/features/verse/home/components';
 
 // src/app/verse/page.tsx
@@ -11,6 +12,7 @@ export default function VerseHome() {
     <section>
       <HeroVerseEntry />
       <FeaturedBlog />
+      <QuotesPreview />
       <MemoriesPreview />
       <JournalPreview />
     </section>
