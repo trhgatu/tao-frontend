@@ -14,6 +14,7 @@ export function VerseNavbar() {
     { href: '/verse/memories', label: 'Memories' },
     { href: '/verse/journal', label: 'Journal' },
     { href: '/verse/timeline', label: 'Timeline' },
+    { href: '/verse/about', label: 'About' },
   ];
 
   return (
