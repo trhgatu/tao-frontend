@@ -5,17 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Filter, Search, Calendar, MapPin, X } from 'lucide-react';
 import { DraggableCardDemo } from '@/features/verse/memories/components';
 import Image from 'next/image';
-
-interface Memory {
-  id: string;
-  title: string;
-  description: string;
-  image: string;
-  date: string;
-  location: string;
-  tags: string[];
-  mood: 'happy' | 'nostalgic' | 'peaceful' | 'excited';
-}
+import { Memory } from '@/features/verse/memories/types';
 
 export default function MemoriesPage() {
   const [selectedMood, setSelectedMood] = useState<string>('all');
@@ -29,7 +19,7 @@ export default function MemoriesPage() {
       title: 'First Snow of Winter',
       description:
         "The world transformed into a quiet, white canvas. Every footstep felt like writing poetry on nature's page. I stood there for what felt like hours, watching the snowflakes dance in the lamplight.",
-      image:
+      imageUrl:
         'https://images.unsplash.com/photo-1477601263568-180e2c6d046e?auto=format&fit=crop&w=800&q=80',
       date: '2024-01-20',
       location: 'Mountain Trail',
@@ -41,7 +31,7 @@ export default function MemoriesPage() {
       title: 'Late Night Coding Session',
       description:
         'When the world sleeps, my creativity awakens. Lines of code flowing like verses in the digital darkness. The breakthrough moment when everything finally clicked.',
-      image:
+      imageUrl:
         'https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?auto=format&fit=crop&w=800&q=80',
       date: '2024-01-18',
       location: 'My Home Office',
@@ -53,7 +43,7 @@ export default function MemoriesPage() {
       title: 'Coffee Shop Discovery',
       description:
         "Found this hidden gem tucked away in District 3. The barista knew exactly how I liked my coffee before I even ordered. Sometimes the best discoveries happen when you're not looking.",
-      image:
+      imageUrl:
         'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=800&q=80',
       date: '2024-01-15',
       location: 'Hidden Café, District 3',
@@ -65,7 +55,7 @@ export default function MemoriesPage() {
       title: 'Childhood Home Visit',
       description:
         'Walking through the rooms where I grew up, every corner holds a memory. The creaky floorboard in the hallway, the view from my old bedroom window.',
-      image:
+      imageUrl:
         'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&w=800&q=80',
       date: '2024-01-12',
       location: 'Family Home',
@@ -77,7 +67,7 @@ export default function MemoriesPage() {
       title: 'Sunrise Photography',
       description:
         'Waking up at 5 AM to catch the perfect light. The city slowly coming alive as the sun painted the sky in shades of gold and pink.',
-      image:
+      imageUrl:
         'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=800&q=80',
       date: '2024-01-10',
       location: 'City Rooftop',
@@ -89,7 +79,7 @@ export default function MemoriesPage() {
       title: 'Concert Under Stars',
       description:
         'Live music flowing through the night air, surrounded by thousands of people all feeling the same rhythm. Music has this magical way of connecting souls.',
-      image:
+      imageUrl:
         'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=800&q=80',
       date: '2024-01-08',
       location: 'Open Air Venue',
@@ -101,7 +91,7 @@ export default function MemoriesPage() {
       title: "Grandmother's Stories",
       description:
         "Spent the afternoon listening to grandma's stories about the old days. Her eyes lit up as she spoke about her youth. These moments are precious beyond measure.",
-      image:
+      imageUrl:
         'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80',
       date: '2024-01-05',
       location: 'Family Home',
@@ -113,7 +103,7 @@ export default function MemoriesPage() {
       title: 'Morning Meditation',
       description:
         'Started my day with 20 minutes of quiet meditation. The city was just waking up, and I felt completely at peace with the world and myself.',
-      image:
+      imageUrl:
         'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80',
       date: '2024-01-03',
       location: 'Rooftop Garden',
@@ -237,7 +227,7 @@ export default function MemoriesPage() {
                     <Image
                       width={300}
                       height={300}
-                      src={memory.image}
+                      src={memory.imageUrl}
                       alt={memory.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                     />
@@ -353,7 +343,7 @@ export default function MemoriesPage() {
               <Image
                 width={300}
                 height={300}
-                src={selectedMemory.image}
+                src={selectedMemory.imageUrl}
                 alt={selectedMemory.title}
                 className="w-full h-64 object-cover rounded-xl mb-4"
               />
