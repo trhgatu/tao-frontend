@@ -1,6 +1,7 @@
 import { VerseFooter, VerseNavbar } from '@/components/shared/verse';
 import { SparklesCore } from '@/components/ui/sparkles';
 import { VerseAudioToggle } from '@/features/verse/home/components';
+import { ReactQueryProvider } from '@/app/providers/react-query-provider';
 
 export default function VerseLayout({
   children,
@@ -8,15 +9,13 @@ export default function VerseLayout({
   children: React.ReactNode;
 }) {
   return (
-    <>
-      {/* Content Layer */}
+    <ReactQueryProvider>
       <div className="relative z-10">
         <VerseNavbar />
         <main className="min-h-screen w-full">{children}</main>
         <VerseFooter />
       </div>
 
-      {/* Sparkles Overlay - Above everything */}
       <div className="fixed inset-0 w-full h-full z-50 pointer-events-none">
         <SparklesCore
           id="tsparticlesfullpage"
@@ -30,6 +29,6 @@ export default function VerseLayout({
       </div>
 
       <VerseAudioToggle />
-    </>
+    </ReactQueryProvider>
   );
 }

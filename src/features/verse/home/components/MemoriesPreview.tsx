@@ -3,57 +3,12 @@
 import { motion } from 'framer-motion';
 import { Camera, Calendar, MapPin, Heart, Star } from 'lucide-react';
 import Image from 'next/image';
-
-interface Memory {
-  id: string;
-  title: string;
-  description: string;
-  image: string;
-  date: string;
-  location: string;
-  tags: string[];
-  mood: 'happy' | 'nostalgic' | 'peaceful' | 'excited';
-}
+import { usePublicMemories } from '@/features/verse/memories/hooks';
 
 export const MemoriesPreview = () => {
-  const featuredMemories: Memory[] = [
-    {
-      id: '1',
-      title: 'First Snow of Winter',
-      description:
-        "The world transformed into a quiet, white canvas. Every footstep felt like writing poetry on nature's page.",
-      image:
-        'https://images.unsplash.com/photo-1477601263568-180e2c6d046e?auto=format&fit=crop&w=800&q=80',
-      date: '2024-01-20',
-      location: 'Mountain Trail',
-      tags: ['nature', 'winter', 'peaceful'],
-      mood: 'peaceful',
-    },
-    {
-      id: '2',
-      title: 'Late Night Coding Session',
-      description:
-        'When the world sleeps, my creativity awakens. Lines of code flowing like verses in the digital darkness.',
-      image:
-        'https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?auto=format&fit=crop&w=800&q=80',
-      date: '2024-01-18',
-      location: 'My Home Office',
-      tags: ['coding', 'creativity', 'night'],
-      mood: 'excited',
-    },
-    {
-      id: '3',
-      title: 'Coffee Shop Conversations',
-      description:
-        'Overheard stories mixing with the aroma of fresh coffee. Sometimes my best inspiration comes from strangers.',
-      image:
-        'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=800&q=80',
-      date: '2024-01-15',
-      location: 'Downtown Café',
-      tags: ['coffee', 'people', 'inspiration'],
-      mood: 'happy',
-    },
-  ];
+  const { data, isLoading, isError } = usePublicMemories();
+  if (isLoading) return <p>Đang tải memories...</p>;
+  if (isError) return <p>Có lỗi xảy ra</p>;
 
   const moodColors = {
     happy: 'from-yellow-400 to-orange-400',
@@ -86,7 +41,7 @@ export const MemoriesPreview = () => {
 
         {/* Featured Memories */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
-          {featuredMemories.map((memory, index) => (
+          {data!.map((memory, index) => (
             <motion.div
               key={memory.id}
               initial={{ opacity: 0, y: 40 }}
@@ -98,7 +53,7 @@ export const MemoriesPreview = () => {
                 {/* Image */}
                 <div className="relative h-64 overflow-hidden">
                   <Image
-                    src={memory.image}
+                    src={memory.imageUrl}
                     alt={memory.title}
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-700"
@@ -140,9 +95,9 @@ export const MemoriesPreview = () => {
 
                   {/* Tags */}
                   <div className="flex flex-wrap gap-2">
-                    {memory.tags.map((tag, tagIndex) => (
+                    {memory.tags.map((tag) => (
                       <span
-                        key={tagIndex}
+                        key={tag}
                         className="px-2 py-1 bg-slate-700/50 text-slate-300 text-xs rounded-full"
                       >
                         #{tag}

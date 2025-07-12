@@ -5,17 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Filter, Search, Calendar, MapPin, X } from 'lucide-react';
 import { DraggableCardDemo } from '@/features/verse/memories/components';
 import Image from 'next/image';
-
-interface Memory {
-  id: string;
-  title: string;
-  description: string;
-  image: string;
-  date: string;
-  location: string;
-  tags: string[];
-  mood: 'happy' | 'nostalgic' | 'peaceful' | 'excited';
-}
+import { Memory } from '@/features/verse/memories/types';
 
 export default function MemoriesPage() {
   const [selectedMood, setSelectedMood] = useState<string>('all');
