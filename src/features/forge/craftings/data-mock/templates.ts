@@ -2,6 +2,7 @@ export const templates = [
   {
     id: 'template-1',
     name: 'E-Commerce Foundation',
+    slug: 'e-commerce-foundation',
     description:
       'Complete e-commerce template with cart, checkout, and admin dashboard',
     image: 'https://assets.aceternity.com/templates/startup-1.webp',
@@ -11,10 +12,13 @@ export const templates = [
     featured: true,
     link: 'https://template-demo.com',
     repo: 'https://github.com/username/ecommerce-template',
+    status: 'Completed',
+    year: 2025,
   },
   {
     id: 'template-2',
     name: 'SaaS Starter Kit',
+    slug: 'saas-starter-kit',
     description:
       'Modern SaaS template with authentication, billing, and dashboard',
     image: 'https://assets.aceternity.com/templates/startup-2.webp',
@@ -24,10 +28,13 @@ export const templates = [
     featured: true,
     link: 'https://saas-demo.com',
     repo: 'https://github.com/username/saas-template',
+    status: 'Completed',
+    year: 2025,
   },
   {
     id: 'template-3',
     name: 'Portfolio Showcase',
+    slug: 'portfolio-showcase',
     description: 'Creative portfolio template for developers and designers',
     image: 'https://assets.aceternity.com/pro/hero-sections.png',
     tech: ['Next.js', 'Framer Motion', 'Tailwind'],
@@ -36,5 +43,7 @@ export const templates = [
     featured: false,
     link: 'https://portfolio-demo.com',
     repo: 'https://github.com/username/portfolio-template',
+    status: 'Completed',
+    year: 2025,
   },
 ];

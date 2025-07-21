@@ -9,6 +9,7 @@ export interface Foundation {
   featured: boolean;
   link?: string;
   repo?: string;
+  year?: number;
 }
 
 export type ContentType = 'projects' | 'foundations' | 'all';

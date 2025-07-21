@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { IconFlame, IconCode, IconTemplate } from '@tabler/icons-react';
 import Image from 'next/image';
+import Link from 'next/link'; // Import Link từ next/link
 import { projects, templates } from '../data-mock';
 import { ViewMode, Category } from '../types/project';
 import {
@@ -173,7 +174,12 @@ export default function CraftingsPage() {
               </div>
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 {featuredProjects.map((project) => (
-                  <FeaturedProjectCard key={project.id} project={project} />
+                  <Link
+                    key={project.id}
+                    href={`/forge/craftings/${project.slug}`}
+                  >
+                    <FeaturedProjectCard project={project} />
+                  </Link>
                 ))}
               </div>
             </div>
@@ -191,11 +197,12 @@ export default function CraftingsPage() {
               </div>
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 {featuredTemplates.map((foundation) => (
-                  <FoundationCard
+                  <Link
                     key={foundation.id}
-                    foundation={foundation}
-                    featured
-                  />
+                    href={`/forge/craftings/${foundation.slug}`}
+                  >
+                    <FoundationCard foundation={foundation} featured />
+                  </Link>
                 ))}
               </div>
             </div>
@@ -215,13 +222,23 @@ export default function CraftingsPage() {
             {viewMode === 'grid' ? (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {regularProjects.map((project) => (
-                  <ProjectCard key={project.id} project={project} />
+                  <Link
+                    key={project.id}
+                    href={`/forge/craftings/${project.slug}`}
+                  >
+                    <ProjectCard project={project} />
+                  </Link>
                 ))}
               </div>
             ) : (
               <div className="space-y-4">
                 {regularProjects.map((project) => (
-                  <ProjectListItem key={project.id} project={project} />
+                  <Link
+                    key={project.id}
+                    href={`/forge/craftings/${project.slug}`}
+                  >
+                    <ProjectListItem project={project} />
+                  </Link>
                 ))}
               </div>
             )}
@@ -242,16 +259,23 @@ export default function CraftingsPage() {
             {viewMode === 'grid' ? (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {regularTemplates.map((foundation) => (
-                  <FoundationCard key={foundation.id} foundation={foundation} />
+                  <Link
+                    key={foundation.id}
+                    href={`/forge/craftings/${foundation.slug}`}
+                  >
+                    <FoundationCard foundation={foundation} />
+                  </Link>
                 ))}
               </div>
             ) : (
               <div className="space-y-4">
                 {regularTemplates.map((foundation) => (
-                  <FoundationListItem
+                  <Link
                     key={foundation.id}
-                    foundation={foundation}
-                  />
+                    href={`/forge/craftings/${foundation.slug}`}
+                  >
+                    <FoundationListItem foundation={foundation} />
+                  </Link>
                 ))}
               </div>
             )}
