@@ -10,6 +10,7 @@ export interface Project {
   repo?: string;
   featured: boolean;
   year: number;
+  slug: string;
 }
 
 export type ViewMode = 'grid' | 'list';

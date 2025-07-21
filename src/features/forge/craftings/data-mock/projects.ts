@@ -1,8 +1,10 @@
 import { Project } from '../types/project';
+
 export const projects: Project[] = [
   {
     id: 1,
     name: 'E-Commerce Platform',
+    slug: 'e-commerce-platform',
     description:
       'Full-stack e-commerce solution with Next.js, Stripe integration, and admin dashboard',
     image: '/projects/ecommerce.jpg',
@@ -24,6 +26,7 @@ export const projects: Project[] = [
   {
     id: 2,
     name: 'AI Chat Application',
+    slug: 'ai-chat-application',
     description:
       'Real-time chat app with AI integration using OpenAI API and WebSocket',
     image: '/projects/ai-chat.jpg',
@@ -38,6 +41,7 @@ export const projects: Project[] = [
   {
     id: 3,
     name: 'Task Management System',
+    slug: 'task-management-system',
     description:
       'Collaborative project management tool with real-time updates and team features',
     image: '/projects/task-manager.jpg',
@@ -60,6 +64,7 @@ export const categories = [
   'Mobile',
   'Productivity',
 ];
+
 export const techStack = [
   'React',
   'Next.js',

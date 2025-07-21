@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { IconFlame, IconCode, IconTemplate } from '@tabler/icons-react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation'; // Import useRouter từ next/navigation
 import { projects, templates } from '../data-mock';
 import { ViewMode, Category } from '../types/project';
 import {
@@ -19,6 +20,7 @@ import {
 type ContentType = 'projects' | 'foundations' | 'all';
 
 export default function CraftingsPage() {
+  const router = useRouter(); // Sử dụng useRouter để navigate
   const [viewMode, setViewMode] = useState<ViewMode>('grid');
   const [selectedCategory, setSelectedCategory] = useState<Category>('All');
   const [selectedTech, setSelectedTech] = useState<string[]>([]);
@@ -173,7 +175,15 @@ export default function CraftingsPage() {
               </div>
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 {featuredProjects.map((project) => (
-                  <FeaturedProjectCard key={project.id} project={project} />
+                  <div
+                    key={project.id}
+                    className="cursor-pointer"
+                    onClick={() =>
+                      router.push(`/forge/craftings/${project.slug}`)
+                    }
+                  >
+                    <FeaturedProjectCard project={project} />
+                  </div>
                 ))}
               </div>
             </div>
@@ -191,11 +201,15 @@ export default function CraftingsPage() {
               </div>
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 {featuredTemplates.map((foundation) => (
-                  <FoundationCard
+                  <div
                     key={foundation.id}
-                    foundation={foundation}
-                    featured
-                  />
+                    className="cursor-pointer"
+                    onClick={() =>
+                      router.push(`/forge/craftings/${foundation.slug}`)
+                    }
+                  >
+                    <FoundationCard foundation={foundation} featured />
+                  </div>
                 ))}
               </div>
             </div>
@@ -215,13 +229,29 @@ export default function CraftingsPage() {
             {viewMode === 'grid' ? (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {regularProjects.map((project) => (
-                  <ProjectCard key={project.id} project={project} />
+                  <div
+                    key={project.id}
+                    className="cursor-pointer"
+                    onClick={() =>
+                      router.push(`/forge/craftings/${project.slug}`)
+                    }
+                  >
+                    <ProjectCard project={project} />
+                  </div>
                 ))}
               </div>
             ) : (
               <div className="space-y-4">
                 {regularProjects.map((project) => (
-                  <ProjectListItem key={project.id} project={project} />
+                  <div
+                    key={project.id}
+                    className="cursor-pointer"
+                    onClick={() =>
+                      router.push(`/forge/craftings/${project.slug}`)
+                    }
+                  >
+                    <ProjectListItem project={project} />
+                  </div>
                 ))}
               </div>
             )}
@@ -242,16 +272,29 @@ export default function CraftingsPage() {
             {viewMode === 'grid' ? (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {regularTemplates.map((foundation) => (
-                  <FoundationCard key={foundation.id} foundation={foundation} />
+                  <div
+                    key={foundation.id}
+                    className="cursor-pointer"
+                    onClick={() =>
+                      router.push(`/forge/craftings/${foundation.slug}`)
+                    }
+                  >
+                    <FoundationCard foundation={foundation} />
+                  </div>
                 ))}
               </div>
             ) : (
               <div className="space-y-4">
                 {regularTemplates.map((foundation) => (
-                  <FoundationListItem
+                  <div
                     key={foundation.id}
-                    foundation={foundation}
-                  />
+                    className="cursor-pointer"
+                    onClick={() =>
+                      router.push(`/forge/craftings/${foundation.slug}`)
+                    }
+                  >
+                    <FoundationListItem foundation={foundation} />
+                  </div>
                 ))}
               </div>
             )}
