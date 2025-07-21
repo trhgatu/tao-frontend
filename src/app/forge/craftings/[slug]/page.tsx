@@ -1,5 +1,3 @@
-'use client';
-
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -11,10 +9,13 @@ import {
   IconBrandGithub,
 } from '@tabler/icons-react';
 
-type Props = { params: { slug: string } };
+type Props = {
+  params: Promise<{ slug: string }>;
+};
 
-export default function CraftingDetailPage({ params }: Props) {
-  const { slug } = params;
+export default async function CraftingDetailPage({ params }: Props) {
+  const resolvedParams = await params;
+  const { slug } = resolvedParams;
   const item =
     projects.find((p) => p.slug === slug) ||
     templates.find((t) => t.slug === slug);
