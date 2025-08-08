@@ -59,7 +59,11 @@ export function VerseNavbar() {
           </li>
 
           {navItems.map((item) => (
-            <motion.li key={item.href} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <motion.li
+              key={item.href}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
               <Link
                 href={item.href}
                 className={[
@@ -130,7 +134,10 @@ export function VerseNavbar() {
                   key={item.href}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: isOpen ? 1 : 0, x: isOpen ? 0 : -20 }}
-                  transition={{ delay: isOpen ? index * 0.06 : 0, duration: 0.25 }}
+                  transition={{
+                    delay: isOpen ? index * 0.06 : 0,
+                    duration: 0.25,
+                  }}
                 >
                   <Link
                     href={item.href}
