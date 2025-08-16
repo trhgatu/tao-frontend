@@ -1,29 +1,27 @@
-import { notFound } from 'next/navigation';
+'use client';
+
+import { notFound, useParams } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-import { projects, templates } from '@/features/forge/craftings/data-mock';
 import {
   IconArrowLeft,
   IconExternalLink,
   IconStar,
   IconBrandGithub,
 } from '@tabler/icons-react';
+import { useLang } from '@/hooks';
+import { usePublicProjectBySlug } from '@/features/forge/craftings/hooks';
 
-type Props = {
-  params: Promise<{ slug: string }>;
-};
+export default function CraftingDetailPage() {
+  const lang = useLang();
+  const { slug } = useParams() as { slug: string };
 
-export default async function CraftingDetailPage({ params }: Props) {
-  const resolvedParams = await params;
-  const { slug } = resolvedParams;
-  const item =
-    projects.find((p) => p.slug === slug) ||
-    templates.find((t) => t.slug === slug);
-  if (!item) notFound();
+  const { data: item, isLoading, isError } = usePublicProjectBySlug(slug, lang);
 
-  const isProject = !!projects.find((p) => p.slug === slug);
+  if (isLoading) return <p className="text-white">Loading...</p>;
+  if (isError || !item) return notFound();
+
   const featured = !!item.featured;
-  const status = item.status;
   const hasGithub = !!item.repo;
 
   return (
@@ -46,7 +44,7 @@ export default async function CraftingDetailPage({ params }: Props) {
               </span>
             )}
             <span className="px-3 py-1 bg-zinc-800 text-orange-300 rounded-full text-xs">
-              {isProject ? 'Project' : 'Foundation'}
+              Project
             </span>
             {item.category && (
               <span className="px-3 py-1 bg-zinc-800 text-red-300 rounded-full text-xs">
@@ -58,15 +56,17 @@ export default async function CraftingDetailPage({ params }: Props) {
                 {item.year}
               </span>
             )}
-            {status && (
+            {item.status && (
               <span className="px-3 py-1 bg-zinc-900 text-blue-400 rounded-full text-xs">
-                {status}
+                {item.status}
               </span>
             )}
           </div>
+
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-2">
             {item.name}
           </h1>
+
           <div className="flex flex-wrap gap-2 mt-2">
             {item.tech?.map((tech: string) => (
               <span
@@ -97,7 +97,7 @@ export default async function CraftingDetailPage({ params }: Props) {
           {item.description}
         </div>
 
-        {/* Liên kết & Thao tác */}
+        {/* ACTIONS */}
         {(item.link || hasGithub) && (
           <div className="flex flex-wrap items-center gap-4 text-sm mt-3">
             {item.link && (
@@ -122,9 +122,6 @@ export default async function CraftingDetailPage({ params }: Props) {
             )}
           </div>
         )}
-
-        {/* Tùy chọn: Section tính năng nổi bật, Ảnh phụ, changelog... */}
-        {/* ... */}
       </div>
     </div>
   );

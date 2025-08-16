@@ -7,7 +7,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation'; // Import useRouter từ next/navigation
 import { templates } from '../data-mock';
 import { ViewMode, Category } from '../types/project';
-import { useAppSelector } from '@/store/hook';
+import { useLang } from '@/hooks';
 import {
   ProjectControls,
   FilterPanel,
@@ -30,7 +30,7 @@ export default function CraftingsPage() {
   const [showFilters, setShowFilters] = useState(false);
   const [contentType, setContentType] = useState<ContentType>('all');
 
-  const lang = useAppSelector((state) => state.language.lang);
+  const lang = useLang();
 
   const { data, isLoading, isError } = usePublicProjects(lang);
   if (isLoading) return <p>Đang tải projects...</p>;

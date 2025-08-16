@@ -7,3 +7,13 @@ export const getPublicProjects = async (lang: string): Promise<Project[]> => {
   });
   return res.data.data;
 };
+
+export const getPublicProjectBySlug = async (
+  slug: string,
+  lang: string
+): Promise<Project> => {
+  const res = await axiosInstance.get(`/projects/${slug}`, {
+    params: { lang },
+  });
+  return res.data.data;
+};
