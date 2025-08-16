@@ -1,16 +1,20 @@
 export interface Project {
-  id: number;
+  id: string;
+  slug: string;
   name: string;
   description: string;
-  image: string;
-  tech: string[];
-  category: string;
-  status: 'Completed' | 'In Progress';
+  image?: string;
+  tech?: string[];
+  category?: string;
+  projectStatus: 'Completed' | 'In Progress';
+  status: 'published' | 'draft';
   link?: string;
   repo?: string;
   featured: boolean;
-  year: number;
-  slug: string;
+  year?: number;
+  publishedAt?: string;
+  createdAt?: string;
+  updatedAt?: string;
 }
 
 export type ViewMode = 'grid' | 'list';

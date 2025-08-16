@@ -3,9 +3,10 @@ import './globals.css';
 import { Inter } from 'next/font/google';
 import { Metadata } from 'next';
 import { siteConfig } from '@/config/site';
-/* import { ReduxProvider } from '@/store/provider'; */
+import { ReduxProvider } from '@/store/provider';
 import { ThemeProvider } from '@/components/shared/ThemeProvider';
 import { AudioProvider } from '@/components/shared/forge/components/AudioContextProvider';
+import { ReactQueryProvider } from '@/app/providers/react-query-provider';
 
 const inter = Inter({ subsets: ['vietnamese'], variable: '--font-sans' });
 
@@ -26,19 +27,20 @@ export default function RootLayout({
   return (
     <html lang="vi" suppressHydrationWarning>
       <body className={`min-h-screen font-sans ${inter.variable}`}>
-        {/* <ReduxProvider> */}
-        <AudioProvider>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <main>{children}</main>
-          </ThemeProvider>
-        </AudioProvider>
-
-        {/* </ReduxProvider> */}
+        <ReduxProvider>
+          <ReactQueryProvider>
+            <AudioProvider>
+              <ThemeProvider
+                attribute="class"
+                defaultTheme="system"
+                enableSystem
+                disableTransitionOnChange
+              >
+                <main>{children}</main>
+              </ThemeProvider>
+            </AudioProvider>
+          </ReactQueryProvider>
+        </ReduxProvider>
       </body>
     </html>
   );

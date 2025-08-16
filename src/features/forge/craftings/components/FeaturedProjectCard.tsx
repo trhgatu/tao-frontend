@@ -17,7 +17,7 @@ export const FeaturedProjectCard = ({ project }: FeaturedProjectCardProps) => (
   >
     <div className="relative h-64">
       <Image
-        src={project.image}
+        src={project.image || ''}
         alt={project.name}
         fill
         className="object-cover group-hover:scale-105 transition-transform duration-300"
@@ -35,7 +35,7 @@ export const FeaturedProjectCard = ({ project }: FeaturedProjectCardProps) => (
         <h3 className="text-xl font-bold text-white">{project.name}</h3>
         <span
           className={`px-2 py-1 text-xs rounded-full ${
-            project.status === 'Completed'
+            project.projectStatus === 'Completed'
               ? 'bg-green-600 text-white'
               : 'bg-yellow-600 text-white'
           }`}
