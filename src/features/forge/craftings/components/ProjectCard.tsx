@@ -16,7 +16,7 @@ export const ProjectCard = ({ project }: ProjectCardProps) => (
   >
     <div className="relative h-48">
       <Image
-        src={project.image}
+        src={project.image || ''}
         alt={project.name}
         fill
         className="object-cover group-hover:scale-105 transition-transform duration-300"
@@ -29,7 +29,7 @@ export const ProjectCard = ({ project }: ProjectCardProps) => (
         <h3 className="font-bold text-white">{project.name}</h3>
         <span
           className={`px-2 py-1 text-xs rounded-full ${
-            project.status === 'Completed'
+            project.projectStatus === 'Completed'
               ? 'bg-green-600 text-white'
               : 'bg-yellow-600 text-white'
           }`}
@@ -43,7 +43,7 @@ export const ProjectCard = ({ project }: ProjectCardProps) => (
       </p>
 
       <div className="flex flex-wrap gap-1 mb-3">
-        {project.tech.slice(0, 3).map((tech: string) => (
+        {project.tech?.slice(0, 3).map((tech: string) => (
           <span
             key={tech}
             className="px-2 py-1 bg-zinc-700 text-gray-300 text-xs rounded"
