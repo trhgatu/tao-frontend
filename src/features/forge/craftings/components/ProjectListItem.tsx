@@ -17,7 +17,7 @@ export const ProjectListItem = ({ project }: ProjectListItemProps) => (
   >
     <div className="relative w-20 h-20 rounded-lg overflow-hidden flex-shrink-0">
       <Image
-        src={project.image}
+        src={project.image || ''}
         alt={project.name}
         fill
         className="object-cover"
@@ -29,7 +29,7 @@ export const ProjectListItem = ({ project }: ProjectListItemProps) => (
         <h3 className="font-bold text-white">{project.name}</h3>
         <span
           className={`px-2 py-1 text-xs rounded-full ${
-            project.status === 'Completed'
+            project.projectStatus === 'Completed'
               ? 'bg-green-600 text-white'
               : 'bg-yellow-600 text-white'
           }`}
@@ -39,7 +39,7 @@ export const ProjectListItem = ({ project }: ProjectListItemProps) => (
       </div>
       <p className="text-gray-300 text-sm mb-2">{project.description}</p>
       <div className="flex flex-wrap gap-1">
-        {project.tech.slice(0, 5).map((tech: string) => (
+        {project.tech?.map((tech: string) => (
           <span
             key={tech}
             className="px-2 py-1 bg-zinc-700 text-gray-300 text-xs rounded"

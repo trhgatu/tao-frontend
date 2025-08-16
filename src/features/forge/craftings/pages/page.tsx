@@ -5,8 +5,9 @@ import { motion } from 'framer-motion';
 import { IconFlame, IconCode, IconTemplate } from '@tabler/icons-react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation'; // Import useRouter từ next/navigation
-import { projects, templates } from '../data-mock';
+import { templates } from '../data-mock';
 import { ViewMode, Category } from '../types/project';
+import { useAppSelector } from '@/store/hook';
 import {
   ProjectControls,
   FilterPanel,
@@ -16,6 +17,7 @@ import {
   FoundationCard,
   FoundationListItem,
 } from '../components';
+import { usePublicProjects } from '@/features/forge/craftings/hooks';
 
 type ContentType = 'projects' | 'foundations' | 'all';
 
@@ -28,12 +30,18 @@ export default function CraftingsPage() {
   const [showFilters, setShowFilters] = useState(false);
   const [contentType, setContentType] = useState<ContentType>('all');
 
-  const filteredProjects = projects.filter((project) => {
+  const lang = useAppSelector((state) => state.language.lang);
+
+  const { data, isLoading, isError } = usePublicProjects(lang);
+  if (isLoading) return <p>Đang tải projects...</p>;
+  if (isError) return <p>Có lỗi xảy ra</p>;
+
+  const filteredProjects = (data ?? []).filter((project) => {
     const matchesCategory =
       selectedCategory === 'All' || project.category === selectedCategory;
     const matchesTech =
       selectedTech.length === 0 ||
-      selectedTech.some((tech) => project.tech.includes(tech));
+      selectedTech.some((tech) => project.tech?.includes(tech));
     const matchesSearch =
       project.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       project.description.toLowerCase().includes(searchQuery.toLowerCase());

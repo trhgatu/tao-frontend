@@ -17,13 +17,10 @@ import {
 } from '@tabler/icons-react';
 import Image from 'next/image';
 
-const fade = {
-  hidden: { opacity: 0, y: 20 },
-  show: (i = 0) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: i * 0.1 },
-  }),
+// Giảm animation - chỉ fade đơn giản
+const fadeSimple = {
+  hidden: { opacity: 0 },
+  show: { opacity: 1, transition: { duration: 0.3 } },
 };
 
 const battleLog = [
@@ -87,8 +84,9 @@ export default function TheAlchemistPage() {
       />
 
       <div className="max-w-7xl mx-auto px-4 py-16 grid gap-12 xl:grid-cols-3">
+        {/* Sidebar - giữ motion đơn giản */}
         <motion.aside
-          variants={fade}
+          variants={fadeSimple}
           initial="hidden"
           animate="show"
           className="xl:sticky xl:top-8 h-fit bg-zinc-800/50 border border-red-500/30 rounded-2xl p-8 backdrop-blur-sm shadow-lg shadow-red-900/20"
@@ -104,7 +102,7 @@ export default function TheAlchemistPage() {
           </div>
 
           <h1 className="text-center text-2xl font-bold">Tran Hoang Anh Tu</h1>
-          <p className="text-center mt-1 bg-gradient-to-r from-red-600 via-orange-700 to-yellow-800 bg-clip-text text-transparent font-bold animate-forge-glow">
+          <p className="text-center mt-1 bg-gradient-to-r from-red-600 via-orange-700 to-yellow-800 bg-clip-text text-transparent font-bold">
             The Alchemist
           </p>
           <p className="text-center text-gray-400 text-sm mb-6">
@@ -151,8 +149,8 @@ export default function TheAlchemistPage() {
             icon={<IconFlame className="text-red-500 w-8 h-8" />}
           >
             <p className="text-lg italic leading-relaxed text-gray-300 mb-4">
-              Code is not just written—it’s <strong>forged</strong>. Every line
-              tempered by challenge, every function sharpened by purpose. I
+              Code is not just written—it&apos;s <strong>forged</strong>. Every
+              line tempered by challenge, every function sharpened by purpose. I
               craft experiences that endure.
             </p>
           </Section>
@@ -162,13 +160,9 @@ export default function TheAlchemistPage() {
             icon={<IconSword className="text-orange-500 w-8 h-8" />}
           >
             <div className="space-y-6">
-              {battleLog.map((b, i) => (
-                <motion.article
+              {battleLog.map((b) => (
+                <article
                   key={b.year}
-                  variants={fade}
-                  custom={i}
-                  initial="hidden"
-                  whileInView="show"
                   className="bg-zinc-800/50 border-l-4 border-red-500 rounded-xl p-6 hover:bg-zinc-800/70 transition"
                 >
                   <header className="flex items-start gap-4 mb-2">
@@ -183,7 +177,7 @@ export default function TheAlchemistPage() {
                     </h3>
                   </header>
                   <p className="text-gray-300">{b.description}</p>
-                </motion.article>
+                </article>
               ))}
             </div>
           </Section>
@@ -193,13 +187,9 @@ export default function TheAlchemistPage() {
             icon={<IconHammer className="text-yellow-500 w-8 h-8" />}
           >
             <div className="grid md:grid-cols-2 gap-6">
-              {arsenal.map((box, i) => (
-                <motion.div
+              {arsenal.map((box) => (
+                <div
                   key={box.label}
-                  variants={fade}
-                  custom={i}
-                  initial="hidden"
-                  whileInView="show"
                   className="bg-zinc-800/50 border border-zinc-700 rounded-xl p-6 shadow-lg hover:border-red-500/50 transition"
                 >
                   <header className="flex items-center gap-3 mb-4">
@@ -216,7 +206,7 @@ export default function TheAlchemistPage() {
                       </span>
                     ))}
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
           </Section>
@@ -265,8 +255,8 @@ export default function TheAlchemistPage() {
                 Ready to Forge Something Epic?
               </h2>
               <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
-                Every great application starts with a spark. Let’s turn your
-                vision into a battle-tested reality.
+                Every great application starts with a spark. Let&apos;s turn
+                your vision into a battle-tested reality.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
@@ -292,6 +282,7 @@ export default function TheAlchemistPage() {
   );
 }
 
+// Section component đơn giản hóa
 function Section({
   icon,
   title,
@@ -304,12 +295,7 @@ function Section({
   center?: boolean;
 }) {
   return (
-    <motion.section
-      variants={fade}
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, amount: 0.1 }}
-    >
+    <section>
       {title && (
         <h2
           className={`text-3xl font-bold mb-6 flex ${
@@ -321,6 +307,6 @@ function Section({
         </h2>
       )}
       {children}
-    </motion.section>
+    </section>
   );
 }

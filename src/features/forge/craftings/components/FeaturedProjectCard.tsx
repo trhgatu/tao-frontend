@@ -17,7 +17,7 @@ export const FeaturedProjectCard = ({ project }: FeaturedProjectCardProps) => (
   >
     <div className="relative h-64">
       <Image
-        src={project.image}
+        src={project.image || ''}
         alt={project.name}
         fill
         className="object-cover group-hover:scale-105 transition-transform duration-300"
@@ -35,7 +35,7 @@ export const FeaturedProjectCard = ({ project }: FeaturedProjectCardProps) => (
         <h3 className="text-xl font-bold text-white">{project.name}</h3>
         <span
           className={`px-2 py-1 text-xs rounded-full ${
-            project.status === 'Completed'
+            project.projectStatus === 'Completed'
               ? 'bg-green-600 text-white'
               : 'bg-yellow-600 text-white'
           }`}
@@ -47,7 +47,7 @@ export const FeaturedProjectCard = ({ project }: FeaturedProjectCardProps) => (
       <p className="text-gray-300 mb-4">{project.description}</p>
 
       <div className="flex flex-wrap gap-2 mb-4">
-        {project.tech.slice(0, 4).map((tech: string) => (
+        {project.tech?.slice(0, 4).map((tech: string) => (
           <span
             key={tech}
             className="px-2 py-1 bg-zinc-700 text-gray-300 text-xs rounded"
@@ -55,9 +55,9 @@ export const FeaturedProjectCard = ({ project }: FeaturedProjectCardProps) => (
             {tech}
           </span>
         ))}
-        {project.tech.length > 4 && (
+        {(project.tech?.length ?? 0) > 4 && (
           <span className="px-2 py-1 bg-zinc-700 text-gray-300 text-xs rounded">
-            +{project.tech.length - 4} more
+            +{(project.tech?.length ?? 0) - 4} more
           </span>
         )}
       </div>

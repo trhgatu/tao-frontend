@@ -2,7 +2,7 @@ import { Project } from '../types/project';
 
 export const projects: Project[] = [
   {
-    id: 1,
+    id: '1',
     name: 'E-Commerce Platform',
     slug: 'e-commerce-platform',
     description:
@@ -17,14 +17,15 @@ export const projects: Project[] = [
       'Tailwind',
     ],
     category: 'Full-Stack',
-    status: 'Completed',
+    status: 'published',
+    projectStatus: 'Completed',
     link: 'https://demo.example.com',
     repo: 'https://github.com/username/project',
     featured: true,
     year: 2024,
   },
   {
-    id: 2,
+    id: '2',
     name: 'AI Chat Application',
     slug: 'ai-chat-application',
     description:
@@ -32,14 +33,15 @@ export const projects: Project[] = [
     image: '/projects/ai-chat.jpg',
     tech: ['React', 'Node.js', 'Socket.io', 'OpenAI', 'MongoDB', 'Express'],
     category: 'AI/ML',
-    status: 'In Progress',
+    status: 'published',
+    projectStatus: 'In Progress',
     link: 'https://chat.example.com',
     repo: 'https://github.com/username/ai-chat',
     featured: true,
     year: 2024,
   },
   {
-    id: 3,
+    id: '3',
     name: 'Task Management System',
     slug: 'task-management-system',
     description:
@@ -47,7 +49,8 @@ export const projects: Project[] = [
     image: '/projects/task-manager.jpg',
     tech: ['Vue.js', 'Laravel', 'MySQL', 'Redis', 'Docker'],
     category: 'Productivity',
-    status: 'Completed',
+    status: 'published',
+    projectStatus: 'Completed',
     link: 'https://tasks.example.com',
     repo: 'https://github.com/username/task-manager',
     featured: false,

@@ -1,6 +1,7 @@
 import { ForgeFooter, NavbarForge } from '@/components/shared/forge';
 import { Spotlight } from '@/components/ui/spotlight-new';
 import { ForgeAudioToggle } from '@/features/forge/home/components';
+import LanguageSelector from '@/components/shared/LanguageSelector';
 
 export default function ForgeLayout({
   children,
@@ -15,6 +16,9 @@ export default function ForgeLayout({
           <Spotlight />
         </div>
         <main className=" overflow-x-hidden">{children}</main>
+        <div className="fixed bottom-4 left-4 z-50 pointer-events-auto">
+          <LanguageSelector />
+        </div>
       </div>
       <ForgeFooter />
       <ForgeAudioToggle />

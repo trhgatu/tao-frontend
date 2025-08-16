@@ -68,15 +68,14 @@ export default async function CraftingDetailPage({ params }: Props) {
             {item.name}
           </h1>
           <div className="flex flex-wrap gap-2 mt-2">
-            {item.tech?.length > 0 &&
-              item.tech.map((tech: string) => (
-                <span
-                  key={tech}
-                  className="px-3 py-1 bg-zinc-700 text-gray-200 rounded-full text-xs font-mono"
-                >
-                  {tech}
-                </span>
-              ))}
+            {item.tech?.map((tech: string) => (
+              <span
+                key={tech}
+                className="px-3 py-1 bg-zinc-700 text-gray-200 rounded-full text-xs font-mono"
+              >
+                {tech}
+              </span>
+            ))}
           </div>
         </div>
 
