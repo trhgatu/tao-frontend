@@ -4,8 +4,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { IconFlame, IconCode, IconTemplate } from '@tabler/icons-react';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation'; // Import useRouter từ next/navigation
-import { templates } from '../data-mock';
+import { useRouter } from 'next/navigation';
 import { ViewMode, Category } from '../types/project';
 import { useLang } from '@/hooks';
 import {
@@ -17,12 +16,13 @@ import {
   FoundationCard,
   FoundationListItem,
 } from '../components';
-import { usePublicProjects } from '@/features/forge/craftings/hooks';
+import { usePublicProjects } from '../hooks';
+import { ProjectTypeEnum } from '../enums';
 
 type ContentType = 'projects' | 'foundations' | 'all';
 
 export default function CraftingsPage() {
-  const router = useRouter(); // Sử dụng useRouter để navigate
+  const router = useRouter();
   const [viewMode, setViewMode] = useState<ViewMode>('grid');
   const [selectedCategory, setSelectedCategory] = useState<Category>('All');
   const [selectedTech, setSelectedTech] = useState<string[]>([]);
@@ -32,11 +32,34 @@ export default function CraftingsPage() {
 
   const lang = useLang();
 
-  const { data, isLoading, isError } = usePublicProjects(lang);
-  if (isLoading) return <p>Đang tải projects...</p>;
-  if (isError) return <p>Có lỗi xảy ra</p>;
+  const {
+    data: projectData = [],
+    isLoading: loadingProjects,
+    isError: errorProjects,
+  } = usePublicProjects(lang, ProjectTypeEnum.PROJECT);
 
-  const filteredProjects = (data ?? []).filter((project) => {
+  const {
+    data: templateData = [],
+    isLoading: loadingTemplates,
+    isError: errorTemplates,
+  } = usePublicProjects(lang, ProjectTypeEnum.TEMPLATE);
+
+  const allItems = [...projectData, ...templateData];
+
+  const categories: string[] = Array.from(
+    new Set([
+      'All',
+      ...allItems
+        .map((item) => item.category)
+        .filter((cat): cat is string => !!cat),
+    ])
+  );
+
+  const techStack = Array.from(
+    new Set(allItems.flatMap((item) => item.tech ?? []))
+  ).sort();
+
+  const filteredProjects = projectData.filter((project) => {
     const matchesCategory =
       selectedCategory === 'All' || project.category === selectedCategory;
     const matchesTech =
@@ -49,12 +72,12 @@ export default function CraftingsPage() {
     return matchesCategory && matchesTech && matchesSearch;
   });
 
-  const filteredTemplates = templates.filter((template) => {
+  const filteredTemplates = templateData.filter((template) => {
     const matchesCategory =
       selectedCategory === 'All' || template.category === selectedCategory;
     const matchesTech =
       selectedTech.length === 0 ||
-      selectedTech.some((tech) => template.tech.includes(tech));
+      selectedTech.some((tech) => template.tech?.includes(tech));
     const matchesSearch =
       template.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       template.description.toLowerCase().includes(searchQuery.toLowerCase());
@@ -66,6 +89,10 @@ export default function CraftingsPage() {
   const featuredTemplates = filteredTemplates.filter((t) => t.featured);
   const regularProjects = filteredProjects.filter((p) => !p.featured);
   const regularTemplates = filteredTemplates.filter((t) => !t.featured);
+
+  if (loadingProjects || loadingTemplates) return <p>Đang tải craftings...</p>;
+  if (errorProjects || errorTemplates)
+    return <p>Có lỗi xảy ra khi tải dữ liệu.</p>;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-zinc-900 via-black to-red-950">
@@ -168,6 +195,8 @@ export default function CraftingsPage() {
           setSelectedCategory={setSelectedCategory}
           selectedTech={selectedTech}
           setSelectedTech={setSelectedTech}
+          categories={categories}
+          techStack={techStack}
         />
 
         {/* Featured Projects */}

@@ -1,12 +1,8 @@
-import { Foundation } from '@/features/forge/craftings/types';
+import { Project } from '@/features/forge/craftings/types';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
-export const FoundationListItem = ({
-  foundation,
-}: {
-  foundation: Foundation;
-}) => (
+export const FoundationListItem = ({ foundation }: { foundation: Project }) => (
   <motion.div
     initial={{ opacity: 0, x: -20 }}
     animate={{ opacity: 1, x: 0 }}
@@ -14,7 +10,7 @@ export const FoundationListItem = ({
   >
     <div className="relative w-20 h-20 rounded-lg overflow-hidden flex-shrink-0">
       <Image
-        src={foundation.image}
+        src={foundation.image || ''}
         alt={foundation.name}
         fill
         className="object-cover"
@@ -34,7 +30,7 @@ export const FoundationListItem = ({
       </div>
       <p className="text-gray-300 text-sm mb-2">{foundation.description}</p>
       <div className="flex flex-wrap gap-1">
-        {foundation.tech.slice(0, 5).map((tech: string) => (
+        {foundation.tech?.slice(0, 5).map((tech: string) => (
           <span
             key={tech}
             className="px-2 py-1 bg-orange-800/50 text-orange-200 text-xs rounded"

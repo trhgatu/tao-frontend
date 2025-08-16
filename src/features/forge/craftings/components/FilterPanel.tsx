@@ -1,8 +1,7 @@
 'use client';
 
-import React from 'react'; // Add this import
+import React from 'react';
 import { motion } from 'framer-motion';
-import { categories, techStack } from '../data-mock/projects';
 import { Category } from '../types/project';
 
 interface FilterPanelProps {
@@ -11,6 +10,8 @@ interface FilterPanelProps {
   setSelectedCategory: (category: Category) => void;
   selectedTech: string[];
   setSelectedTech: React.Dispatch<React.SetStateAction<string[]>>;
+  categories: string[];
+  techStack: string[];
 }
 
 export const FilterPanel = ({
@@ -19,6 +20,8 @@ export const FilterPanel = ({
   setSelectedCategory,
   selectedTech,
   setSelectedTech,
+  categories,
+  techStack,
 }: FilterPanelProps) => {
   if (!showFilters) return null;
 

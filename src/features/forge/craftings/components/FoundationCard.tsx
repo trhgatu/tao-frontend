@@ -1,4 +1,4 @@
-import { Foundation } from '@/features/forge/craftings/types';
+import { Project } from '@/features/forge/craftings/types';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
@@ -6,7 +6,7 @@ export const FoundationCard = ({
   foundation,
   featured = false,
 }: {
-  foundation: Foundation;
+  foundation: Project;
   featured?: boolean;
 }) => (
   <motion.div
@@ -18,7 +18,7 @@ export const FoundationCard = ({
   >
     <div className={`relative ${featured ? 'h-64' : 'h-48'}`}>
       <Image
-        src={foundation.image}
+        src={foundation.image || ''}
         alt={foundation.name}
         fill
         className="object-cover group-hover:scale-105 transition-transform duration-300"
@@ -51,7 +51,7 @@ export const FoundationCard = ({
       <p className="text-gray-300 text-sm mb-3">{foundation.description}</p>
 
       <div className="flex flex-wrap gap-2 mb-4">
-        {foundation.tech.slice(0, featured ? 4 : 3).map((tech: string) => (
+        {foundation.tech?.slice(0, featured ? 4 : 3).map((tech: string) => (
           <span
             key={tech}
             className="px-2 py-1 bg-orange-800/50 text-orange-200 text-xs rounded"
