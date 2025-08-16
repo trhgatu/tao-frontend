@@ -18,6 +18,7 @@ import {
 } from '../components';
 import { usePublicProjects } from '../hooks';
 import { ProjectTypeEnum } from '../enums';
+import { CraftingsSkeletonSection } from '@/features/forge/craftings/components/skeletons';
 
 type ContentType = 'projects' | 'foundations' | 'all';
 
@@ -90,12 +91,12 @@ export default function CraftingsPage() {
   const regularProjects = filteredProjects.filter((p) => !p.featured);
   const regularTemplates = filteredTemplates.filter((t) => !t.featured);
 
-  if (loadingProjects || loadingTemplates) return <p>Đang tải craftings...</p>;
   if (errorProjects || errorTemplates)
     return <p>Có lỗi xảy ra khi tải dữ liệu.</p>;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-zinc-900 via-black to-red-950">
+      {/* Background layers */}
       <div className="absolute inset-0 bg-gradient-to-r from-red-900/20 to-orange-900/20 -z-10" />
       <div className="absolute inset-0 -z-10 opacity-40">
         <Image
@@ -121,14 +122,11 @@ export default function CraftingsPage() {
                 Craftings
               </span>
             </h1>
-
             <div className="my-3 w-24 md:w-36 h-1 rounded bg-gradient-to-r from-red-800 via-orange-700 to-yellow-800 shadow-lg mx-auto" />
-
             <p className="flex items-center gap-2 text-sm md:text-lg font-semibold italic bg-gradient-to-r from-orange-600 via-yellow-700 to-red-800 bg-clip-text text-transparent drop-shadow-[0_1px_6px_rgba(255,80,40,0.3)] mb-1 justify-center">
               <IconFlame color="red" className="w-5 h-5" />
               Born in fire. Forged to conquer.
             </p>
-
             <p className="text-xl text-gray-300 max-w-2xl mx-auto">
               Where ideas are tempered into reality through code, passion, and
               relentless iteration.
@@ -141,44 +139,40 @@ export default function CraftingsPage() {
       <div className="max-w-7xl mx-auto px-4 mb-8">
         <div className="flex justify-center">
           <div className="flex bg-zinc-800/50 border border-zinc-700 rounded-lg p-1">
-            <button
-              onClick={() => setContentType('all')}
-              className={`flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition-all ${
-                contentType === 'all'
-                  ? 'bg-gradient-to-r from-red-600 to-orange-600 text-white shadow-lg'
-                  : 'text-gray-300 hover:text-white hover:bg-zinc-700'
-              }`}
-            >
-              <IconFlame className="w-4 h-4" />
-              All Craftings
-            </button>
-            <button
-              onClick={() => setContentType('projects')}
-              className={`flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition-all ${
-                contentType === 'projects'
-                  ? 'bg-gradient-to-r from-red-600 to-orange-600 text-white shadow-lg'
-                  : 'text-gray-300 hover:text-white hover:bg-zinc-700'
-              }`}
-            >
-              <IconCode className="w-4 h-4" />
-              Projects
-            </button>
-            <button
-              onClick={() => setContentType('foundations')}
-              className={`flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition-all ${
-                contentType === 'foundations'
-                  ? 'bg-gradient-to-r from-red-600 to-orange-600 text-white shadow-lg'
-                  : 'text-gray-300 hover:text-white hover:bg-zinc-700'
-              }`}
-            >
-              <IconTemplate className="w-4 h-4" />
-              Foundations
-            </button>
+            {(['all', 'projects', 'foundations'] as ContentType[]).map(
+              (type) => {
+                const Icon =
+                  type === 'all'
+                    ? IconFlame
+                    : type === 'projects'
+                      ? IconCode
+                      : IconTemplate;
+
+                return (
+                  <button
+                    key={type}
+                    onClick={() => setContentType(type)}
+                    className={`flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition-all ${
+                      contentType === type
+                        ? 'bg-gradient-to-r from-red-600 to-orange-600 text-white shadow-lg'
+                        : 'text-gray-300 hover:text-white hover:bg-zinc-700'
+                    }`}
+                  >
+                    <Icon className="w-4 h-4" />
+                    {type === 'all'
+                      ? 'All Craftings'
+                      : type === 'projects'
+                        ? 'Projects'
+                        : 'Foundations'}
+                  </button>
+                );
+              }
+            )}
           </div>
         </div>
       </div>
 
-      {/* Controls */}
+      {/* Controls & Filters */}
       <div className="max-w-7xl mx-auto px-4 py-8">
         <ProjectControls
           searchQuery={searchQuery}
@@ -199,168 +193,176 @@ export default function CraftingsPage() {
           techStack={techStack}
         />
 
-        {/* Featured Projects */}
-        {(contentType === 'all' || contentType === 'projects') &&
-          featuredProjects.length > 0 && (
-            <div className="mb-12">
-              <div className="flex items-center gap-3 mb-6">
-                <IconCode className="w-6 h-6 text-red-400" />
-                <h2 className="text-2xl font-bold text-white">
-                  Featured Projects
-                </h2>
-                <div className="flex-1 h-px bg-gradient-to-r from-red-600/50 to-transparent" />
-              </div>
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                {featuredProjects.map((project) => (
-                  <div
-                    key={project.id}
-                    className="cursor-pointer"
-                    onClick={() =>
-                      router.push(`/forge/craftings/${project.slug}`)
-                    }
-                  >
-                    <FeaturedProjectCard project={project} />
+        {/* Main Content Section */}
+        {loadingProjects || loadingTemplates ? (
+          <CraftingsSkeletonSection />
+        ) : (
+          <>
+            {/* Featured Projects */}
+            {(contentType === 'all' || contentType === 'projects') &&
+              featuredProjects.length > 0 && (
+                <div className="mb-12">
+                  <div className="flex items-center gap-3 mb-6">
+                    <IconCode className="w-6 h-6 text-red-400" />
+                    <h2 className="text-2xl font-bold text-white">
+                      Featured Projects
+                    </h2>
+                    <div className="flex-1 h-px bg-gradient-to-r from-red-600/50 to-transparent" />
                   </div>
-                ))}
-              </div>
-            </div>
-          )}
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    {featuredProjects.map((project) => (
+                      <div
+                        key={project.id}
+                        className="cursor-pointer"
+                        onClick={() =>
+                          router.push(`/forge/craftings/${project.slug}`)
+                        }
+                      >
+                        <FeaturedProjectCard project={project} />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
 
-        {(contentType === 'all' || contentType === 'foundations') &&
-          featuredTemplates.length > 0 && (
-            <div className="mb-12">
-              <div className="flex items-center gap-3 mb-6">
-                <IconTemplate className="w-6 h-6 text-orange-400" />
-                <h2 className="text-2xl font-bold text-white">
-                  Featured Foundations
-                </h2>
-                <div className="flex-1 h-px bg-gradient-to-r from-orange-600/50 to-transparent" />
-              </div>
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                {featuredTemplates.map((foundation) => (
-                  <div
-                    key={foundation.id}
-                    className="cursor-pointer"
-                    onClick={() =>
-                      router.push(`/forge/craftings/${foundation.slug}`)
-                    }
-                  >
-                    <FoundationCard foundation={foundation} featured />
+            {/* Featured Foundations */}
+            {(contentType === 'all' || contentType === 'foundations') &&
+              featuredTemplates.length > 0 && (
+                <div className="mb-12">
+                  <div className="flex items-center gap-3 mb-6">
+                    <IconTemplate className="w-6 h-6 text-orange-400" />
+                    <h2 className="text-2xl font-bold text-white">
+                      Featured Foundations
+                    </h2>
+                    <div className="flex-1 h-px bg-gradient-to-r from-orange-600/50 to-transparent" />
                   </div>
-                ))}
-              </div>
-            </div>
-          )}
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    {featuredTemplates.map((foundation) => (
+                      <div
+                        key={foundation.id}
+                        className="cursor-pointer"
+                        onClick={() =>
+                          router.push(`/forge/craftings/${foundation.slug}`)
+                        }
+                      >
+                        <FoundationCard foundation={foundation} featured />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
 
-        {/* All Projects */}
-        {(contentType === 'all' || contentType === 'projects') && (
-          <div className="mb-12">
-            <div className="flex items-center gap-3 mb-6">
-              <IconCode className="w-6 h-6 text-red-400" />
-              <h2 className="text-2xl font-bold text-white">
-                All Projects ({regularProjects.length})
-              </h2>
-              <div className="flex-1 h-px bg-gradient-to-r from-red-600/50 to-transparent" />
-            </div>
+            {/* All Projects */}
+            {(contentType === 'all' || contentType === 'projects') && (
+              <div className="mb-12">
+                <div className="flex items-center gap-3 mb-6">
+                  <IconCode className="w-6 h-6 text-red-400" />
+                  <h2 className="text-2xl font-bold text-white">
+                    All Projects ({regularProjects.length})
+                  </h2>
+                  <div className="flex-1 h-px bg-gradient-to-r from-red-600/50 to-transparent" />
+                </div>
 
-            {viewMode === 'grid' ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {regularProjects.map((project) => (
-                  <div
-                    key={project.id}
-                    className="cursor-pointer"
-                    onClick={() =>
-                      router.push(`/forge/craftings/${project.slug}`)
-                    }
-                  >
-                    <ProjectCard project={project} />
+                {viewMode === 'grid' ? (
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {regularProjects.map((project) => (
+                      <div
+                        key={project.id}
+                        className="cursor-pointer"
+                        onClick={() =>
+                          router.push(`/forge/craftings/${project.slug}`)
+                        }
+                      >
+                        <ProjectCard project={project} />
+                      </div>
+                    ))}
                   </div>
-                ))}
-              </div>
-            ) : (
-              <div className="space-y-4">
-                {regularProjects.map((project) => (
-                  <div
-                    key={project.id}
-                    className="cursor-pointer"
-                    onClick={() =>
-                      router.push(`/forge/craftings/${project.slug}`)
-                    }
-                  >
-                    <ProjectListItem project={project} />
+                ) : (
+                  <div className="space-y-4">
+                    {regularProjects.map((project) => (
+                      <div
+                        key={project.id}
+                        className="cursor-pointer"
+                        onClick={() =>
+                          router.push(`/forge/craftings/${project.slug}`)
+                        }
+                      >
+                        <ProjectListItem project={project} />
+                      </div>
+                    ))}
                   </div>
-                ))}
+                )}
               </div>
             )}
-          </div>
-        )}
 
-        {/* All Templates */}
-        {(contentType === 'all' || contentType === 'foundations') && (
-          <div className="mb-12">
-            <div className="flex items-center gap-3 mb-6">
-              <IconTemplate className="w-6 h-6 text-orange-400" />
-              <h2 className="text-2xl font-bold text-white">
-                All Foundations ({regularTemplates.length})
-              </h2>
-              <div className="flex-1 h-px bg-gradient-to-r from-orange-600/50 to-transparent" />
-            </div>
+            {/* All Foundations */}
+            {(contentType === 'all' || contentType === 'foundations') && (
+              <div className="mb-12">
+                <div className="flex items-center gap-3 mb-6">
+                  <IconTemplate className="w-6 h-6 text-orange-400" />
+                  <h2 className="text-2xl font-bold text-white">
+                    All Foundations ({regularTemplates.length})
+                  </h2>
+                  <div className="flex-1 h-px bg-gradient-to-r from-orange-600/50 to-transparent" />
+                </div>
 
-            {viewMode === 'grid' ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {regularTemplates.map((foundation) => (
-                  <div
-                    key={foundation.id}
-                    className="cursor-pointer"
-                    onClick={() =>
-                      router.push(`/forge/craftings/${foundation.slug}`)
-                    }
-                  >
-                    <FoundationCard foundation={foundation} />
+                {viewMode === 'grid' ? (
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {regularTemplates.map((foundation) => (
+                      <div
+                        key={foundation.id}
+                        className="cursor-pointer"
+                        onClick={() =>
+                          router.push(`/forge/craftings/${foundation.slug}`)
+                        }
+                      >
+                        <FoundationCard foundation={foundation} />
+                      </div>
+                    ))}
                   </div>
-                ))}
-              </div>
-            ) : (
-              <div className="space-y-4">
-                {regularTemplates.map((foundation) => (
-                  <div
-                    key={foundation.id}
-                    className="cursor-pointer"
-                    onClick={() =>
-                      router.push(`/forge/craftings/${foundation.slug}`)
-                    }
-                  >
-                    <FoundationListItem foundation={foundation} />
+                ) : (
+                  <div className="space-y-4">
+                    {regularTemplates.map((foundation) => (
+                      <div
+                        key={foundation.id}
+                        className="cursor-pointer"
+                        onClick={() =>
+                          router.push(`/forge/craftings/${foundation.slug}`)
+                        }
+                      >
+                        <FoundationListItem foundation={foundation} />
+                      </div>
+                    ))}
                   </div>
-                ))}
+                )}
               </div>
             )}
-          </div>
-        )}
 
-        {/* Empty State */}
-        {(contentType === 'projects'
-          ? filteredProjects
-          : contentType === 'foundations'
-            ? filteredTemplates
-            : [...filteredProjects, ...filteredTemplates]
-        ).length === 0 && (
-          <div className="text-center py-16">
-            <div className="text-gray-400 text-lg">
-              No {contentType === 'all' ? 'craftings' : contentType} found
-              matching your criteria.
-            </div>
-            <button
-              onClick={() => {
-                setSelectedCategory('All');
-                setSelectedTech([]);
-                setSearchQuery('');
-              }}
-              className="mt-4 px-4 py-2 bg-gradient-to-r from-red-600 to-orange-600 text-white rounded-lg hover:from-red-700 hover:to-orange-700 transition-all shadow-lg"
-            >
-              Clear Filters
-            </button>
-          </div>
+            {/* Empty State */}
+            {(contentType === 'projects'
+              ? filteredProjects
+              : contentType === 'foundations'
+                ? filteredTemplates
+                : [...filteredProjects, ...filteredTemplates]
+            ).length === 0 && (
+              <div className="text-center py-16">
+                <div className="text-gray-400 text-lg">
+                  No {contentType === 'all' ? 'craftings' : contentType} found
+                  matching your criteria.
+                </div>
+                <button
+                  onClick={() => {
+                    setSelectedCategory('All');
+                    setSelectedTech([]);
+                    setSearchQuery('');
+                  }}
+                  className="mt-4 px-4 py-2 bg-gradient-to-r from-red-600 to-orange-600 text-white rounded-lg hover:from-red-700 hover:to-orange-700 transition-all shadow-lg"
+                >
+                  Clear Filters
+                </button>
+              </div>
+            )}
+          </>
         )}
       </div>
     </div>
