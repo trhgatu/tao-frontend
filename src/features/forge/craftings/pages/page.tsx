@@ -212,7 +212,7 @@ export default function CraftingsPage() {
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     {featuredProjects.map((project) => (
                       <div
-                        key={project.id}
+                        key={project._id}
                         className="cursor-pointer"
                         onClick={() =>
                           router.push(`/forge/craftings/${project.slug}`)
@@ -239,7 +239,7 @@ export default function CraftingsPage() {
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     {featuredTemplates.map((foundation) => (
                       <div
-                        key={foundation.id}
+                        key={foundation._id}
                         className="cursor-pointer"
                         onClick={() =>
                           router.push(`/forge/craftings/${foundation.slug}`)
@@ -267,7 +267,7 @@ export default function CraftingsPage() {
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {regularProjects.map((project) => (
                       <div
-                        key={project.id}
+                        key={project._id}
                         className="cursor-pointer"
                         onClick={() =>
                           router.push(`/forge/craftings/${project.slug}`)
@@ -281,7 +281,7 @@ export default function CraftingsPage() {
                   <div className="space-y-4">
                     {regularProjects.map((project) => (
                       <div
-                        key={project.id}
+                        key={project._id}
                         className="cursor-pointer"
                         onClick={() =>
                           router.push(`/forge/craftings/${project.slug}`)
@@ -310,7 +310,7 @@ export default function CraftingsPage() {
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {regularTemplates.map((foundation) => (
                       <div
-                        key={foundation.id}
+                        key={foundation._id}
                         className="cursor-pointer"
                         onClick={() =>
                           router.push(`/forge/craftings/${foundation.slug}`)
@@ -324,7 +324,7 @@ export default function CraftingsPage() {
                   <div className="space-y-4">
                     {regularTemplates.map((foundation) => (
                       <div
-                        key={foundation.id}
+                        key={foundation._id}
                         className="cursor-pointer"
                         onClick={() =>
                           router.push(`/forge/craftings/${foundation.slug}`)

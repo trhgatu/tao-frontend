@@ -7,7 +7,6 @@ interface LanguageState {
   lang: Language;
 }
 
-// 👉 khôi phục từ localStorage (nếu có)
 const storedLang =
   typeof window !== 'undefined' ? localStorage.getItem('lang') : null;
 
@@ -21,7 +20,6 @@ const languageSlice = createSlice({
   reducers: {
     setLang: (state, action: PayloadAction<Language>) => {
       state.lang = action.payload;
-      // 👉 lưu vào localStorage
       if (typeof window !== 'undefined') {
         localStorage.setItem('lang', action.payload);
       }

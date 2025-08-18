@@ -17,12 +17,11 @@ export const FeaturedProjectCard = ({ project }: FeaturedProjectCardProps) => (
   >
     <div className="relative h-64">
       <Image
-        src={project.image || ''}
+        src={project.image ?? 'https://placehold.co/600x400.png'}
         alt={project.name}
         fill
         className="object-cover group-hover:scale-105 transition-transform duration-300"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
       <div className="absolute top-4 right-4">
         <span className="px-2 py-1 bg-red-600 text-white text-xs rounded-full">
           Featured
