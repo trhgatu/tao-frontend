@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { getPublicProjects } from '../services';
-import { Project } from '../types';
+import { Project } from '@/types';
 import { ProjectTypeEnum } from '../enums';
 
 export const usePublicProjects = (lang: string, type?: ProjectTypeEnum) => {

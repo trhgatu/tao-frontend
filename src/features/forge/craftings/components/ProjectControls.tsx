@@ -1,7 +1,7 @@
 'use client';
 
 import { Search, Filter, Grid3X3, List } from 'lucide-react';
-import { ViewMode } from '../types/project';
+import { ViewMode } from '@/types';
 
 interface ProjectControlsProps {
   searchQuery: string;

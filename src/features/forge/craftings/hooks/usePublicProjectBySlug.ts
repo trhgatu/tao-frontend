@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { getPublicProjectBySlug } from '../services';
-import { Project } from '../types';
+import { Project } from '@/types';
 
 export const usePublicProjectBySlug = (slug: string, lang: string) => {
   return useQuery<Project>({

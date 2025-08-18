@@ -1,10 +1,10 @@
-/* eslint-disable */
-
 'use client';
 
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
+import { Project } from '@/types';
 
 export const InfiniteMovingCards = ({
   items,
@@ -13,14 +13,7 @@ export const InfiniteMovingCards = ({
   pauseOnHover = true,
   className,
 }: {
-  items: {
-    name: string;
-    description: string;
-    image: string;
-    tech: string[];
-    link?: string;
-    repo?: string;
-  }[];
+  items: Project[];
   direction?: 'left' | 'right';
   speed?: 'fast' | 'normal' | 'slow';
   pauseOnHover?: boolean;
@@ -28,53 +21,29 @@ export const InfiniteMovingCards = ({
 }) => {
   const containerRef = React.useRef<HTMLDivElement>(null);
   const scrollerRef = React.useRef<HTMLUListElement>(null);
+  const [start, setStart] = useState(false);
 
   useEffect(() => {
-    addAnimation();
-  }, []);
-  const [start, setStart] = useState(false);
-  function addAnimation() {
     if (containerRef.current && scrollerRef.current) {
       const scrollerContent = Array.from(scrollerRef.current.children);
-
       scrollerContent.forEach((item) => {
         const duplicatedItem = item.cloneNode(true);
-        if (scrollerRef.current) {
-          scrollerRef.current.appendChild(duplicatedItem);
-        }
+        scrollerRef.current?.appendChild(duplicatedItem);
       });
 
-      getDirection();
-      getSpeed();
+      containerRef.current.style.setProperty(
+        '--animation-direction',
+        direction === 'left' ? 'forwards' : 'reverse'
+      );
+
+      const duration =
+        speed === 'fast' ? '20s' : speed === 'normal' ? '40s' : '80s';
+      containerRef.current.style.setProperty('--animation-duration', duration);
+
       setStart(true);
     }
-  }
-  const getDirection = () => {
-    if (containerRef.current) {
-      if (direction === 'left') {
-        containerRef.current.style.setProperty(
-          '--animation-direction',
-          'forwards'
-        );
-      } else {
-        containerRef.current.style.setProperty(
-          '--animation-direction',
-          'reverse'
-        );
-      }
-    }
-  };
-  const getSpeed = () => {
-    if (containerRef.current) {
-      if (speed === 'fast') {
-        containerRef.current.style.setProperty('--animation-duration', '20s');
-      } else if (speed === 'normal') {
-        containerRef.current.style.setProperty('--animation-duration', '40s');
-      } else {
-        containerRef.current.style.setProperty('--animation-duration', '80s');
-      }
-    }
-  };
+  }, [direction, speed]);
+
   return (
     <div
       ref={containerRef}
@@ -91,23 +60,29 @@ export const InfiniteMovingCards = ({
           pauseOnHover && 'hover:[animation-play-state:paused]'
         )}
       >
-        {items.map((item, idx) => (
+        {items.map((item) => (
           <li
-            className="relative w-[280px] max-w-full shrink-0 rounded-2xl border border-zinc-200 hover:border-orange-500 bg-gradient-to-b from-zinc-900 via-zinc-800 to-zinc-900 px-4 py-4 md:w-[320px] dark:border-zinc-700 shadow-lg hover:scale-105 transition"
-            key={item.name}
+            key={item._id}
+            className="relative w-[280px] md:w-[320px] shrink-0 rounded-2xl border border-zinc-700 hover:border-orange-500 bg-gradient-to-b from-zinc-900 via-zinc-800 to-zinc-900 px-4 py-4 shadow-lg hover:scale-[1.03] transition"
           >
-            <div className="flex flex-col gap-3">
+            {/* Wrapper clickable content */}
+            <Link
+              href={`/forge/craftings/${item.slug}`}
+              className="group flex flex-col gap-3"
+            >
               <Image
-                src={item.image}
+                src={item.image ?? 'https://placehold.co/600x400.png'}
                 alt={item.name}
-                className="rounded-lg w-full h-36 object-cover mb-2 border border-zinc-700"
-                width={200}
-                height={200}
+                className="rounded-lg w-full h-36 object-cover mb-2 border border-zinc-700 group-hover:opacity-90 transition"
+                width={400}
+                height={144}
               />
               <h3 className="text-lg font-bold text-orange-400">{item.name}</h3>
-              <p className="text-sm text-zinc-300">{item.description}</p>
+              <p className="text-sm text-zinc-300 line-clamp-3">
+                {item.description}
+              </p>
               <div className="flex flex-wrap gap-2 mt-2">
-                {item.tech.map((tech) => (
+                {item.tech?.map((tech) => (
                   <span
                     key={tech}
                     className="text-xs bg-orange-800/80 text-yellow-200 rounded px-2 py-0.5 font-mono"
@@ -116,28 +91,30 @@ export const InfiniteMovingCards = ({
                   </span>
                 ))}
               </div>
-              <div className="flex gap-3 mt-3">
-                {item.link && (
-                  <a
-                    href={item.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-xs text-orange-400 hover:underline"
-                  >
-                    Demo
-                  </a>
-                )}
-                {item.repo && (
-                  <a
-                    href={item.repo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-xs text-zinc-400 hover:underline"
-                  >
-                    Code
-                  </a>
-                )}
-              </div>
+            </Link>
+
+            {/* External Links */}
+            <div className="flex gap-3 mt-4">
+              {item.link && (
+                <a
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs text-orange-400 hover:underline"
+                >
+                  Demo
+                </a>
+              )}
+              {item.repo && (
+                <a
+                  href={item.repo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs text-zinc-400 hover:underline"
+                >
+                  Code
+                </a>
+              )}
             </div>
           </li>
         ))}

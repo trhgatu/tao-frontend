@@ -6,14 +6,17 @@ import { InfiniteMovingCards } from '@/components/ui/infinite-moving-cards';
 import { GridCards } from './GridCards';
 import { ViewToggle } from './ViewToggle';
 import { useIsMobile } from '@/hooks';
-import { projects } from '../../data-mock/projects';
+import { Project } from '@/types';
 
-export function TheCraftings() {
+interface ProjectHomeProps {
+  projects: Project[];
+}
+
+export function TheCraftings({ projects }: ProjectHomeProps) {
   const isMobile = useIsMobile();
   const [viewMode, setViewMode] = useState<'marquee' | 'grid'>('marquee');
   const [isTransitioning, setIsTransitioning] = useState(false);
 
-  // Set default view mode based on screen size
   useEffect(() => {
     if (isMobile) {
       setViewMode('grid');

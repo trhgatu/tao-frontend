@@ -1,5 +1,5 @@
 import axiosInstance from '@/lib/axios';
-import { Project } from '../types';
+import { Project } from '@/types';
 import { ProjectTypeEnum } from '../enums';
 
 export const getPublicProjects = async (

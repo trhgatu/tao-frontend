@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { ExternalLink, Github } from 'lucide-react';
 import Image from 'next/image';
-import { Project } from '../types/project';
+import { Project } from '@/types';
 
 interface FeaturedProjectCardProps {
   project: Project;
