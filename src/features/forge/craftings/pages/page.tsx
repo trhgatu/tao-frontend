@@ -118,7 +118,7 @@ export default function CraftingsPage() {
           >
             <h1 className="text-4xl md:text-6xl font-bold mb-4">
               The{' '}
-              <span className="relative z-10 bg-gradient-to-r from-red-600 via-orange-700 to-yellow-800 bg-clip-text text-transparent font-extrabold animate-forge-glow [text-shadow:_0_2px_6px_rgba(0,0,0,0.7)]">
+              <span className="relative z-10 bg-gradient-to-r from-red-600 via-orange-700 to-yellow-800 bg-clip-text text-transparent font-extrabold animate-forge-glow [text-shadow:_0_2px_6px_rgba(0,0,0,0.5)]">
                 Craftings
               </span>
             </h1>

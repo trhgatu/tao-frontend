@@ -26,7 +26,11 @@ export default function ForgeHome() {
         <Chapters />
       </div>
       <div className="md:pb-28 py-16">
-        {!isLoading && !isError && <TheCraftings projects={project} />}
+        <TheCraftings
+          projects={project}
+          isLoading={isLoading}
+          isError={isError}
+        />
       </div>
     </section>
   );

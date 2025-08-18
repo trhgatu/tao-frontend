@@ -1,8 +1,10 @@
 'use client';
 
 import Link from 'next/link';
+import { cn } from '@/lib/utils';
 import { useState, useEffect } from 'react';
 import { InfiniteMovingCards } from '@/components/ui/infinite-moving-cards';
+import { InfiniteMovingCardsSkeleton, GridCardsSkeleton } from '../skeletons';
 import { GridCards } from './GridCards';
 import { ViewToggle } from './ViewToggle';
 import { useIsMobile } from '@/hooks';
@@ -10,9 +12,15 @@ import { Project } from '@/types';
 
 interface ProjectHomeProps {
   projects: Project[];
+  isLoading?: boolean;
+  isError?: boolean;
 }
 
-export function TheCraftings({ projects }: ProjectHomeProps) {
+export function TheCraftings({
+  projects,
+  isLoading,
+  isError,
+}: ProjectHomeProps) {
   const isMobile = useIsMobile();
   const [viewMode, setViewMode] = useState<'marquee' | 'grid'>('marquee');
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -37,7 +45,12 @@ export function TheCraftings({ projects }: ProjectHomeProps) {
 
   return (
     <div className="text-center relative overflow-hidden">
-      <h2 className="text-3xl font-serif font-bold text-center text-orange-300 mb-2 tracking-wider">
+      <h2
+        className={cn(
+          'text-3xl font-serif font-bold text-orange-300 mb-2 tracking-wider',
+          isLoading && 'animate-pulse text-orange-500'
+        )}
+      >
         The Craftings
       </h2>
       <p className="text-center text-orange-200 mb-10 italic text-base max-w-xl mx-auto">
@@ -61,14 +74,27 @@ export function TheCraftings({ projects }: ProjectHomeProps) {
       />
 
       <div
-        className={`transition-opacity duration-150 ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}
+        className={cn(
+          'transition-all duration-300 ease-in-out',
+          isTransitioning ? 'opacity-0 scale-[0.98]' : 'opacity-100 scale-100'
+        )}
       >
-        {viewMode === 'marquee' ? (
-          <InfiniteMovingCards
-            items={projects}
-            direction="right"
-            speed="normal"
-          />
+        {isLoading ? (
+          viewMode === 'marquee' ? (
+            <InfiniteMovingCardsSkeleton />
+          ) : (
+            <GridCardsSkeleton />
+          )
+        ) : isError ? (
+          <div className="text-red-400 text-sm italic text-center mt-4">
+            Failed to load projects.
+          </div>
+        ) : projects.length === 0 ? (
+          <div className="text-zinc-400 text-sm italic text-center mt-4">
+            No projects found.
+          </div>
+        ) : viewMode === 'marquee' ? (
+          <InfiniteMovingCards items={projects} />
         ) : (
           <GridCards items={projects} />
         )}

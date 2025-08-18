@@ -16,8 +16,8 @@ import {
   IconBrandGithub,
 } from '@tabler/icons-react';
 import Image from 'next/image';
+import Link from 'next/link';
 
-// Giảm animation - chỉ fade đơn giản
 const fadeSimple = {
   hidden: { opacity: 0 },
   show: { opacity: 1, transition: { duration: 0.3 } },
@@ -84,7 +84,6 @@ export default function TheAlchemistPage() {
       />
 
       <div className="max-w-7xl mx-auto px-4 py-16 grid gap-12 xl:grid-cols-3">
-        {/* Sidebar - giữ motion đơn giản */}
         <motion.aside
           variants={fadeSimple}
           initial="hidden"
@@ -119,8 +118,8 @@ export default function TheAlchemistPage() {
               className="flex items-center justify-between p-3 bg-red-900/20 rounded-lg border border-red-500/20 mb-3 last:mb-6 text-sm"
             >
               <span className="flex items-center gap-2 text-gray-300">
-                <span className="text-red-400 w-4 h-4">{stat.icon}</span>
-                {stat.label}
+                <span className="text-red-400 w-6 h-6">{stat.icon}</span>
+                <span className="ml-2">{stat.label}</span>
               </span>
               <span className="text-red-400 font-semibold">{stat.value}</span>
             </div>
@@ -266,13 +265,13 @@ export default function TheAlchemistPage() {
                   <IconMail className="inline w-4 h-4 mr-2" />
                   Start a Project
                 </a>
-                <a
-                  href="/craftings"
+                <Link
+                  href="/forge/craftings"
                   className="px-8 py-3 border border-red-500 text-red-300 rounded-lg font-semibold hover:bg-red-500/10 transition"
                 >
                   <IconHammer className="inline w-4 h-4 mr-2" />
                   View My Work
-                </a>
+                </Link>
               </div>
             </div>
           </Section>
@@ -282,7 +281,6 @@ export default function TheAlchemistPage() {
   );
 }
 
-// Section component đơn giản hóa
 function Section({
   icon,
   title,
