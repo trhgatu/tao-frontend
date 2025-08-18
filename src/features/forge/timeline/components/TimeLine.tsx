@@ -36,7 +36,6 @@ export function Timeline() {
                 height={500}
                 className="h-20 w-full rounded-lg object-cover border border-zinc-700 hover:border-red-500 transition-all duration-300 group-hover:scale-105 shadow-lg shadow-red-900/20 md:h-44 lg:h-60"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-red-900/40 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
             <div className="group relative">
               <Image
@@ -46,7 +45,6 @@ export function Timeline() {
                 height={500}
                 className="h-20 w-full rounded-lg object-cover border border-zinc-700 hover:border-red-500 transition-all duration-300 group-hover:scale-105 shadow-lg shadow-red-900/20 md:h-44 lg:h-60"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-red-900/40 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
             <div className="group relative">
               <Image
@@ -56,7 +54,6 @@ export function Timeline() {
                 height={500}
                 className="h-20 w-full rounded-lg object-cover border border-zinc-700 hover:border-red-500 transition-all duration-300 group-hover:scale-105 shadow-lg shadow-red-900/20 md:h-44 lg:h-60"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-red-900/40 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
             <div className="group relative">
               <Image
@@ -66,7 +63,6 @@ export function Timeline() {
                 height={500}
                 className="h-20 w-full rounded-lg object-cover border border-zinc-700 hover:border-red-500 transition-all duration-300 group-hover:scale-105 shadow-lg shadow-red-900/20 md:h-44 lg:h-60"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-red-900/40 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
           </div>
         </div>
@@ -101,7 +97,6 @@ export function Timeline() {
                 height={500}
                 className="h-20 w-full rounded-lg object-cover border border-zinc-700 hover:border-orange-500 transition-all duration-300 group-hover:scale-105 shadow-lg shadow-orange-900/20 md:h-44 lg:h-60"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-orange-900/40 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
             <div className="group relative">
               <Image
@@ -111,7 +106,6 @@ export function Timeline() {
                 height={500}
                 className="h-20 w-full rounded-lg object-cover border border-zinc-700 hover:border-orange-500 transition-all duration-300 group-hover:scale-105 shadow-lg shadow-orange-900/20 md:h-44 lg:h-60"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-orange-900/40 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
             <div className="group relative">
               <Image
@@ -121,7 +115,6 @@ export function Timeline() {
                 height={500}
                 className="h-20 w-full rounded-lg object-cover border border-zinc-700 hover:border-orange-500 transition-all duration-300 group-hover:scale-105 shadow-lg shadow-orange-900/20 md:h-44 lg:h-60"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-orange-900/40 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
             <div className="group relative">
               <Image
@@ -131,7 +124,6 @@ export function Timeline() {
                 height={500}
                 className="h-20 w-full rounded-lg object-cover border border-zinc-700 hover:border-orange-500 transition-all duration-300 group-hover:scale-105 shadow-lg shadow-orange-900/20 md:h-44 lg:h-60"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-orange-900/40 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
           </div>
         </div>
@@ -181,7 +173,6 @@ export function Timeline() {
                 height={500}
                 className="h-20 w-full rounded-lg object-cover border border-zinc-700 hover:border-yellow-500 transition-all duration-300 group-hover:scale-105 shadow-lg shadow-yellow-900/20 md:h-44 lg:h-60"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-yellow-900/40 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
             <div className="group relative">
               <Image
@@ -191,7 +182,6 @@ export function Timeline() {
                 height={500}
                 className="h-20 w-full rounded-lg object-cover border border-zinc-700 hover:border-yellow-500 transition-all duration-300 group-hover:scale-105 shadow-lg shadow-yellow-900/20 md:h-44 lg:h-60"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-yellow-900/40 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
             <div className="group relative">
               <Image
@@ -201,7 +191,6 @@ export function Timeline() {
                 height={500}
                 className="h-20 w-full rounded-lg object-cover border border-zinc-700 hover:border-yellow-500 transition-all duration-300 group-hover:scale-105 shadow-lg shadow-yellow-900/20 md:h-44 lg:h-60"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-yellow-900/40 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
             <div className="group relative">
               <Image
@@ -211,7 +200,6 @@ export function Timeline() {
                 height={500}
                 className="h-20 w-full rounded-lg object-cover border border-zinc-700 hover:border-yellow-500 transition-all duration-300 group-hover:scale-105 shadow-lg shadow-yellow-900/20 md:h-44 lg:h-60"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-yellow-900/40 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
           </div>
         </div>
@@ -242,7 +230,6 @@ export function Timeline() {
                   First HTML Page
                 </span>
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-purple-900/40 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
             <div className="group relative">
               <div className="h-20 md:h-44 lg:h-60 w-full rounded-lg bg-gradient-to-br from-pink-900/30 to-red-900/30 border border-zinc-700 hover:border-pink-500 transition-all duration-300 group-hover:scale-105 shadow-lg shadow-pink-900/20 flex items-center justify-center">
@@ -250,7 +237,6 @@ export function Timeline() {
                   CSS Mastery
                 </span>
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-pink-900/40 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
             <div className="group relative">
               <div className="h-20 md:h-44 lg:h-60 w-full rounded-lg bg-gradient-to-br from-indigo-900/30 to-purple-900/30 border border-zinc-700 hover:border-indigo-500 transition-all duration-300 group-hover:scale-105 shadow-lg shadow-indigo-900/20 flex items-center justify-center">
@@ -258,7 +244,6 @@ export function Timeline() {
                   JavaScript Journey
                 </span>
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-indigo-900/40 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
             <div className="group relative">
               <div className="h-20 md:h-44 lg:h-60 w-full rounded-lg bg-gradient-to-br from-red-900/30 to-orange-900/30 border border-zinc-700 hover:border-red-500 transition-all duration-300 group-hover:scale-105 shadow-lg shadow-red-900/20 flex items-center justify-center">
@@ -266,7 +251,6 @@ export function Timeline() {
                   First Project
                 </span>
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-red-900/40 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
           </div>
         </div>
@@ -289,9 +273,9 @@ export function Timeline() {
       <div className="relative z-10 py-16">
         <div className="max-w-4xl mx-auto px-4 mb-12">
           <div className="text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            <h2 className="text-4xl md:text-6xl font-bold text-white mb-4">
               The{' '}
-              <span className="bg-gradient-to-r from-red-600 via-orange-700 to-yellow-800 bg-clip-text text-transparent font-extrabold animate-forge-glow">
+              <span className="bg-gradient-to-r from-red-600 via-orange-700 to-yellow-800 bg-clip-text text-transparent font-extrabold animate-forge-glow [text-shadow:_0_2px_6px_rgba(0,0,0,0.5)]">
                 Forge
               </span>{' '}
               Chronicles
