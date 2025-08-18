@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { Project } from '../types/project';
+import { Project } from '@/types';
 
 interface ProjectCardProps {
   project: Project;
@@ -21,7 +21,6 @@ export const ProjectCard = ({ project }: ProjectCardProps) => (
         fill
         className="object-cover group-hover:scale-105 transition-transform duration-300"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
     </div>
 
     <div className="p-4">
