@@ -35,7 +35,7 @@ export function TheAlchemist() {
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-6 py-2 bg-gradient-to-r from-red-500/20 to-orange-500/20 rounded-full border border-red-500/30 backdrop-blur-sm mb-5">
             <IconSparkles className="w-4 h-4 text-orange-400" />
-            <span className="text-sm text-orange-200 font-medium">
+            <span className="font-serif text-sm text-orange-200 font-medium">
               Digital Alchemist
             </span>
           </div>
@@ -43,13 +43,11 @@ export function TheAlchemist() {
             Tran Hoang Anh Tu
           </h1>
           <p className="text-base font-serif text-gray-300 max-w-2xl mx-auto leading-relaxed mb-1">
-            Full-stack Developer & Digital Blacksmith
+            Software Engineer & Digital Blacksmith
           </p>
         </div>
 
-        {/* Tabs Layout: Tabs on top, Content + Card side by side below */}
         <Tabs defaultValue="about" className="w-full">
-          {/* Tabs Navigation - nằm trên cùng */}
           <div className="flex justify-center mb-8">
             <TabsList className="flex gap-2 bg-zinc-900/50 border border-zinc-700 rounded-xl p-1">
               <TabsTrigger
@@ -73,9 +71,7 @@ export function TheAlchemist() {
             </TabsList>
           </div>
 
-          {/* Tab Content + Card Layout - nằm dưới tabs */}
           <div className="flex flex-col md:flex-row items-stretch gap-8 md:gap-12">
-            {/* Tab Content (left side) */}
             <div className="md:w-3/5 w-full">
               <TabsContent value="about">
                 <div className="bg-zinc-900/50 border border-red-400/30 rounded-2xl p-8 shadow-2xl h-full">
@@ -87,7 +83,7 @@ export function TheAlchemist() {
                     <strong className="text-orange-300">
                       Tran Hoang Anh Tu
                     </strong>
-                    , a passionate full-stack developer with expertise in modern
+                    , a passionate Software Engineer with expertise in modern
                     web technologies. I specialize in crafting scalable, elegant
                     digital experiences that make a lasting impact.
                   </p>
