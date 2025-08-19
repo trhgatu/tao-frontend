@@ -2,6 +2,7 @@ import { VerseFooter, VerseNavbar } from '@/components/shared/verse';
 import { SparklesCore } from '@/components/ui/sparkles';
 import { VerseAudioToggle } from '@/features/verse/home/components';
 import { ReactQueryProvider } from '@/app/providers/react-query-provider';
+import { LanguageSelector } from '@/components/shared';
 
 export default function VerseLayout({
   children,
@@ -13,6 +14,9 @@ export default function VerseLayout({
       <div className="relative z-10">
         <VerseNavbar />
         <main className="min-h-screen w-full">{children}</main>
+        <div className="fixed bottom-6 left-6 z-50 pointer-events-auto">
+          <LanguageSelector />
+        </div>
         <VerseFooter />
       </div>
 

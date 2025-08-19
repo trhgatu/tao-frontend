@@ -15,7 +15,7 @@ export default function MemoriesPage() {
 
   const allMemories: Memory[] = [
     {
-      id: '1',
+      _id: '1',
       title: 'First Snow of Winter',
       description:
         "The world transformed into a quiet, white canvas. Every footstep felt like writing poetry on nature's page. I stood there for what felt like hours, watching the snowflakes dance in the lamplight.",
@@ -27,7 +27,7 @@ export default function MemoriesPage() {
       mood: 'peaceful',
     },
     {
-      id: '2',
+      _id: '2',
       title: 'Late Night Coding Session',
       description:
         'When the world sleeps, my creativity awakens. Lines of code flowing like verses in the digital darkness. The breakthrough moment when everything finally clicked.',
@@ -39,7 +39,7 @@ export default function MemoriesPage() {
       mood: 'excited',
     },
     {
-      id: '3',
+      _id: '3',
       title: 'Coffee Shop Discovery',
       description:
         "Found this hidden gem tucked away in District 3. The barista knew exactly how I liked my coffee before I even ordered. Sometimes the best discoveries happen when you're not looking.",
@@ -51,7 +51,7 @@ export default function MemoriesPage() {
       mood: 'happy',
     },
     {
-      id: '4',
+      _id: '4',
       title: 'Childhood Home Visit',
       description:
         'Walking through the rooms where I grew up, every corner holds a memory. The creaky floorboard in the hallway, the view from my old bedroom window.',
@@ -63,7 +63,7 @@ export default function MemoriesPage() {
       mood: 'nostalgic',
     },
     {
-      id: '5',
+      _id: '5',
       title: 'Sunrise Photography',
       description:
         'Waking up at 5 AM to catch the perfect light. The city slowly coming alive as the sun painted the sky in shades of gold and pink.',
@@ -75,7 +75,7 @@ export default function MemoriesPage() {
       mood: 'peaceful',
     },
     {
-      id: '6',
+      _id: '6',
       title: 'Concert Under Stars',
       description:
         'Live music flowing through the night air, surrounded by thousands of people all feeling the same rhythm. Music has this magical way of connecting souls.',
@@ -87,7 +87,7 @@ export default function MemoriesPage() {
       mood: 'excited',
     },
     {
-      id: '7',
+      _id: '7',
       title: "Grandmother's Stories",
       description:
         "Spent the afternoon listening to grandma's stories about the old days. Her eyes lit up as she spoke about her youth. These moments are precious beyond measure.",
@@ -99,7 +99,7 @@ export default function MemoriesPage() {
       mood: 'nostalgic',
     },
     {
-      id: '8',
+      _id: '8',
       title: 'Morning Meditation',
       description:
         'Started my day with 20 minutes of quiet meditation. The city was just waking up, and I felt completely at peace with the world and myself.',
@@ -214,7 +214,7 @@ export default function MemoriesPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
             {displayedMemories.map((memory, index) => (
               <motion.div
-                key={memory.id}
+                key={memory._id}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}

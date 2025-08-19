@@ -43,7 +43,7 @@ export const MemoriesPreview = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
           {data!.map((memory, index) => (
             <motion.div
-              key={memory.id}
+              key={memory._id}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.2 }}

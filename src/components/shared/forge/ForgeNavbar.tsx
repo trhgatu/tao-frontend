@@ -24,10 +24,6 @@ export function NavbarForge() {
       link: '/forge/craftings',
     },
     {
-      name: 'The Alchemist',
-      link: '/forge/the-alchemist',
-    },
-    {
       name: 'Timeline',
       link: '/forge/timeline',
     },

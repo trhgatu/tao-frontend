@@ -56,7 +56,7 @@ export const QuotesPreview = () => {
               key={quote.id}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
+              transition={{ duration: 0.6, delay: index * 0.15 }}
               className="relative p-8 bg-slate-800/50 backdrop-blur-sm border border-slate-700 hover:border-amber-500/50 rounded-2xl transition-all duration-500 group"
             >
               {/* Quote Mark */}

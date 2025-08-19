@@ -126,7 +126,7 @@ export const HeroForgeEntry = () => {
           transition={{ duration: 1.2, delay: 0.2, ease: 'easeOut' }}
           className="text-center lg:text-left min-w-0 order-2 lg:order-none space-y-4 sm:space-y-6"
         >
-          <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight leading-tight">
+          <h1 className="text-3xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight leading-tight">
             Welcome to the
             <span className="block lg:inline lg:ml-3 xl:ml-4 mt-2 lg:mt-0">
               <span className="relative z-10 bg-gradient-to-r from-red-600 via-orange-700 to-yellow-800 bg-clip-text text-transparent font-extrabold animate-forge-glow [text-shadow:_0_2px_6px_rgba(0,0,0,0.5)]">
@@ -137,7 +137,7 @@ export const HeroForgeEntry = () => {
 
           <div className="mx-auto lg:mx-0 w-16 xs:w-20 sm:w-24 md:w-32 lg:w-36 h-1 rounded bg-gradient-to-r from-red-800 via-orange-700 to-yellow-800 shadow-lg" />
 
-          <p className="flex items-center justify-center lg:justify-start gap-2 text-sm xs:text-base sm:text-lg md:text-xl font-semibold italic bg-gradient-to-r from-orange-600 via-yellow-700 to-red-800 bg-clip-text text-transparent drop-shadow-[0_2px_8px_rgba(255,80,40,0.3)]">
+          <p className="flex items-center justify-center lg:justify-start gap-2 text-base xs:text-base sm:text-lg md:text-xl font-semibold italic bg-gradient-to-r from-orange-600 via-yellow-700 to-red-800 bg-clip-text text-transparent">
             <IconFlame
               color="red"
               className="flex-shrink-0 w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6"
@@ -145,7 +145,7 @@ export const HeroForgeEntry = () => {
             Born in fire. Forged to conquer.
           </p>
 
-          <p className="text-xs xs:text-sm sm:text-base md:text-lg italic text-orange-200 leading-relaxed tracking-wide text-shadow-[0_2px_10px_rgba(0,0,0,0.3)] max-w-lg mx-auto lg:mx-0">
+          <p className="text-base xs:text-sm sm:text-base md:text-lg italic text-orange-200 leading-relaxed tracking-wide max-w-lg mx-auto lg:mx-0">
             In this forge, my code is tempered by challenge and fueled by
             passion. I battle through every obstacle, forging solutions with
             relentless spirit.
