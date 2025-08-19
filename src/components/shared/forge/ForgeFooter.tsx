@@ -7,7 +7,7 @@ import {
   IconBrandFacebook,
   IconBrandInstagram,
   IconMail,
-  IconFlask2,
+  IconHammer,
 } from '@tabler/icons-react';
 
 const year = new Date().getFullYear();
@@ -21,17 +21,17 @@ export const ForgeFooter = () => (
           className="w-12 h-12 rounded-full bg-gradient-to-tr from-red-900 via-orange-700 to-yellow-700 flex items-center justify-center shadow-lg border-2 border-red-800 ring-2 ring-orange-400/40"
           aria-hidden="true"
         >
-          <IconFlask2
+          <IconHammer
             className="text-2xl text-orange-200 drop-shadow-[0_0_8px_rgba(255,140,0,0.7)]"
             size={24}
           />
         </div>
         <div className="flex flex-col">
           <span className="font-black text-xl md:text-2xl text-orange-100 tracking-widest drop-shadow-[0_0_6px_rgba(255,140,0,0.5)] select-none">
-            The Alchemist
+            The Forge
           </span>
           <span className="text-xs text-red-300/80 font-medium tracking-wider">
-            Digital Transmutation Lab
+            Digital Crafting Workshop
           </span>
         </div>
       </div>
@@ -113,7 +113,7 @@ export const ForgeFooter = () => (
       </div>
     </div>
 
-    {/* Alchemical Elements Decoration */}
+    {/* Forge Elements Decoration */}
     <div className="absolute inset-0 pointer-events-none overflow-hidden">
       <div className="absolute top-4 left-8 w-2 h-2 bg-red-500/30 rounded-full animate-pulse"></div>
       <div className="absolute top-8 right-12 w-1 h-1 bg-orange-400/40 rounded-full animate-pulse delay-300"></div>
@@ -125,12 +125,12 @@ export const ForgeFooter = () => (
     <div className="border-t border-red-900/40 py-4 px-4 text-center text-xs text-orange-200/60 bg-black/40 backdrop-blur-sm font-mono tracking-wide">
       <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4">
         <span className="inline-flex items-center justify-center gap-2">
-          &copy; {year} The Alchemist Lab.
-          <span className="text-red-400 animate-pulse">⚗️</span>
-          Forged with passion and precision.
+          &copy; {year} The Forge.
+          <span className="text-red-400 animate-pulse">🔥</span>
+          Crafted by The Alchemist.
         </span>
         <span className="text-orange-300/80 italic">
-          &quot;Transforming ideas into digital gold&quot;
+          &quot;Where code meets craftsmanship&quot;
         </span>
       </div>
     </div>

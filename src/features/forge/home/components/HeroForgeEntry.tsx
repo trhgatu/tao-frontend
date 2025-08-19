@@ -83,10 +83,10 @@ export const HeroForgeEntry = () => {
                 animate="show"
                 className="text-center space-y-2"
               >
-                <div className="uppercase tracking-wider text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white drop-shadow-[0_3px_10px_rgba(0,0,0,0.4)]">
+                <div className="uppercase font-serif tracking-wider text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white drop-shadow-[0_3px_10px_rgba(0,0,0,0.4)]">
                   I&apos;m a
                 </div>
-                <div className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold overflow-hidden min-h-[2em]">
+                <div className="text-lg font-serif xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold overflow-hidden min-h-[2em]">
                   <TypeAnimation
                     sequence={[
                       'Software Engineer',
@@ -126,7 +126,7 @@ export const HeroForgeEntry = () => {
           transition={{ duration: 1.2, delay: 0.2, ease: 'easeOut' }}
           className="text-center lg:text-left min-w-0 order-2 lg:order-none space-y-4 sm:space-y-6"
         >
-          <h1 className="text-3xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight leading-tight">
+          <h1 className="text-3xl font-serif xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight leading-tight">
             Welcome to the
             <span className="block lg:inline lg:ml-3 xl:ml-4 mt-2 lg:mt-0">
               <span className="relative z-10 bg-gradient-to-r from-red-600 via-orange-700 to-yellow-800 bg-clip-text text-transparent font-extrabold animate-forge-glow [text-shadow:_0_2px_6px_rgba(0,0,0,0.5)]">
@@ -142,10 +142,10 @@ export const HeroForgeEntry = () => {
               color="red"
               className="flex-shrink-0 w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6"
             />
-            Born in fire. Forged to conquer.
+            <span className="font-serif">Born in fire. Forged to conquer.</span>
           </p>
 
-          <p className="text-base xs:text-sm sm:text-base md:text-lg italic text-orange-200 leading-relaxed tracking-wide max-w-lg mx-auto lg:mx-0">
+          <p className="font-serif text-base xs:text-sm sm:text-base md:text-lg italic text-orange-200 leading-relaxed tracking-wide max-w-lg mx-auto lg:mx-0">
             In this forge, my code is tempered by challenge and fueled by
             passion. I battle through every obstacle, forging solutions with
             relentless spirit.
