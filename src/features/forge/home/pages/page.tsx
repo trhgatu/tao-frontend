@@ -3,11 +3,11 @@
 
 import { usePublicProjects } from '@/features/forge/craftings/hooks';
 import {
-  Chapters,
   HeroForgeEntry,
   TechArsenal,
   TheCraftings,
   TheFiresOfPassion,
+  TheAlchemist,
 } from '@/features/forge/home/components';
 import { useLang } from '@/hooks';
 
@@ -18,13 +18,14 @@ export default function ForgeHome() {
   return (
     <section>
       <HeroForgeEntry />
+      <div>
+        <TheAlchemist />
+      </div>
       <div className="md:py-28 py-16">
         <TheFiresOfPassion />
       </div>
       <TechArsenal />
-      <div>
-        <Chapters />
-      </div>
+
       <div className="md:pb-28 py-16">
         <TheCraftings
           projects={project}

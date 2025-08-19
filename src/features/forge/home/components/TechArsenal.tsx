@@ -96,7 +96,7 @@ export const TechArsenal = () => {
 
           {/* Right side - Tech Arsenal */}
           <div className="relative w-full px-4">
-            <h2 className="text-3xl font-serif font-bold text-center md:text-left text-orange-500 mb-2 tracking-wider">
+            <h2 className="text-4xl font-serif font-bold text-center md:text-left text-orange-500 mb-2 tracking-wider">
               Forge Arsenal
             </h2>
             <p className="text-center md:text-left text-orange-400 mb-10 italic text-base max-w-xl">
@@ -124,12 +124,9 @@ export const TechArsenal = () => {
                             <StackIcon
                               name={skill.icon}
                               style={{ fontSize: 40 }}
-                              /*  variant={
-                              skill.icon === 'expressjs' ? 'dark' : undefined
-                            } */
                             />
                           </div>
-                          <p className="text-xs font-medium text-center text-orange-400 group-hover:text-red-600 group-hover:font-bold transition-colors duration-300 mt-2">
+                          <p className="text-xs md:hidden font-medium text-center text-orange-400 group-hover:text-red-600 group-hover:font-bold transition-colors duration-300 mt-2">
                             {skill.name}
                           </p>
                         </motion.div>
