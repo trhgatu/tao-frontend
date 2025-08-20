@@ -116,7 +116,7 @@ export default function CraftingsPage() {
             animate={{ opacity: 1, y: 0 }}
             className="text-center"
           >
-            <h1 className="text-4xl md:text-6xl font-bold mb-4">
+            <h1 className="text-4xl font-serif md:text-6xl font-bold mb-4">
               The{' '}
               <span className="relative z-10 bg-gradient-to-r from-red-600 via-orange-700 to-yellow-800 bg-clip-text text-transparent font-extrabold animate-forge-glow [text-shadow:_0_2px_6px_rgba(0,0,0,0.5)]">
                 Craftings
@@ -125,9 +125,11 @@ export default function CraftingsPage() {
             <div className="my-3 w-24 md:w-36 h-1 rounded bg-gradient-to-r from-red-800 via-orange-700 to-yellow-800 shadow-lg mx-auto" />
             <p className="flex items-center gap-2 text-sm md:text-lg font-semibold italic bg-gradient-to-r from-orange-600 via-yellow-700 to-red-800 bg-clip-text text-transparent drop-shadow-[0_1px_6px_rgba(255,80,40,0.3)] mb-1 justify-center">
               <IconFlame color="red" className="w-5 h-5" />
-              Born in fire. Forged to conquer.
+              <span className="font-serif">
+                Born in fire. Forged to conquer.
+              </span>
             </p>
-            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+            <p className="text-xl font-serif text-gray-300 max-w-2xl mx-auto">
               Where ideas are tempered into reality through code, passion, and
               relentless iteration.
             </p>

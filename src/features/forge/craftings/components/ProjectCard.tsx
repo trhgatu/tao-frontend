@@ -25,9 +25,9 @@ export const ProjectCard = ({ project }: ProjectCardProps) => (
 
     <div className="p-4">
       <div className="flex items-center gap-2 mb-2">
-        <h3 className="font-bold text-white">{project.name}</h3>
+        <h3 className="font-bold text-white font-serif">{project.name}</h3>
         <span
-          className={`px-2 py-1 text-xs rounded-full ${
+          className={`font-serif px-2 py-1 text-xs rounded-full ${
             project.projectStatus === 'Completed'
               ? 'bg-green-600 text-white'
               : 'bg-yellow-600 text-white'
@@ -37,7 +37,7 @@ export const ProjectCard = ({ project }: ProjectCardProps) => (
         </span>
       </div>
 
-      <p className="text-gray-300 text-sm mb-3 line-clamp-2">
+      <p className="font-serif text-gray-300 text-sm mb-3 line-clamp-2">
         {project.description}
       </p>
 
@@ -45,7 +45,7 @@ export const ProjectCard = ({ project }: ProjectCardProps) => (
         {project.tech?.slice(0, 3).map((tech: string) => (
           <span
             key={tech}
-            className="px-2 py-1 bg-zinc-700 text-gray-300 text-xs rounded"
+            className="px-2 py-1 font-serif bg-zinc-700 text-gray-300 text-xs rounded"
           >
             {tech}
           </span>

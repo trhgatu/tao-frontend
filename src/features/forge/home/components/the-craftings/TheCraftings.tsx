@@ -71,7 +71,7 @@ export function TheCraftings({
 
         <div className="mb-8">
           <Link
-            href="/projects"
+            href="/forge/craftings"
             className="inline-block px-6 py-2 border-2 border-orange-500 text-orange-500 font-semibold rounded-lg hover:bg-gradient-to-r hover:from-orange-500 hover:to-yellow-400 hover:text-white transition"
           >
             View All Projects
