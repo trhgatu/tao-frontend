@@ -1,6 +1,14 @@
 'use client';
 
 import { notFound, useParams } from 'next/navigation';
+import { TECH_ICON_MAP } from '@/enums/tech-icon-map';
+import {
+  Tooltip,
+  TooltipProvider,
+  TooltipTrigger,
+  TooltipContent,
+} from '@/components/ui/tooltip';
+import StackIcon from 'tech-stack-icons';
 import Image from 'next/image';
 import Link from 'next/link';
 import {
@@ -25,7 +33,7 @@ export default function CraftingDetailPage() {
   const hasGithub = !!item.repo;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-zinc-900 via-black to-red-950 py-12">
+    <div className="min-h-screen font-serif bg-gradient-to-br from-zinc-900 via-black to-red-950 py-12">
       <div className="max-w-3xl mx-auto px-4 md:px-6">
         <Link
           href="/forge/craftings"
@@ -68,14 +76,29 @@ export default function CraftingDetailPage() {
           </h1>
 
           <div className="flex flex-wrap gap-2 mt-2">
-            {item.tech?.map((tech: string) => (
-              <span
-                key={tech}
-                className="px-3 py-1 bg-zinc-700 text-gray-200 rounded-full text-xs font-mono"
-              >
-                {tech}
-              </span>
-            ))}
+            <TooltipProvider>
+              <div className="flex flex-wrap gap-2">
+                {item.tech?.map((tech: string) => (
+                  <Tooltip key={tech}>
+                    <TooltipTrigger asChild>
+                      <div className="w-11 h-11 flex items-center justify-center rounded-full bg-zinc-800/60 border border-zinc-700/30 hover:bg-zinc-700/60 transition">
+                        {TECH_ICON_MAP[tech] ? (
+                          <StackIcon
+                            name={TECH_ICON_MAP[tech]}
+                            style={{ fontSize: 32 }}
+                          />
+                        ) : (
+                          <span className="text-xs font-mono">{tech}</span>
+                        )}
+                      </div>
+                    </TooltipTrigger>
+                    <TooltipContent side="top">
+                      <span className="font-semibold">{tech}</span>
+                    </TooltipContent>
+                  </Tooltip>
+                ))}
+              </div>
+            </TooltipProvider>
           </div>
         </div>
 

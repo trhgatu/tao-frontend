@@ -26,7 +26,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="vi" suppressHydrationWarning>
-      <body className={`min-h-screen font-sans ${inter.variable}`}>
+      <body className={`min-h-screen ${inter.variable}`}>
         <ReduxProvider>
           <ReactQueryProvider>
             <AudioProvider>
