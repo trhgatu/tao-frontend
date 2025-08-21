@@ -4,11 +4,16 @@ import { ProjectTypeEnum } from '../enums';
 
 export const getPublicProjects = async (
   lang: string,
-  type?: ProjectTypeEnum
+  type?: ProjectTypeEnum,
+  featured?: boolean
 ): Promise<Project[]> => {
   const params: Record<string, string> = { lang };
   if (type) params.type = type;
 
+  if (featured !== undefined) {
+    params.featured = String(featured);
+  }
+  console.log('Params:', params);
   const res = await axiosInstance.get('/projects', { params });
   return res.data.data;
 };

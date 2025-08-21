@@ -34,18 +34,35 @@ export default function CraftingsPage() {
   const lang = useLang();
 
   const {
-    data: projectData = [],
-    isLoading: loadingProjects,
-    isError: errorProjects,
+    data: regularProjects = [],
+    isLoading: loadingRegularProjects,
+    isError: errorRegularProjects,
   } = usePublicProjects(lang, ProjectTypeEnum.PROJECT);
 
   const {
-    data: templateData = [],
-    isLoading: loadingTemplates,
-    isError: errorTemplates,
+    data: regularTemplates = [],
+    isLoading: loadingRegularTemplates,
+    isError: errorRegularTemplates,
   } = usePublicProjects(lang, ProjectTypeEnum.TEMPLATE);
 
-  const allItems = [...projectData, ...templateData];
+  const {
+    data: featuredProjects = [],
+    isLoading: loadingProjects,
+    isError: errorProjects,
+  } = usePublicProjects(lang, ProjectTypeEnum.PROJECT, true);
+
+  const {
+    data: featuredTemplates = [],
+    isLoading: loadingTemplates,
+    isError: errorTemplates,
+  } = usePublicProjects(lang, ProjectTypeEnum.TEMPLATE, true);
+
+  const allItems = [
+    ...featuredTemplates,
+    ...featuredProjects,
+    ...regularProjects,
+    ...regularTemplates,
+  ];
 
   const categories: string[] = Array.from(
     new Set([
@@ -60,7 +77,7 @@ export default function CraftingsPage() {
     new Set(allItems.flatMap((item) => item.tech ?? []))
   ).sort();
 
-  const filteredProjects = projectData.filter((project) => {
+  const filteredProjects = regularProjects.filter((project) => {
     const matchesCategory =
       selectedCategory === 'All' || project.category === selectedCategory;
     const matchesTech =
@@ -73,7 +90,7 @@ export default function CraftingsPage() {
     return matchesCategory && matchesTech && matchesSearch;
   });
 
-  const filteredTemplates = templateData.filter((template) => {
+  const filteredTemplates = regularTemplates.filter((template) => {
     const matchesCategory =
       selectedCategory === 'All' || template.category === selectedCategory;
     const matchesTech =
@@ -85,14 +102,19 @@ export default function CraftingsPage() {
 
     return matchesCategory && matchesTech && matchesSearch;
   });
+  const isLoading =
+    loadingProjects ||
+    loadingTemplates ||
+    loadingRegularProjects ||
+    loadingRegularTemplates;
 
-  const featuredProjects = filteredProjects.filter((p) => p.featured);
-  const featuredTemplates = filteredTemplates.filter((t) => t.featured);
-  const regularProjects = filteredProjects.filter((p) => !p.featured);
-  const regularTemplates = filteredTemplates.filter((t) => !t.featured);
+  const isError =
+    errorProjects ||
+    errorTemplates ||
+    errorRegularProjects ||
+    errorRegularTemplates;
 
-  if (errorProjects || errorTemplates)
-    return <p>Có lỗi xảy ra khi tải dữ liệu.</p>;
+  if (isError) return <p>Có lỗi xảy ra khi tải dữ liệu.</p>;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-zinc-900 via-black to-red-950">
@@ -196,7 +218,7 @@ export default function CraftingsPage() {
         />
 
         {/* Main Content Section */}
-        {loadingProjects || loadingTemplates ? (
+        {isLoading ? (
           <CraftingsSkeletonSection />
         ) : (
           <>
