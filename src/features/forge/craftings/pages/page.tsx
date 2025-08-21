@@ -74,7 +74,7 @@ export default function CraftingsPage() {
   );
 
   const techStack = Array.from(
-    new Set(allItems.flatMap((item) => item.tech ?? []))
+    new Set(allItems.flatMap((item) => item.tech?.map((t) => t.name) ?? []))
   ).sort();
 
   const filteredProjects = regularProjects.filter((project) => {
@@ -82,7 +82,10 @@ export default function CraftingsPage() {
       selectedCategory === 'All' || project.category === selectedCategory;
     const matchesTech =
       selectedTech.length === 0 ||
-      selectedTech.some((tech) => project.tech?.includes(tech));
+      selectedTech.some((tech) =>
+        project.tech?.some((item) => item.name === tech)
+      );
+
     const matchesSearch =
       project.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       project.description.toLowerCase().includes(searchQuery.toLowerCase());
@@ -95,7 +98,10 @@ export default function CraftingsPage() {
       selectedCategory === 'All' || template.category === selectedCategory;
     const matchesTech =
       selectedTech.length === 0 ||
-      selectedTech.some((tech) => template.tech?.includes(tech));
+      selectedTech.some((tech) =>
+        template.tech?.some((item) => item.name === tech)
+      );
+
     const matchesSearch =
       template.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       template.description.toLowerCase().includes(searchQuery.toLowerCase());

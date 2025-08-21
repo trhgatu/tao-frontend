@@ -4,7 +4,10 @@ export interface Project {
   name: string;
   description: string;
   image?: string;
-  tech?: string[];
+  tech?: {
+    name: string;
+    icon: string;
+  }[];
   category?: string;
   projectStatus: 'Completed' | 'In Progress';
   status: 'published' | 'draft';

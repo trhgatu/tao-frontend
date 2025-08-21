@@ -84,10 +84,10 @@ export const InfiniteMovingCards = ({
               <div className="flex flex-wrap gap-2 mt-2">
                 {item.tech?.map((tech) => (
                   <span
-                    key={tech}
+                    key={tech.name}
                     className="text-xs bg-orange-800/80 text-yellow-200 rounded px-2 py-0.5 font-mono"
                   >
-                    {tech}
+                    {tech.name}
                   </span>
                 ))}
               </div>

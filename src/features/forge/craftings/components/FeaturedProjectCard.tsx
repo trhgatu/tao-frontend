@@ -46,12 +46,12 @@ export const FeaturedProjectCard = ({ project }: FeaturedProjectCardProps) => (
       <p className="text-gray-300 mb-4">{project.description}</p>
 
       <div className="flex flex-wrap gap-2 mb-4">
-        {project.tech?.slice(0, 4).map((tech: string) => (
+        {project.tech?.slice(0, 4).map((tech) => (
           <span
-            key={tech}
+            key={tech.name}
             className="px-2 py-1 bg-zinc-700 text-gray-300 text-xs rounded"
           >
-            {tech}
+            {tech.name}
           </span>
         ))}
         {(project.tech?.length ?? 0) > 4 && (
