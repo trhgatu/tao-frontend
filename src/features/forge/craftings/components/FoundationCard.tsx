@@ -55,12 +55,12 @@ export const FoundationCard = ({
       </p>
 
       <div className="flex flex-wrap gap-2 mb-4">
-        {foundation.tech?.slice(0, featured ? 4 : 3).map((tech: string) => (
+        {foundation.tech?.slice(0, featured ? 4 : 3).map((tech) => (
           <span
-            key={tech}
+            key={tech.name}
             className="font-serif px-2 py-1 bg-orange-800/50 text-orange-200 text-xs rounded"
           >
-            {tech}
+            {tech.name}
           </span>
         ))}
       </div>

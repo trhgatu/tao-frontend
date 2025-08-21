@@ -1,7 +1,6 @@
 'use client';
 
 import { notFound, useParams } from 'next/navigation';
-import { TECH_ICON_MAP } from '@/enums/tech-icon-map';
 import {
   Tooltip,
   TooltipProvider,
@@ -78,22 +77,19 @@ export default function CraftingDetailPage() {
           <div className="flex flex-wrap gap-2 mt-2">
             <TooltipProvider>
               <div className="flex flex-wrap gap-2">
-                {item.tech?.map((tech: string) => (
-                  <Tooltip key={tech}>
+                {item.tech?.map((tech) => (
+                  <Tooltip key={tech.name}>
                     <TooltipTrigger asChild>
                       <div className="w-11 h-11 flex items-center justify-center rounded-full bg-zinc-800/60 border border-zinc-700/30 hover:bg-zinc-700/60 transition">
-                        {TECH_ICON_MAP[tech] ? (
-                          <StackIcon
-                            name={TECH_ICON_MAP[tech]}
-                            style={{ fontSize: 32 }}
-                          />
+                        {tech.icon ? (
+                          <StackIcon className="h-6 w-6" name={tech.icon} />
                         ) : (
-                          <span className="text-xs font-mono">{tech}</span>
+                          <span className="text-xs font-mono">{tech.name}</span>
                         )}
                       </div>
                     </TooltipTrigger>
                     <TooltipContent side="top">
-                      <span className="font-semibold">{tech}</span>
+                      <span className="font-semibold">{tech.name}</span>
                     </TooltipContent>
                   </Tooltip>
                 ))}

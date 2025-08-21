@@ -42,12 +42,12 @@ export const ProjectCard = ({ project }: ProjectCardProps) => (
       </p>
 
       <div className="flex flex-wrap gap-1 mb-3">
-        {project.tech?.slice(0, 3).map((tech: string) => (
+        {project.tech?.slice(0, 3).map((tech) => (
           <span
-            key={tech}
+            key={tech.name}
             className="px-2 py-1 font-serif bg-zinc-700 text-gray-300 text-xs rounded"
           >
-            {tech}
+            {tech.name}
           </span>
         ))}
       </div>

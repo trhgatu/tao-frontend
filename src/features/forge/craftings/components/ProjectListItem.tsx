@@ -39,12 +39,12 @@ export const ProjectListItem = ({ project }: ProjectListItemProps) => (
       </div>
       <p className="text-gray-300 text-sm mb-2">{project.description}</p>
       <div className="flex flex-wrap gap-1">
-        {project.tech?.map((tech: string) => (
+        {project.tech?.map((tech) => (
           <span
-            key={tech}
+            key={tech.name}
             className="px-2 py-1 bg-zinc-700 text-gray-300 text-xs rounded"
           >
-            {tech}
+            {tech.name}
           </span>
         ))}
       </div>
