@@ -10,7 +10,7 @@ export interface Project {
   status: 'published' | 'draft';
   link?: string;
   repo?: string;
-  featured: boolean;
+  featured?: boolean;
   downloads: number;
   year?: number;
   publishedAt?: string;
