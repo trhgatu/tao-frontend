@@ -38,7 +38,6 @@ export const GatewayHeroEntry = () => {
       </div>
 
       <div className="z-30 mb-10 flex flex-col sm:flex-row gap-10 items-center">
-
         <div className="relative flex items-center gap-6">
           <RealmGateButton
             to="/forge"
