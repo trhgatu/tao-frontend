@@ -37,14 +37,19 @@ export const GridCards = ({ items, className }: GridCardsProps) => {
               {item.description}
             </p>
             <div className="flex flex-wrap gap-2 mt-2">
-              {item.tech?.map((tech) => (
+              {item.tech?.slice(0, 4).map((tech) => (
                 <span
                   key={tech.name}
-                  className="text-xs bg-orange-800/80 text-yellow-200 rounded px-2 py-0.5 font-mono"
+                  className="px-2 py-1 bg-zinc-700 text-gray-300 text-xs rounded"
                 >
                   {tech.name}
                 </span>
               ))}
+              {(item.tech?.length ?? 0) > 4 && (
+                <span className="px-2 py-1 bg-zinc-700 text-gray-300 text-xs rounded">
+                  +{(item.tech?.length ?? 0) - 4} more
+                </span>
+              )}
             </div>
           </Link>
 

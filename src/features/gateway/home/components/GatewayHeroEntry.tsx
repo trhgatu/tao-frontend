@@ -8,7 +8,6 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 
 export const GatewayHeroEntry = () => {
   const { scrollY } = useScroll();
-  const yVerse = useTransform(scrollY, [0, 300], [0, 20]);
   const yForge = useTransform(scrollY, [0, 300], [0, -20]);
 
   return (
@@ -39,46 +38,6 @@ export const GatewayHeroEntry = () => {
       </div>
 
       <div className="z-30 mb-10 flex flex-col sm:flex-row gap-10 items-center">
-        <div className="relative flex items-center gap-6">
-          <motion.div
-            style={{ y: yVerse }}
-            className="hidden lg:block relative w-44 h-32 rounded-lg overflow-hidden opacity-50 hover:opacity-80 transition-all duration-500 shadow-lg shadow-indigo-700/50 hover:shadow-indigo-500/70"
-          >
-            <Image
-              src="/images/verse-preview.jpg"
-              alt="Verse preview"
-              fill
-              className="object-cover transition-transform duration-500 hover:scale-110"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent to-indigo-900/70" />
-            <div className="absolute inset-0 backdrop-blur-[2px]" />
-          </motion.div>
-          <RealmGateButton
-            to="/verse"
-            message="Drifting into the Verse..."
-            theme="verse"
-            asChild
-          >
-            <motion.div
-              whileHover={{
-                scale: 1.07,
-                filter: 'brightness(1.1)',
-              }}
-              whileTap={{ scale: 0.98 }}
-              className="group relative w-fit cursor-pointer"
-            >
-              <EvervaultCard
-                text="Verse"
-                className="w-56 h-36 border border-indigo-400/40 rounded-xl transition-all duration-300 group-hover:border-indigo-300"
-                textClassName="bg-gradient-to-r from-indigo-400 via-purple-500 to-blue-600 bg-clip-text text-transparent font-light italic tracking-wide animate-verse-glow"
-              />
-              <span className="pointer-events-none absolute inset-0 rounded-xl transition-opacity opacity-0 group-hover:opacity-100 group-active:opacity-100" />
-              <p className="mt-2 text-center text-sm text-indigo-300 opacity-70 group-hover:opacity-100 transition-opacity">
-                Soul • Dreams • Memories
-              </p>
-            </motion.div>
-          </RealmGateButton>
-        </div>
 
         <div className="relative flex items-center gap-6">
           <RealmGateButton
